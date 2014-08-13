@@ -18,7 +18,7 @@
 					exit(0);
 				}
 				else{
-					$eeor_info = "用户名或密码错误!";
+					$error_info = "用户名或密码错误!";
 				}
 			}
 			else{
