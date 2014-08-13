@@ -8,22 +8,27 @@
 			$username = $_POST["username"];
 			$password = $_POST["password"];
 			$verifycode = $_POST["verifycode"];
-			$true_code = $_SESSION['authnum_session'];
-			if(strtolower($true_code)===strtolower($verifycode)){
-				$DB->where("name",$username)
-				   ->where("password",md5($password));
-				$user = $DB->get("users");
-				if(!is_null($user)){
-					$_SESSION['admin_user'] = $user; 
-					header('Location:./index.php');
-					exit(0);
-				}
-				else{
-					$error_info = "用户名或密码错误!";
-				}
+			if(is_null($_SESSION['authnum_session'])){
+				$error_info = "验证码已经过期！请重新刷新并输入！";
 			}
 			else{
-				$error_info = "验证码错误!";
+				$true_code = $_SESSION['authnum_session'];
+				if(strtolower($true_code)===strtolower($verifycode)){
+					$DB->where("user_name",$username)
+					   ->where("password",md5($password));
+					$users = $DB->get("user");
+					if($DB->count>0){
+						$_SESSION['admin_user'] = $users[0]; 
+						header('Location:./index.php');
+						exit(0);
+					}
+					else{
+						$error_info = "用户名或密码错误!";
+					}
+				}
+				else{
+					$error_info = "验证码错误!";
+				}
 			}
 		}
 		else{
