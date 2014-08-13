@@ -1,7 +1,39 @@
+<?php
+	session_start();
+	require_once("./sqlDb.php");
+	$error_info = "";
+	if(!empty($_POST["flag"])){
+		if(!empty($_POST["username"]) && !empty($_POST["password"]) 
+			&& !empty($_POST["verifycode"]) && !is_null($DB)){
+			$username = $_POST["username"];
+			$password = $_POST["password"];
+			$verifycode = $_POST["verifycode"];
+			$true_code = $_SESSION['authnum_session'];
+			if(strtolower($true_code)===strtolower($verifycode)){
+				$DB->where("name",$username)
+				   ->where("password",md5($password));
+				$user = $DB->get("users");
+				if(!is_null($user)){
+					header('Location:./index.php');
+					exit(0);
+				}
+				else{
+					$eeor_info = "ç”¨æˆ·åæˆ–å¯†ç é”™è¯¯!";
+				}
+			}
+			else{
+				$error_info = "éªŒè¯ç é”™è¯¯!";
+			}
+		}
+		else{
+			$error_info = "å‚æ•°ä¸è¶³!";
+		}
+	}
+?>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<title>µÇÂ¼</title>
+	<title>ç™»å½•</title>
 	<style type="text/css">
 		body {
 			margin-left: 0px;
@@ -78,26 +110,26 @@
 														<tr>
 															<td width="35%">&nbsp;</td>
 															<td height="25" colspan="2" class="left_txt">
-															<p>1- µØÇøÉÌ¼ÒÐÅÏ¢ÍøÃÅ»§Õ¾½¨Á¢µÄÊ×Ñ¡·½°¸...</p></td>
+															<p>1- è¯´æ˜Ž1</p></td>
 														</tr>
 														<tr>
 															<td>&nbsp;</td>
 															<td height="25" colspan="2" class="left_txt">
-															<p>2- Ò»Õ¾Í¨Ê½µÄÕûºÏ·½Ê½£¬·½±ãÓÃ»§Ê¹ÓÃ...</p></td>
+															<p>2- è¯´æ˜Ž2</p></td>
 														</tr>
 														<tr>
 															<td>&nbsp;</td>
 															<td height="25" colspan="2" class="left_txt">
-															<p>3- Ç¿´óµÄºóÌ¨ÏµÍ³£¬¹ÜÀíÄÚÈÝÒ×Èç·´ÕÆ...</p></td>
+															<p>3- è¯´æ˜Ž3</p></td>
 														</tr>
 														<tr>
 															<td>&nbsp;</td>
 															<td width="30%" height="40">
 																<img src="images/icon-demo.gif" width="16" height="16">
-																<a href="http://www.865171.cn" target="_blank" class="left_txt3">Ê¹ÓÃËµÃ÷</a>
+																<a href="http://www.865171.cn" target="_blank" class="left_txt3">ç™» å½•</a>
 															</td>
 															<td width="35%"><img src="images/icon-login-seaver.gif" width="16" height="16">
-																<a href="http://www.865171.cn" class="left_txt3"> ÔÚÏß¿Í·þ</a>
+																<a href="http://www.865171.cn" class="left_txt3">å– æ¶ˆ</a>
 															</td>
 														</tr>
 													</table>
@@ -113,7 +145,7 @@
 							<table width="100%" height="59" border="0" align="center" cellpadding="0" cellspacing="0">
 								<tr>
 									<td width="4%">&nbsp;</td>
-									<td width="96%" height="38"><span class="login_txt_bt">µÇÂ½ÐÅÏ¢ÍøºóÌ¨¹ÜÀí</span></td>
+									<td width="96%" height="38"><span class="login_txt_bt">ç™»é™†ä¿¡æ¯ç½‘åŽå°ç®¡ç†</span></td>
 								</tr>
 								<tr>
 									<td>&nbsp;</td>
@@ -121,11 +153,11 @@
 										<table cellSpacing="0" cellPadding="0" width="100%" border="0" id="table211" height="328">
 											<tr>
 												<td height="164" colspan="2" align="middle">
-													<form name="myform" action="index.html" method="post">
+													<form name="myform" action="login.php" method="post">
 														<table cellSpacing="0" cellPadding="0" width="100%" border="0" height="143" id="table212">
 															<tr>
 																<td width="13%" height="38" class="top_hui_text">
-																	<span class="login_txt">¹ÜÀíÔ±£º&nbsp;&nbsp; </span>
+																	<span class="login_txt">ç®¡ç†å‘˜&nbsp;&nbsp; </span>
 																</td>
 																<td height="38" colspan="2" class="top_hui_text">
 																	<input name="username" class="editbox4" value="" size="20">
@@ -133,26 +165,37 @@
 															</tr>
 															<tr>
 																<td width="13%" height="35" class="top_hui_text">
-																	<span class="login_txt"> ÃÜ Âë£º &nbsp;&nbsp; </span></td>
+																	<span class="login_txt"> å¯† ç ï¼š&nbsp;&nbsp; </span></td>
 																<td height="35" colspan="2" class="top_hui_text">
 																	<input class="editbox4" type="password" size="20" name="password">
 																	<img src="images/luck.gif" width="19" height="18">
 																</td>
 															</tr>
 															<tr>
-																<td width="13%" height="35" ><span class="login_txt">ÑéÖ¤Âë£º</span></td>
+																<td width="13%" height="35" >
+																	<span class="login_txt">éªŒè¯ç ï¼š</span></td>
 																<td height="35" colspan="2" class="top_hui_text">
+																	<table><tr><td>
 																<input class=wenbenkuang name=verifycode type=text value="" 
-																maxLength=4 size=10></td>
+																maxLength=4 size=10></td><td><img title="ç‚¹å‡»åˆ·æ–°" src="captcha.php" 
+																onclick="this.src='captcha.php?r='+Math.random();" /></td>
+																	</tr></table>
+																</td>
 															</tr>
 															<tr>
 																<td height="35" >&nbsp;</td>
 																<td width="20%" height="35" >
-																	<input name="Submit" type="submit" class="button" id="Submit" value="µÇ Â¼"></td>
+																	<input type="hidden" value="1" name="flag" />
+																	<input name="Submit" type="submit" class="button" 
+																		id="Submit" value="ç™» å½•"></td>
 																<td width="67%" class="top_hui_text">
-																	<input name="cs" type="button" class="button" id="cs" value="È¡ Ïû"
-																		onClick="showConfirmMsg1()"></td>
+																	<input name="cs" type="button" class="button" 
+																	id="cs" value="å– æ¶ˆ" onClick="showConfirmMsg1()"></td>
 															</tr>
+															<tr>
+																<td cols="3">
+																	<p><?php echo $error_info;?></p>
+																</td>
 														</table>
 														<br>
 													</form>
@@ -177,12 +220,11 @@
 			<table width="100%" border="0" cellspacing="0" cellpadding="0" class="login-buttom-bg">
 				<tr>
 					<td align="center">
-						<span class="login-buttom-txt">Copyright &copy; 2009-2010 www.865171.cn</span></td>
+						<span class="login-buttom-txt"></span></td>
 				</tr>
 			</table>
 		</td>
 	</tr>
 </table>
-
 </body>
 </html>
