@@ -14,6 +14,7 @@
 				   ->where("password",md5($password));
 				$user = $DB->get("users");
 				if(!is_null($user)){
+					$_SESSION['admin_user'] = $user; 
 					header('Location:./index.php');
 					exit(0);
 				}
