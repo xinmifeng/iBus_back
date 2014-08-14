@@ -1,17 +1,12 @@
 <?php
 	session_start();
 	require_once("./sqlDb.php");
-	$data=array();
-	function returnData(){
-		echo json_decode($data);
+	if(!isset($_GET["action"])){
+		echo json_encode(array());
 		exit(0);
 	}
-	if(is_null($_POST["action"])){
-	}
-	if(empty($_POST["action"])){
-		returnData();	
-	}
-	$action = $_POST["action"];
+	$action = $_GET["action"];
+	$data=array();
 	switch($action){
 		case "list":
 			for($i=0;$i<10;$i++){
@@ -22,5 +17,5 @@
 			}
 		break;
 	}
-	returnData();
+	echo json_encode($data);
 ?>

@@ -18,7 +18,7 @@
 </html>
 <script>
 	$(".vlistTb").flexigrid({
-		url:"videoAction.php",
+		url:"videoAction.php?action=list",
 		dataType:'json',
 		colMode:[
 			{
