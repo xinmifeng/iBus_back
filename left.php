@@ -150,7 +150,7 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
-          <li><a href="http://www.865171.cn" target="main">基本设置</a></li>
+          <li><a href="http://www.865171.cn" target="main">修改密码</a></li>
           <li><a href="http://www.865171.cn" target="main">邮件设置</a></li>
           <li><a href="http://www.865171.cn" target="main">广告设置</a></li>
           <li><a href="http://www.865171.cn" target="main">114增加</a></li>
@@ -210,6 +210,7 @@ H1 a {
           </tr>
         </table>
         <ul class="MM">
+		   <li><a href="updatePassword.php" target="main">修改密码</a></li>
           <li><a href="http://www.865171.cn" target="main">会员管理</a></li>
           <li><a href="http://www.865171.cn" target="main">留言管理</a></li>
           <li><a href="http://www.865171.cn" target="main">回复管理</a></li>
