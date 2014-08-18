@@ -381,7 +381,7 @@
         </tr>
         <tr>
             <td></td>
-            <td><input type="button" value="关闭" id="pagebtn" class="btns"/></td>
+            <td><input type="button" value="关闭" id="pagebtn"/></td>
         </tr>
     </table>
 </div>

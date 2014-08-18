@@ -36,7 +36,7 @@
 
         var html = "<div style=\"width:420px; height:260px; padding:20px; border:1px solid #ccc; background-color:#eee;\"><p>Hello，我自定了风格。</p><button id=\"pagebtn\" class=\"btns\">关闭</button></div>";
         if (htmlStr != "" && htmlStr != undefined) {
-            html =htmlStr;
+            html = htmlStr;
         }
         var i = $.layer({
             type: 1,
@@ -49,8 +49,9 @@
         });
         //关闭按钮
         function SetToMiddle(index) {
-            $("#pagebtn").bind('click', function () {
-                layer.close(i);
+            console.log(index);
+            $("#pagebtn").one('click', function () {
+                $.layer.close(index)
             });
         }
     }
