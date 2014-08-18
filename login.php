@@ -15,9 +15,9 @@ if (!empty($_POST["flag"])) {
             $true_code = $_SESSION['authnum_session'];
             // if (strtolower($true_code) === strtolower($verifycode)) {
             if (true) {
-                $DB->where("user_name", $username)
+                $DB->where("name", $username)
                     ->where("password", md5($password));
-                $users = $DB->get("user");
+                $users = $DB->get("system_user");
                 if ($DB->count > 0) {
                     $_SESSION['admin_user'] = $users[0];
                     header('Location:./index.php');
