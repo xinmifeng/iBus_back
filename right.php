@@ -16,6 +16,8 @@
 
     function test2() {
         $.Show("±£´æ³É¹¦", 1);
+
+
     }
 </script>
 
