@@ -9,8 +9,6 @@
 	require_once("./sqlDb.php");
 	require_once("./doAccess.php");
 	$i=1;
-//	mysql_select_db("busfree", $DB);
-//$result = mysql_query("SELECT * FROM video_type");
 $result = $DB->get("video_type");
 ?>
 <!DOCTYPE html>
@@ -18,6 +16,7 @@ $result = $DB->get("video_type");
 <meta charset="utf-8">
 	<head>
 	<script src="bower_components/jquery/jquery.js"></script>
+	<script src="js/layer/layer/layer.min.js"></script>
 	<script src="js/Layerutility.js"></script>
 	</head>
 	<body>
@@ -29,6 +28,7 @@ $result = $DB->get("video_type");
 		<tr><td>排序值</td>
             <td><input type="text" name="order_id" /></td>
         </tr>
+		<tr><td><input type="button" name="add" value="添加"/><input type="button" id="pagebtn"  value="关闭" /></td></tr>
     </table>
 </div>
 		<table border="1">

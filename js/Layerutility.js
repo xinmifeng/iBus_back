@@ -41,10 +41,7 @@
         var i = $.layer({
             type: 1,
             title: titleStr,
-            shade: [0 , '#fff' , true],
-            closeBtn: true,
-            border: true,
-            area: ['500px', '600px'],
+            area: ['500px', '300px'],
             page: {html: html},
             success: function (index) {
                 SetToMiddle(index);
