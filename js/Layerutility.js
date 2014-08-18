@@ -36,15 +36,12 @@
 
         var html = "<div style=\"width:420px; height:260px; padding:20px; border:1px solid #ccc; background-color:#eee;\"><p>Hello，我自定了风格。</p><button id=\"pagebtn\" class=\"btns\">关闭</button></div>";
         if (htmlStr != "" && htmlStr != undefined) {
-            html =htmlStr;
+            html = htmlStr;
         }
         var i = $.layer({
             type: 1,
             title: titleStr,
-            shade: [0 , '#fff' , true],
-            closeBtn: true,
-            border: true,
-            area: ['500px', '600px'],
+            area: ['500px', '300px'],
             page: {html: html},
             success: function (index) {
                 SetToMiddle(index);
@@ -52,8 +49,9 @@
         });
         //关闭按钮
         function SetToMiddle(index) {
+            console.log(index);
             $("#pagebtn").one('click', function () {
-                layer.close(i);
+                $.layer.close(index)
             });
         }
     }
