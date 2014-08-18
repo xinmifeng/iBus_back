@@ -19,7 +19,7 @@
         -->
     </style>
     <script src="../bower_components/jquery/jquery.js"></script>
-    <script type="text/javascript" src="../bower_components/layer/layer/layer.min.js"></script>
+    <script type="text/javascript" src="../js/layer/layer/layer.min.js"></script>
     <script type="text/javascript" src="../js/Layerutility.js"></script>
     <script>
         var  highlightcolor='#c1ebff';
