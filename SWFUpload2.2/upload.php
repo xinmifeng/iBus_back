@@ -48,6 +48,7 @@ Notes:
 
 // Check post_max_size (http://us3.php.net/manual/en/features.file-upload.php#73762)
 	$POST_MAX_SIZE = ini_get('post_max_size');
+	echo $POST_MAX_SIZE;
 	$unit = strtoupper(substr($POST_MAX_SIZE, -1));
 	$multiplier = ($unit == 'M' ? 1048576 : ($unit == 'K' ? 1024 : ($unit == 'G' ? 1073741824 : 1)));
 
@@ -61,7 +62,7 @@ Notes:
 	$save_path = getcwd() . "/file/";				// The path were we will save the file (getcwd() may not be reliable and should be tested in your environment)
 	$upload_name = "Filedata";
 	$max_file_size_in_bytes = 2147483647;				// 2GB in bytes
-	$extension_whitelist = array("jpg", "gif", "png","mp4","ogg");	// Allowed file extensions
+	$extension_whitelist = array("jpg", "gif", "png","mp4","ogg","avi","mkv");	// Allowed file extensions
 	$valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';				// Characters allowed in the file name (in a Regular Expression format)
 	
 // Other variables	
@@ -135,6 +136,8 @@ Notes:
 		HandleError("Invalid file extension");
 		exit(0);
 	}
+
+
 
 // Validate file contents (extension and mime-type can't be trusted)
 	/*
