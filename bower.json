@@ -12,7 +12,8 @@
 		"backgrid":"*",
 		"jquery-flexigrid":"*",
 		"angular": "*",
-		"angular-route":"*"
+		"angular-route":"*",
+		"jquery-easyui":"*"
 	},
 	"ignore": [
 		"**/.*",
