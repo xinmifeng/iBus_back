@@ -4,6 +4,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title></title>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="bower_components/layer/layer/layer.min.js"></script>
+    <script type="text/javascript" src="js/Layerutility.js"></script>
+
     <script src="js/prototype.lite.js" type="text/javascript"></script>
     <script src="js/moo.fx.js" type="text/javascript"></script>
     <script src="js/moo.fx.pack.js" type="text/javascript"></script>
@@ -167,7 +171,7 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="http://www.865171.cn" target="main">首页绑定</a></li>
+                        <li><a href="right.php?name=首页绑定" target="main">首页绑定</a></li>
                         <li><a href="http://www.865171.cn" target="main">应用绑定</a></li>
                         <li><a href="http://www.865171.cn" target="main">Banner管理</a></li>
                     </ul>
@@ -195,11 +199,8 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="http://www.865171.cn" target="main">活动添加</a></li>
-                        <li><a href="http://www.865171.cn" target="main">活动管理</a></li>
-
-                        <li><a href="http://www.865171.cn" target="main">应用添加</a></li>
-                        <li><a href="http://www.865171.cn" target="main">应用管理</a></li>
+                        <li><a href="EventsAndApply/EventsManger.php" target="main">活动管理</a></li>
+                        <li><a href="EventsAndApply/Apply.php" target="main">应用管理</a></li>
                     </ul>
                 </div>
 

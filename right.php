@@ -1,310 +1,689 @@
-<link href="images/skin.css" rel="stylesheet" type="text/css" />
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /><style type="text/css">
-<!--
-html,body{height:100%}
-body {
-	margin-left: 0px;
-	margin-top: 0px;
-	margin-right: 0px;
-	margin-bottom: 0px;
-	background-color: #EEF2FB;
-}
--->
-</style>
+<link href="images/skin.css" rel="stylesheet" type="text/css"/>
+<script src="bower_components/jquery/jquery.js"></script>
+<script type="text/javascript" src="bower_components/layer/layer/layer.min.js"></script>
+<script type="text/javascript" src="js/Layerutility.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<script type="text/javascript" language="JavaScript">
+    function Test() {
+        $.ShowAlert("您觉得对么？", "对", "错", function (i) {
+            console.log(i);
+            layer.msg('确定', 1, 1);
+            layer.close(i);
+        }, function () {
+            layer.msg('取消', 1, 1);
+        })
+    }
+
+    function test2() {
+        $.Show("保存成功", 1);
+
+
+    }
+</script>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <title>无标题文档</title>
+    <style type="text/css">
+        <!--
+        body {
+            margin-left: 0px;
+            margin-top: 0px;
+            margin-right: 0px;
+            margin-bottom: 0px;
+        }
+
+        .STYLE1 {
+            font-size: 12px
+        }
+
+        .STYLE3 {
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .STYLE4 {
+            color: #03515d;
+            font-size: 12px;
+        }
+
+        -->
+    </style>
+
+    <script>
+        var highlightcolor = '#c1ebff';
+        //此处clickcolor只能用win系统颜色代码才能成功,如果用#xxxxxx的代码就不行,还没搞清楚为什么:(
+        var clickcolor = '#51b2f6';
+        function changeto() {
+            source = event.srcElement;
+            if (source.tagName == "TR" || source.tagName == "TABLE")
+                return;
+            while (source.tagName != "TD")
+                source = source.parentElement;
+            source = source.parentElement;
+            cs = source.children;
+//alert(cs.length);
+            if (cs[1].style.backgroundColor != highlightcolor && source.id != "nc" && cs[1].style.backgroundColor != clickcolor)
+                for (i = 0; i < cs.length; i++) {
+                    cs[i].style.backgroundColor = highlightcolor;
+                }
+        }
+
+        function changeback() {
+            if (event.fromElement.contains(event.toElement) || source.contains(event.toElement) || source.id == "nc")
+                return
+            if (event.toElement != source && cs[1].style.backgroundColor != clickcolor)
+//source.style.backgroundColor=originalcolor
+                for (i = 0; i < cs.length; i++) {
+                    cs[i].style.backgroundColor = "";
+                }
+        }
+
+        function clickto() {
+            source = event.srcElement;
+            if (source.tagName == "TR" || source.tagName == "TABLE")
+                return;
+            while (source.tagName != "TD")
+                source = source.parentElement;
+            source = source.parentElement;
+            cs = source.children;
+//alert(cs.length);
+            if (cs[1].style.backgroundColor != clickcolor && source.id != "nc")
+                for (i = 0; i < cs.length; i++) {
+                    cs[i].style.backgroundColor = clickcolor;
+                }
+            else
+                for (i = 0; i < cs.length; i++) {
+                    cs[i].style.backgroundColor = "";
+                }
+        }
+    </script>
+
+</head>
+
 <body>
-<table width="100%" border="0" cellpadding="0" cellspacing="0">
-  <tr>
-    <td width="17" valign="top" background="images/mail_leftbg.gif"><img src="images/left-top-right.gif" width="17" height="29" /></td>
-    <td valign="top" background="images/content-bg.gif"><table width="100%" height="31" border="0" cellpadding="0" cellspacing="0" class="left_topbg" id="table2">
-      <tr>
-        <td height="31"><div class="titlebt">欢迎界面</div></td>
-      </tr>
-    </table></td>
-    <td width="16" valign="top" background="images/mail_rightbg.gif"><img src="images/nav-right-bg.gif" width="16" height="29" /></td>
-  </tr>
-  <tr>
-    <td valign="middle" background="images/mail_leftbg.gif">&nbsp;</td>
-    <td valign="top" bgcolor="#F7F8F9"><table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
-      <tr>
-        <td colspan="2" valign="top">&nbsp;</td>
-        <td>&nbsp;</td>
-        <td valign="top">&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="2" valign="top"><span class="left_bt">感谢您使用 商家信息网 网站管理系统程序</span><br>
-              <br>
-            <span class="left_txt">&nbsp;<img src="images/ts.gif" width="16" height="16"> 提示：<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;您现在使用的是www.865171.cn开发的一套用于构建商务信息类门户型网站的专业系统！如果您有任何疑问请点左下解的</span><span class="left_ts">在线客服</span><span class="left_txt">进行咨询！<br>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;七大栏目完美整合，一站通使用方式，功能强大，操作简单，后台操作易如反掌，只需会打字，会上网，就会管理网站！<br>
-           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;此程序是您建立地区级商家信息门户的首选方案！　 <br>
-</span></td>
-        <td width="7%">&nbsp;</td>
-        <td width="40%" valign="top"><table width="100%" height="144" border="0" cellpadding="0" cellspacing="0" class="line_table">
-          <tr>
-            <td width="7%" height="27" background="images/news-title-bg.gif"><img src="images/news-title-bg.gif" width="2" height="27"></td>
-            <td width="93%" background="images/news-title-bg.gif" class="left_bt2">最新动态</td>
-          </tr>
-          <tr>
-            <td height="102" valign="top">&nbsp;</td>
-            <td height="102" valign="top"></td>
-          </tr>
-          <tr>
-            <td height="5" colspan="2">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td colspan="2">&nbsp;</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-      <tr>
-        <td colspan="2" valign="top"><!--JavaScript部分-->
-              <SCRIPT language=javascript>
-function secBoard(n)
-{
-for(i=0;i<secTable.cells.length;i++)
-secTable.cells[i].className="sec1";
-secTable.cells[n].className="sec2";
-for(i=0;i<mainTable.tBodies.length;i++)
-mainTable.tBodies[i].style.display="none";
-mainTable.tBodies[n].style.display="block";
-}
-          </SCRIPT>
-              <!--HTML部分-->
-              <TABLE width=72% border=0 cellPadding=0 cellSpacing=0 id=secTable>
-                <TBODY>
-                  <TR align=middle height=20>
-                    <TD align="center" class=sec2 onclick=secBoard(0)>验证信息</TD>
-                    <TD align="center" class=sec1 onclick=secBoard(1)>统计信息</TD>
-                    <TD align="center" class=sec1 onclick=secBoard(2)>系统参数</TD>
-                    <TD align="center" class=sec1 onclick=secBoard(3)>版权说明</TD>
-                  </TR>
-                </TBODY>
-              </TABLE>
-          <TABLE class=main_tab id=mainTable cellSpacing=0
-cellPadding=0 width=100% border=0>
-                <!--关于TBODY标记-->
-                <TBODY style="DISPLAY: block">
-                  <TR>
-                    <TD vAlign=top align=middle><TABLE width=98% height="133" border=0 align="center" cellPadding=0 cellSpacing=0>
-                        <TBODY>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                          <TR>
-                            <TD width="4%" height="28" background="images/news-title-bg.gif"></TD>
-                            <TD height="25" colspan="2" background="images/news-title-bg.gif" class="left_txt">亲爱的管理员： <font color="#FFFFFF" class="left_ts"><b></b></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD width="42%" height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证分类信息： </span>
-                               
-                                <span class="left_ts"> </span></TD>
-                            <TD width="54%" height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证广告张贴： </span>
-                               
-                                <span class="left_ts"> </span></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证商家展示： </span>
-                               
-                                <span class="left_ts"> </span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证网上商城： </span>
-                               
-                                <span class="left_ts"> </span></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证网上名片： </span>
-                                <span class="left_ts"> </span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证市场联盟： </span>
-                               
-                                <span class="left_ts"> </span></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证市场资讯： </span>
-                               
-                                <span class="left_ts"> </span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">您有未验证商家商品： </span>
-                                <span class="left_ts"> </span></TD>
-                          </TR>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                        </TBODY>
-                    </TABLE></TD>
-                  </TR>
-                </TBODY>
-                <!--关于cells集合-->
-                <TBODY style="DISPLAY: none">
-                  <TR>
-                    <TD vAlign=top align=middle><TABLE width=98% height="133" border=0 align="center" cellPadding=0 cellSpacing=0>
-                        <TBODY>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                          <TR>
-                            <TD width="4%" height="28" background="images/news-title-bg.gif"></TD>
-                            <TD colspan="2" background="images/news-title-bg.gif" class="left_txt">现有会员：名&nbsp;&nbsp; 其中：                                名&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;&nbsp;&nbsp;名</TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD width="42%" height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有分类信息： </span><span class="left_txt">条</span></TD>
-                            <TD width="54%" bgcolor="#FAFBFC"><span class="left_txt">本站现有广告张贴： </span><span class="left_txt">条</span></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有商家展示： </span><span class="left_txt">个</span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有网上商城： </span><span class="left_txt">个</span></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有网上名片： </span><span class="left_txt">个</span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有市场联盟： </span><span class="left_txt">个</span></TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有市场资讯： </span><span class="left_txt">条</span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">本站现有商家商品： </span><span class="left_txt">个</span></TD>
-                          </TR>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                        </TBODY>
-                    </TABLE></TD>
-                  </TR>
-                </TBODY>
-                <!--关于tBodies集合-->
-                <TBODY style="DISPLAY: none">
-                  <TR>
-                    <TD vAlign=top align=middle><TABLE width=98% border=0 align="center" cellPadding=0 cellSpacing=0>
-                        <TBODY>
-                          <TR>
-                            <TD colspan="3"></TD>
-                          </TR>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                          <TR>
-                            <TD width="4%" height="25" background="images/news-title-bg.gif"></TD>
-                            <TD height="25" colspan="2" background="images/news-title-bg.gif" class="left_txt"><span class="TableRow2">服务器IP:</span>系统版本：</TD>
-                          </TR>
-                          <TR>
-                            <TD height="25" bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD width="42%" height="25" bgcolor="#FAFBFC"><span class="left_txt">服务器类型：</span></TD>
-                            <TD width="54%" height="25" bgcolor="#FAFBFC"><span class="left_txt">脚本解释引擎：</span></TD>
-                          </TR>
-                          <TR>
-                            <TD height="25" bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" colspan="2" bgcolor="#FAFBFC"><span class="left_txt">站点物理路径：</span></TD>
-                          </TR>
-                          <TR>
-                            <TD height="25" bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">FSO文本读写：</span><span class="TableRow2"><font color="#FF0066"><b><img src="images/X.gif" width="12" height="13"></b></font><img src="images/g.gif" width="12" height="12"></span></TD>
-                            <TD height="25" bgcolor="#FAFBFC"><span class="left_txt">数据库使用：</span><span class="left_ts"><img src="images/X.gif" width="12" height="13"><b style="color:blue">
-                              
-                            MS SQL
-                            
-                              ACCESS
-                              
-                            </b></span></TD>
-                          </TR>
-                         
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                        </TBODY>
-                    </TABLE></TD>
-                  </TR>
-                </TBODY>
-                <!--关于display属性-->
-                <TBODY style="DISPLAY: none">
-                  <TR>
-                    <TD vAlign=top align=middle><TABLE width=98% border=0 align="center" cellPadding=0 cellSpacing=0>
-                        <TBODY>
-                          <TR>
-                            <TD colspan="3"></TD>
-                          </TR>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                          <TR>
-                            <TD width="4%" background="images/news-title-bg.gif"></TD>
-                            <TD width="91%" background="images/news-title-bg.gif" class="left_ts">《》程序说明：</TD>
-                            <TD width="5%" background="images/news-title-bg.gif" class="left_txt">&nbsp;</TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt"><span class="left_ts">1、</span>本程序由www.865171.cn全新改造(QQ:215288671) </TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt">&nbsp;</TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt"><span class="left_ts">2、</span>本程序仅提供使用，任何违反互联网规定的行为，自行负责！</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt">&nbsp;</TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt"><span class="left_ts">3、</span> 支持作者的劳动，请保留版权。</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt">&nbsp;</TD>
-                          </TR>
-                          <TR>
-                            <TD bgcolor="#FAFBFC">&nbsp;</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt"><span class="left_ts">4、</span>程序使用，技术支持请联系www.865171.cn。</TD>
-                            <TD bgcolor="#FAFBFC" class="left_txt">&nbsp;</TD>
-                          </TR>
-                          <TR>
-                            <TD height="5" colspan="3"></TD>
-                          </TR>
-                        </TBODY>
-                    </TABLE></TD>
-                  </TR>
-                </TBODY>
-            </TABLE></td>
-        <td>&nbsp;</td>
-        <td valign="top"><table width="100%" height="144" border="0" cellpadding="0" cellspacing="0" class="line_table">
-          <tr>
-            <td width="7%" height="27" background="images/news-title-bg.gif"><img src="images/news-title-bg.gif" width="2" height="27"></td>
-            <td width="93%" background="images/news-title-bg.gif" class="left_bt2">程序说明</td>
-          </tr>
-          <tr>
-            <td height="102" valign="top">&nbsp;</td>
-            <td height="102" valign="top"><label></label>
-              <label>
-              <textarea name="textarea" cols="48" rows="8" class="left_txt">一、专业的地区级商家门户建站首选方案！
-二、全站一号通，一次注册，终身使用，一个帐号，全站通用！
-三、分类信息、商家展示（百业联盟）、网上商城、网上名片（网上黄页）、广告张贴、市场联盟、市场资讯七大栏目完美整合。
-四、界面设计精美，后台功能强大。傻瓜式后台操作，无需专业的网站制作知识，只要会打字，就会管理维护网站。</textarea>
-              </label></td>
-          </tr>
-          <tr>
-            <td height="5" colspan="2">&nbsp;</td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td height="40" colspan="4"><table width="100%" height="1" border="0" cellpadding="0" cellspacing="0" bgcolor="#CCCCCC">
-          <tr>
-            <td></td>
-          </tr>
-        </table></td>
-      </tr>
-      <tr>
-        <td width="2%">&nbsp;</td>
-        <td width="51%" class="left_txt"><img src="images/icon-mail2.gif" width="16" height="11"> 客户服务邮箱：215288671@qq.com<br>
-              <img src="images/icon-phone.gif" width="17" height="14"> 官方网站：http://www.865171.cn</td>
-        <td>&nbsp;</td>
-        <td>&nbsp;</td>
-      </tr>
-    </table></td>
-    <td background="images/mail_rightbg.gif">&nbsp;</td>
-  </tr>
-  <tr>
-    <td valign="bottom" background="images/mail_leftbg.gif"><img src="images/buttom_left2.gif" width="17" height="17" /></td>
-    <td background="images/buttom_bgs.gif"><img src="images/buttom_bgs.gif" width="17" height="17"></td>
-    <td valign="bottom" background="images/mail_rightbg.gif"><img src="images/buttom_right2.gif" width="16" height="17" /></td>
-  </tr>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+    <td height="30" background="images/tab_05.gif">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="12" height="30"><img src="images/tab_03.gif" width="12" height="30"/></td>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td width="46%" valign="middle">
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tr>
+                                        <td width="5%">
+                                            <div align="center"><img src="images/tb.gif" width="16" height="16"/></div>
+                                        </td>
+                                        <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[业务中心]-[我的邮件]
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td width="54%">
+                                <table border="0" align="right" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="60">
+                                            <table width="87%" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td class="STYLE1">
+                                                        <div align="center">
+                                                            <input type="checkbox" name="checkbox62" value="checkbox"/>
+                                                        </div>
+                                                    </td>
+                                                    <td class="STYLE1">
+                                                        <div align="center">全选</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="60">
+                                            <table width="90%" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td class="STYLE1">
+                                                        <div align="center"><img src="images/22.gif" width="14"
+                                                                                 height="14"/></div>
+                                                    </td>
+                                                    <td class="STYLE1">
+                                                        <div align="center">新增</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="60">
+                                            <table width="90%" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td class="STYLE1">
+                                                        <div align="center"><img src="images/33.gif" width="14"
+                                                                                 height="14"/></div>
+                                                    </td>
+                                                    <td class="STYLE1">
+                                                        <div align="center">修改</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td width="52">
+                                            <table width="88%" border="0" cellpadding="0" cellspacing="0">
+                                                <tr>
+                                                    <td class="STYLE1">
+                                                        <div align="center"><img src="images/11.gif" width="14"
+                                                                                 height="14"/></div>
+                                                    </td>
+                                                    <td class="STYLE1">
+                                                        <div align="center">删除</div>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="16"><img src="images/tab_07.gif" width="16" height="30"/></td>
+            </tr>
+        </table>
+    </td>
+</tr>
+<tr>
+<td>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tr>
+<td width="8" background="images/tab_12.gif">&nbsp;</td>
+<td>
+<table width="100%" border="0" cellpadding="0" cellspacing="1" bgcolor="b5d6e6" onmouseover="changeto()"
+       onmouseout="changeback()">
+<tr>
+    <td width="3%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox" value="checkbox"/>
+        </div>
+    </td>
+    <td width="3%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">序号</span></div>
+    </td>
+    <td width="12%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">接收号码</span></div>
+    </td>
+    <td width="14%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">发送时间</span></div>
+    </td>
+    <td width="18%" background="images/bg.gif" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">邮件地址</span></div>
+    </td>
+    <td width="23%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">内容</span></div>
+    </td>
+    <td width="15%" height="22" background="images/bg.gif" bgcolor="#FFFFFF" class="STYLE1">
+        <div align="center">基本操作</div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox2" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">01</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox3" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">02</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox4" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">03</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox5" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">04</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox6" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">05</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox7" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">06</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox8" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">07</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox9" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">08</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox10" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">09</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox11" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">10</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox12" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">11</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox13" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">12</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox14" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">13</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox15" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">14</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+<tr>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center">
+            <input type="checkbox" name="checkbox16" value="checkbox"/>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center" class="STYLE1">
+            <div align="center">15</div>
+        </div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">13813916585</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">2007-11-16 15:00:20 </span></div>
+    </td>
+    <td bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">tiezhu0902@163.com</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE1">南京科技股份有限公司…</span></div>
+    </td>
+    <td height="20" bgcolor="#FFFFFF">
+        <div align="center"><span class="STYLE4"><img src="images/edt.gif" width="16" height="16"/>编辑&nbsp; &nbsp;<img
+                    src="images/del.gif" width="16" height="16"/>删除</span></div>
+    </td>
+</tr>
+</table>
+</td>
+<td width="8" background="images/tab_15.gif">&nbsp;</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+    <td height="35" background="images/tab_19.gif">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+                <td width="12" height="35"><img src="images/tab_18.gif" width="12" height="35"/></td>
+                <td>
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                        <tr>
+                            <td class="STYLE4">&nbsp;&nbsp;共有 120 条记录，当前第 1/10 页</td>
+                            <td>
+                                <table border="0" align="right" cellpadding="0" cellspacing="0">
+                                    <tr>
+                                        <td width="40"><img src="images/first.gif" width="37" height="15"/></td>
+                                        <td width="45"><img src="images/back.gif" width="43" height="15"/></td>
+                                        <td width="45"><img src="images/next.gif" width="43" height="15"/></td>
+                                        <td width="40"><img src="images/last.gif" width="37" height="15"/></td>
+                                        <td width="100">
+                                            <div align="center"><span class="STYLE1">转到第
+                    <input name="textfield" type="text" size="4"
+                           style="height:12px; width:20px; border:1px solid #999999;"/>
+                    页 </span></div>
+                                        </td>
+                                        <td width="40"><img src="images/go.gif" width="37" height="15"/></td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+                <td width="16"><img src="images/tab_20.gif" width="16" height="35"/></td>
+            </tr>
+        </table>
+    </td>
+</tr>
 </table>
 </body>
+</html>
+

@@ -22,11 +22,18 @@
 		dataType:'json',
 		colMode:[
 			{
-			display:'name',
-			name:'name',
-			width:90,
-			sortable:true,
-			align:'center'
+				display:'id',
+				name:'id',
+				width:90,
+				sortable:true,
+				align:'center'
+			},
+			{
+				display:'name',
+				name:'name',
+				width:90,
+				sortable:true,
+				align:'center'
 			},
 			{
 				display:'src',
@@ -35,6 +42,15 @@
 				sortable:true,
 				align:'center'
 			}
-		]
+		],
+		sortname : "iso",
+		sortorder : "asc",
+		usepager : true,
+		title : 'Employees',
+		useRp : true,
+		rp : 10,
+		showTableToggleBtn : true,
+		width : 750,
+		height : 200
 	});
 </script>
