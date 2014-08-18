@@ -155,7 +155,7 @@
 
 <body>
 <table width="100%" height="280" border="0" cellpadding="0" cellspacing="0" bgcolor="#EEF2FB">
-    <tr>
+ <tr>
         <td width="182" valign="top">
             <div id="container">
                 <h1 class="type"><a href="javascript:void(0)">前台管理</a></h1>
@@ -213,7 +213,7 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="http://www.865171.cn" target="main">密码修改</a></li>
+                        <li><a href="updatePassword.php" target="main">密码修改</a></li>
                     </ul>
                 </div>
             </div>
@@ -227,7 +227,7 @@
                 );
                 myAccordion.showThisHideOpen(contents[0]);
             </script>
-        </td>
+     </td>
     </tr>
 </table>
 </body>
