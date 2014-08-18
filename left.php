@@ -199,11 +199,8 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="http://www.865171.cn" target="main">活动添加</a></li>
-                        <li><a href="http://www.865171.cn" target="main">活动管理</a></li>
-
-                        <li><a href="http://www.865171.cn" target="main">应用添加</a></li>
-                        <li><a href="http://www.865171.cn" target="main">应用管理</a></li>
+                        <li><a href="EventsAndApply/EventsManger.php" target="main">活动管理</a></li>
+                        <li><a href="EventsAndApply/Apply.php" target="main">应用管理</a></li>
                     </ul>
                 </div>
 
