@@ -61,7 +61,7 @@ Notes:
 	$save_path = getcwd() . "/file/";				// The path were we will save the file (getcwd() may not be reliable and should be tested in your environment)
 	$upload_name = "Filedata";
 	$max_file_size_in_bytes = 2147483647;				// 2GB in bytes
-	$extension_whitelist = array("jpg", "gif", "png","mp4","ogg");	// Allowed file extensions
+	$extension_whitelist = array("jpg", "gif", "png","mp4","ogg","wmv","mov");	// Allowed file extensions
 	$valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';				// Characters allowed in the file name (in a Regular Expression format)
 	
 // Other variables	
@@ -157,6 +157,8 @@ Notes:
 		Depending on your server OS and needs you may need to set the Security Permissions on the file after it has
 		been saved.
 	*/
+	echo $_FILES[$upload_name]["tmp_name"];
+	echo $save_path.$new_file_name;
 	if (!@move_uploaded_file($_FILES[$upload_name]["tmp_name"], $save_path.$new_file_name)) {
 		HandleError("文件无法保存.");
 		exit(0);

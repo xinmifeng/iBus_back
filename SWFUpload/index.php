@@ -1,11 +1,6 @@
-<!-----
-		[Leo.C, Studio] (C)2004 - 2008
-		
-   		$Hanization: LeoChung $
-   		$E-Mail: who@imll.net $
-   		$HomePage: http://imll.net $
-   		$Date: 2008/11/8 18:02 $
------>
+<?php
+	session_start();
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
@@ -21,10 +16,10 @@
 
 		window.onload = function() {
 			var settings = {
-				flash_url : "swfupload/swfupload.swf",
-				upload_url: "../upload.php",	// Relative to the SWF file
+				flash_url : "./swfupload/swfupload.swf",
+				upload_url: "http://192.168.1.106/newbee_work/iBus_back/SWFUpload/upload.php",	// Relative to the SWF file
 				post_params: {"PHPSESSID" : "<?php echo session_id(); ?>"},
-				file_size_limit : "100 MB",
+				file_size_limit : "200 MB",
 				file_types : "*.*",
 				file_types_description : "All Files",
 				file_upload_limit : 100,
