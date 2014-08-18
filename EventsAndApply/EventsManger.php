@@ -379,6 +379,10 @@
         </tr> <tr><td>活动详细图片：</td>
             <td><input type="text"/></td>
         </tr>
+        <tr>
+            <td></td>
+            <td><input type="button" value="关闭" id="pagebtn" class="btns"/></td>
+        </tr>
     </table>
 </div>
 </body>
