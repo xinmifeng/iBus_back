@@ -1,6 +1,6 @@
 <link href="images/skin.css" rel="stylesheet" type="text/css"/>
 <script src="bower_components/jquery/jquery.js"></script>
-<script type="text/javascript" src="bower_components/layer/layer/layer.min.js"></script>
+<script type="text/javascript" src="js/layer/layer/layer.min.js"></script>
 <script type="text/javascript" src="js/Layerutility.js"></script>
 <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
 <script type="text/javascript" language="JavaScript">
