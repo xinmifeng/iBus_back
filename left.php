@@ -184,7 +184,7 @@
                     </table>
                     <ul class="MM">
                         <li><a href="videoCategoryMgr.php" target="main">视频类型</a></li>
-                        <li><a href="http://www.865171.cn" target="main">视频管理</a></li>
+                        <li><a href="videoList.php" target="main">视频管理</a></li>
                     </ul>
                 </div>
 
