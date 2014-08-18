@@ -61,7 +61,7 @@ Notes:
 	$save_path = getcwd() . "/file/";				// The path were we will save the file (getcwd() may not be reliable and should be tested in your environment)
 	$upload_name = "Filedata";
 	$max_file_size_in_bytes = 2147483647;				// 2GB in bytes
-	$extension_whitelist = array("jpg", "gif", "png","mp4","ogg","wmv","mov");	// Allowed file extensions
+	$extension_whitelist = array("jpg", "gif", "png","mp4","ogg");	// Allowed file extensions
 	$valid_chars_regex = '.A-Z0-9_ !@#$%^&()+={}\[\]\',~`-';				// Characters allowed in the file name (in a Regular Expression format)
 	
 // Other variables	
