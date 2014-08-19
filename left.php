@@ -5,6 +5,7 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title></title>
     <script src="bower_components/jquery/jquery.js"></script>
+    <script type="text/javascript" src="js/layer/layer/layer.min.js"></script>
     <script type="text/javascript" src="js/Layerutility.js"></script>
     <script src="js/prototype.lite.js" type="text/javascript"></script>
     <script src="js/moo.fx.js" type="text/javascript"></script>
