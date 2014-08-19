@@ -74,16 +74,20 @@ $result = $DB->get("video_type");
 		var url = "videoCategoryAction.php";
 		var typeName = $(this).attr("type_name");
 		var orderID = $("#type_order_id").text();
-		$.ajax({
-		  "type":"post",
-		   "url":url,
-		   "success":function(){},
-		   "error":function(){},
-		  "complete":fucntion(){}
-		});
-		$.post(url,{typeName:typeName,orderID:orderID},function(res){
-			alert(res);
-		});
+//		$.ajax({
+//		  "type":"post",
+//		   "url":url,
+//		   "Data":{"typeName":typeName,"orderID":orderID}
+//		   "success":function(data){
+//						$.Show("添加成功",1);
+//						$(".xubox_close").click();	
+//					},
+//		   "error":function(){},
+//		  "complete":function(){}
+//		});
+//		$.post(url,{typeName:typeName,orderID:orderID},function(res){
+//			alert(res);
+//		});
 	}
 	   </script>
 	</body>
