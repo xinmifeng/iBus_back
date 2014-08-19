@@ -5,9 +5,8 @@
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <title></title>
     <script src="bower_components/jquery/jquery.js"></script>
-    <script type="text/javascript" src="bower_components/layer/layer/layer.min.js"></script>
+    <script type="text/javascript" src="js/layer/layer/layer.min.js"></script>
     <script type="text/javascript" src="js/Layerutility.js"></script>
-
     <script src="js/prototype.lite.js" type="text/javascript"></script>
     <script src="js/moo.fx.js" type="text/javascript"></script>
     <script src="js/moo.fx.pack.js" type="text/javascript"></script>
@@ -185,8 +184,8 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="http://www.865171.cn" target="main">视频类型</a></li>
-                        <li><a href="http://www.865171.cn" target="main">视频管理</a></li>
+                        <li><a href="videoCategoryMgr.php" target="main">视频类型</a></li>
+                        <li><a href="videoList.php" target="main">视频管理</a></li>
                     </ul>
                 </div>
 
@@ -233,3 +232,22 @@
 </table>
 </body>
 </html>
+<script>
+	window.onload=function(){
+		if(window.localStorage){
+			if(localStorage["leftPage"]){
+				var page = localStorage["leftPage"];
+				var right_frame = window.parent.document.getElementsByTagName("frame")[2];
+				if(right_frame){
+					right_frame.src = page;
+				}
+			}
+		}
+		jQuery("a").not(".type a").click(function(){
+			var href = this.getAttribute("href");
+			if(href && window.localStorage){
+				localStorage["leftPage"]=href;
+			}
+		});
+	}
+</script>
