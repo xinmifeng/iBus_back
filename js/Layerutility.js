@@ -33,19 +33,25 @@
     },
 
     ShowHtmlByForm: function (htmlStr, titleStr) {
-        var html = "<div style=\"width:420px; height:260px; padding:20px; border:1px solid #ccc; background-color:#eee;\"><p>Hello，我自定了风格。</p><button id=\"pagebtn\" class=\"btns\">关闭</button></div>";
-        //if (htmlStr != "" && htmlStr != undefined) {
-        //    html = htmlStr;
-        // }
-        var bee = $.layer({
+        var html = "暂无信息!";
+        if (htmlStr != "" && htmlStr != undefined) {
+            html = htmlStr;
+        }
+        var i = $.layer({
             type: 1,
             title: titleStr,
             closeBtn: [0, false], //去掉默认关闭按钮
             area: ['500px', '300px'],
-            page: {html: html}
+            page: {html: html},
+            success: function (index) {
+                CloseBtn(index);
+            }
         });
-        $("#pagebtn").on('click', function () {
-            layer.close(bee);
-        });
+        function CloseBtn(index) {
+            $(index).find("#closebtn").one('click', function () {
+                layer.close(i);
+            })
+        }
+
     }
 })
