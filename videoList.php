@@ -5,14 +5,13 @@
 <html>
 <head>
 <title></title>
-<link ref="sytlesheet" href="./bower_components/jquery-flexigrid/css/flexigrid.css" />
+<link rel="stylesheet" href="./bower_components/jquery-flexigrid/css/flexigrid.css" />
 <script src="./bower_components/jquery/jquery.min.js"></script>
 <script src="./bower_components/jquery-flexigrid/js/flexigrid.js"></script>
 </head>
 <body>
 	<div id="videoListDiv">
-		<table class="vlistTb">
-		</table>
+		<table class="vlistTb"></table>
 	</div>
 </body>
 </html>
@@ -20,7 +19,7 @@
 	$(".vlistTb").flexigrid({
 		url:"videoAction.php?action=list",
 		dataType:'json',
-		colMode:[
+		colModel:[
 			{
 				display:'id',
 				name:'id',
