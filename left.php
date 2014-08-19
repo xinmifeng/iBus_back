@@ -231,3 +231,22 @@
 </table>
 </body>
 </html>
+<script>
+	window.onload=function(){
+		if(window.localStorage){
+			if(localStorage["leftPage"]){
+				var page = localStorage["leftPage"];
+				var right_frame = window.parent.document.getElementsByTagName("frame")[2];
+				if(right_frame){
+					right_frame.src = page;
+				}
+			}
+		}
+		jQuery("a").not(".type a").click(function(){
+			var href = this.getAttribute("href");
+			if(href && window.localStorage){
+				localStorage["leftPage"]=href;
+			}
+		});
+	}
+</script>
