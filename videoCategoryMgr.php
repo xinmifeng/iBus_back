@@ -21,15 +21,17 @@ $result = $DB->get("video_type");
 	</head>
 	<body>
 	<div style="display:none" id="DIV_Event">
+	<form name="addForm" action="videoCategoryAction.php" method="post">
     <table>
         <tr><td>视频分类名称：</td>
         <td><input type="text" name="type_name" /></td>
         </tr>
 		<tr><td>排序值</td>
-            <td><input type="text" name="order_id" /></td>
+            <td><input type="text" name="type_order_id" /></td>
         </tr>
-		<tr><td><input type="button" name="add" value="添加"/><input type="button" id="pagebtn"  value="关闭" /></td></tr>
+		<tr><td><input type="button" name="add" value="添加" onclick="insertDate();" /><input type="button" id="pagebtn"  value="关闭" /></td></tr>
     </table>
+	</form>
 </div>
 		<table border="1">
 			<tr>
@@ -68,7 +70,21 @@ $result = $DB->get("video_type");
             $.ShowHtmlByForm(htm,"添加视频分类");
         }
 
-
+	function insertDate(){
+		var url = "videoCategoryAction.php";
+		var typeName = $(this).attr("type_name");
+		var orderID = $("#type_order_id").text();
+		$.ajax({
+		  "type":"post",
+		   "url":url,
+		   "success":function(){},
+		   "error":function(){},
+		  "complete":fucntion(){}
+		});
+		$.post(url,{typeName:typeName,orderID:orderID},function(res){
+			alert(res);
+		});
+	}
 	   </script>
 	</body>
 </html>
