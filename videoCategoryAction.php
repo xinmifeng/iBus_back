@@ -8,23 +8,13 @@
  */
 
  //新增视频分类
+ require_once ("sqlDb.php");
 	$typeName=$_POST["typeName"];
 	$orderID=$_POST["orderID"];
-	$addForm=Array('video_type'=>
-	Array('typeName' => $typeName,
-	'orderID' => $orderID
-	)
-	)
-	foreach($addForm as $name => $addForms){
-		foreach($addForms as $a){
-			$DB->insert($name, $a);
-			 if ($id)`
-            $a['id'] = $id;
-        else {
-            echo "failed to insert: ".$db->getLastQuery() ."\n". $db->getLastError();
-        }
-		}
-	}
-
-
+	$data=Array(
+	 'type_name' => $typeName,
+	 'create_date' => $DB->now(),
+	 'order_id' => $orderID
+	);
+	$DB->insert('video_type',$data);
 ?>

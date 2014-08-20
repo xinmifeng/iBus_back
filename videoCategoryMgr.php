@@ -9,7 +9,8 @@
 	require_once("./sqlDb.php");
 	require_once("./doAccess.php");
 	$i=1;
-$result = $DB->get("video_type");
+	$DB->orderBy("order_id","asc");
+	$result = $DB->get("video_type");
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,12 +25,15 @@ $result = $DB->get("video_type");
 	<form name="addForm" action="videoCategoryAction.php" method="post">
     <table>
         <tr><td>视频分类名称：</td>
-        <td><input type="text" name="type_name" /></td>
+        <td><input type="text" class="typeName" name="type_name" /></td>
         </tr>
 		<tr><td>排序值</td>
-            <td><input type="text" name="type_order_id" /></td>
+            <td><input type="text" class="typeOrderID" name="type_order_id" value="<?php
+            $maxOrderID=$DB->getOne("video_type","max(order_id) as maxID");
+				echo $maxOrderID['maxID'];
+			?>" /></td>
         </tr>
-		<tr><td><input type="button" name="add" value="添加" onclick="insertDate();" /><input type="button" id="pagebtn"  value="关闭" /></td></tr>
+		<tr><td><input type="button" name="add" value="添加" onclick="insertDate(this);" /><input type="button" id="closebtn"  value="关闭" /></td></tr>
     </table>
 	</form>
 </div>
@@ -70,24 +74,23 @@ $result = $DB->get("video_type");
             $.ShowHtmlByForm(htm,"添加视频分类");
         }
 
-	function insertDate(){
+	function insertDate(el){
 		var url = "videoCategoryAction.php";
-		var typeName = $(this).attr("type_name");
-		var orderID = $("#type_order_id").text();
-//		$.ajax({
-//		  "type":"post",
-//		   "url":url,
-//		   "Data":{"typeName":typeName,"orderID":orderID}
-//		   "success":function(data){
-//						$.Show("添加成功",1);
-//						$(".xubox_close").click();	
-//					},
-//		   "error":function(){},
-//		  "complete":function(){}
-//		});
-//		$.post(url,{typeName:typeName,orderID:orderID},function(res){
-//			alert(res);
-//		});
+		var $table = $(el).closest("table");
+		var typeName = $("input.typeName",$table).val();
+		var orderID = $("input.typeOrderID",$table).val();
+		$.ajax({
+		  "type":"post",
+		   "url":url,
+		   "data":{"typeName":typeName,"orderID":orderID},
+		   "success":function(){
+						$.Show("添加成功",1);
+						$("#btnclose").click();	
+					
+					},
+		   "error":function(){alert(url)},
+		  "complete":function(){}
+		});
 	}
 	   </script>
 	</body>
