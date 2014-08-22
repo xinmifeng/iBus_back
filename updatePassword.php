@@ -1,4 +1,5 @@
 <?php 
+	require_once("./MysqliDb.php");
 	require_once("./sqlDb.php");
 	require_once("./doAccess.php");
 	$error_info="";
