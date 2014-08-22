@@ -35,6 +35,7 @@
 			<td class="tab_header">所属类别</td>
 			<td class="tab_header">图片地址</td>
 			<td class="tab_header">链接</td>
+			<td class="tab_header">绑定类型</td>
 			<td class="tab_header">绑定标题</td>
 			<td class="tab_header">排序值</td>
 			<td class="tab_header">创建时间</td>
@@ -64,6 +65,17 @@
 					 ?></td>
 				<td><? echo $rs['picture_url']?></td>
 				<td><? echo $rs['src']?></td>
+				<td><? switch ($rs['details_type']) {
+						case "1": echo "首页";
+								 break;
+						case "1": echo "视频";
+								 break;
+						case "1": echo "优惠";
+								 break;
+						case "1": echo "应用";
+								 break;
+							}		
+					 ?></td>
 				<td><? echo $rs['details_id']?></td>
 				<td><? echo $rs['order_id']?></td>
 				<td><? echo $rs['create_date']?></td>

@@ -11,7 +11,25 @@
  $sign = $_POST["sign"];
 switch ($sign) {
 	case "select"://查询关联标题
-	    
+	    switch($type){
+		case '1'://首页
+		    $cols = Array ("id", "title");
+			$users = $db->get ("users", null, $cols);
+			if ($db->count > 0)
+			foreach ($users as $user) { 
+				print_r ($user);
+			}
+		    break;
+		case '2'://视频
+			    
+			break;
+		case '3'://优惠
+				    
+			break;
+		case '4'://应用
+		    
+		    break;
+		}
 	    break;
     case "insert": //新增视频信息
 		$type_id=$_POST["type_id"];

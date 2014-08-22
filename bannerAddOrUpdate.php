@@ -116,7 +116,7 @@
 		  "type":"post",
 		   "url":url,
 		   "data":{"type":type,"sign":"select"},
-		   "success":function(){
+		   "success":function(array){
 				var e = document.getElementById("type"); 
 				e. options= new Option("文本","值") ; 
 		  },
