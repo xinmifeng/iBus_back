@@ -40,18 +40,17 @@
         var i = $.layer({
             type: 1,
             title: titleStr,
-            closeBtn: [0, false], //去掉默认关闭按钮
-            area: ['500px', '300px'],
+            area: ['700px', '500px'],
             page: {html: html},
             success: function (index) {
                 CloseBtn(index);
             }
         });
+
         function CloseBtn(index) {
             $(index).find("#closebtn").one('click', function () {
                 layer.close(i);
             })
         }
-
     }
 })
