@@ -6,6 +6,7 @@
  * @version 1.0
  * @package main
  */
+	require_once("./MysqliDb.php");
 	require_once("./sqlDb.php");
 	require_once("./doAccess.php");
 	if(!empty($_GET["v_id"])){
