@@ -6,8 +6,8 @@
  * @version 1.0
  * @package main
  */
-
- require_once ("sqlDb.php");
+	require_once("./MysqliDb.php");
+	require_once ("sqlDb.php");
  $sign = $_POST["sign"];
 switch ($sign) {
 	case "select"://查询关联标题
