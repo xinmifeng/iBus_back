@@ -198,8 +198,8 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="EventsAndApply/EventsManger.php" target="main">活动管理</a></li>
-                        <li><a href="EventsAndApply/Apply.php" target="main">应用管理</a></li>
+                        <li><a href="EventsAndApply/EventsManger.php" target="main">活动及应用管理</a></li>
+                        <li><a href="EventsAndApply/Add.php" target="main">添加活动及应用</a></li>
                     </ul>
                 </div>
 

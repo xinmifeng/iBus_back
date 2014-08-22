@@ -1,5 +1,6 @@
 <?php
 session_start();
+require ("./MysqliDb.php");
 require_once("./sqlDb.php");
 $error_info = "";
 if (!empty($_POST["flag"])) {
