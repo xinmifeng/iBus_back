@@ -26,7 +26,7 @@
 	<form name="addForm" action="videoCategoryAction.php" method="post">
     <table>
         <tr><td>视频分类名称：</td>
-        <td><input type="text" id="type_id" class="type_id" name="type_id"  /><input type="text" class="typeName" id="type_name" /></td>
+        <td><input type="hidden" id="type_id" class="type_id" name="type_id"  /><input type="text" class="typeName" id="type_name" /></td>
         </tr>
 		<tr><td>排序值</td>
             <td><input type="text" class="typeOrderID" id="type_order_id" name="type_order_id" value="<?php

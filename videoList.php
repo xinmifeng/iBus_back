@@ -10,7 +10,7 @@
 	require_once("./sqlDb.php");
 	require_once("./doAccess.php");
 	$i=1;
-	$DB->orderBy("order_id","asc");
+	$DB->orderBy("order_id","desc");
 	$result = $DB->get("video");
 ?>
 <!DOCTYPE html>
