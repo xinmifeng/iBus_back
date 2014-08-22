@@ -78,9 +78,7 @@
 		var url = "videoAction.php";
 		 //弹出添加页面
         function to_addPage(){
-            var htm=$("#DIV_Event").html();
-            console.log(htm);
-            $.ShowHtmlByForm(htm,"添加视频分类");
+			window.location.href="videoAdd.php";
         }
 		//弹出修改页面
 		function to_updatePage(){
@@ -99,22 +97,16 @@
 				  $.Show("只能选择一条记录进行修改", 3);
 			 return false;
 			 }
-          $.ajax({
-			  "type":"post",
-			   "url":url,
-			   "data":{"tid":groupTypeId[0],"sign":"toUpdate"},
-			   "success":function(data){
-				   var htm=$("#DIV_Event").html();
-				    $.ShowHtmlByForm(htm,"修改视频分类");
-				    $(".xubox_layer").find("#type_name").val(data.type_name);
-					 $(".xubox_layer").find("#type_order_id").val(data.order_id);
-					  $(".xubox_layer").find("#type_id").val(groupTypeId[0]);
-					 
-						},
-			   "error":function(){},
-			  "complete":function(){}
-		});
-
+//          $.ajax({
+//			  "type":"post",
+//			   "url":url,
+//			   "data":{"vid":groupTypeId[0],"sign":"toUpdate"},
+//			   "success":function(){},
+//			   "error":function(){},
+//			  "complete":function(){}
+//		});
+	
+			window.location.href="videoAdd.php?v_id="+groupTypeId[0];
 		}
 
 	function insertDate(el){
@@ -153,7 +145,9 @@ if (confirm(msg)==true){
 			  "type":"post",
 			   "url":url,
 			   "data":{"tids":groupTypeId,"sign":"delete"},
-			   "success":function(data){},
+			   "success":function(data){
+			  window.location.href="videoList.php";
+			  },
 			   "error":function(){},
 			  "complete":function(){}
 		});
