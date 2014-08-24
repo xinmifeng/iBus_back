@@ -24,7 +24,7 @@
 	<body>
 		<table  border="1">
 			<tr>
-				<td colspan="9" align="center">banner管理</td>
+				<td colspan="10" align="center">banner管理</td>
 			</tr>
 			<tr>
 			<td class="STYLE1">
@@ -55,24 +55,20 @@
 				<td><? switch ($rs['type']) {
 						case "1": echo "首页";
 								 break;
-						case "1": echo "视频";
+						case "2": echo "视频";
 								 break;
-						case "1": echo "优惠";
+						case "3": echo "优惠";
 								 break;
-						case "1": echo "应用";
+						case "4": echo "应用";
 								 break;
 							}		
 					 ?></td>
 				<td><? echo $rs['picture_url']?></td>
 				<td><? echo $rs['src']?></td>
 				<td><? switch ($rs['details_type']) {
-						case "1": echo "首页";
+						case "1": echo "活动及应用";
 								 break;
-						case "1": echo "视频";
-								 break;
-						case "1": echo "优惠";
-								 break;
-						case "1": echo "应用";
+						case "2": echo "视频";
 								 break;
 							}		
 					 ?></td>
@@ -82,7 +78,7 @@
 			</tr>
 			<? $i++; }?>
 			<tr>
-			<td colspan="9">
+			<td colspan="10">
 				<input type="button" name="add" value="新增" onclick="javascript:to_addPage();" />
 				<input type="button" name="update" value="修改" onclick="to_updatePage();" />
 				<input type="button" name="del" value="删除" onclick="to_delete();"/>
@@ -161,7 +157,7 @@ if (confirm(msg)==true){
 			   "url":url,
 			   "data":{"tids":groupTypeId,"sign":"delete"},
 			   "success":function(data){
-			  window.location.href="videoList.php";
+			  window.location.href="bannerMgr.php";
 			  },
 			   "error":function(){},
 			  "complete":function(){}
