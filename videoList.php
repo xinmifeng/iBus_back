@@ -43,6 +43,8 @@ $result = $DB->get("video");
     <script src="bower_components/jquery/jquery.js"></script>
     <script src="js/layer/layer/layer.min.js"></script>
     <script src="js/Layerutility.js"></script>
+    <script src="js/VideoList.js"></script>
+
 </head>
 <body>
 
@@ -145,10 +147,7 @@ $result = $DB->get("video");
                 <td width="8" background="../images/tab_12.gif">&nbsp;</td>
                 <td>
                     <table width="100%" border="0" id="ShowDataTable" cellpadding="0" cellspacing="1"
-                           bgcolor="b5d6e6">
-                        <!--                           onmouseover="changeto()"-->
-                        <!--                           onmouseout="changeback()"-->
-
+                           bgcolor="b5d6e6" onmouseover="changeto()" onmouseout="changeback()">
                         <tr>
                             <td width="3%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center">
@@ -318,64 +317,6 @@ $result = $DB->get("video");
 </tr>
 </table>
 
-<script>
-    var url = "videoAction.php";
-    //弹出添加页面
-    function to_addPage() {
-        window.location.href = "videoAdd.php";
-    }
-    //弹出修改页面
-    function to_updatePage(id) {
-        window.location.href = "videoAdd.php?v_id=" + id;
-    }
 
-    function insertDate(el) {
-        var $table = $(el).closest("table");
-        var typeName = $("input.typeName", $table).val();
-        var orderID = $("input.typeOrderID", $table).val();
-        var typeID = $("input.type_id", $table).val();
-        $.ajax({
-            "type": "post",
-            "url": url,
-            "data": {"typeName": typeName, "orderID": orderID, "typeID": typeID, "sign": "insert"},
-            "success": function () {
-                $.Show("保存成功", 1);
-                $(".xubox_layer").find("#closebtn").click();
-            },
-            "error": function () {
-            },
-            "complete": function () {
-            }
-        });
-    }
-
-    function to_delete(id) {
-        var msg = "是否确定删除？";
-        $.ShowAlert(msg, "确定", "取消", function () {
-            var boxes = document.getElementsByName("checkboxName");
-            var groupTypeId = new Array();
-            var h = 0;
-            for (var g = 0; g < boxes.length; g++) {
-                if (boxes[g].checked) {
-                    groupTypeId[h] = boxes[g].value;
-                    h++;
-                }
-            }
-            if (id != undefined) {
-                groupTypeId.push(id);
-            }
-            $.ajax({
-                "type": "post",
-                "url": url,
-                "data": {"tids": groupTypeId, "sign": "delete"},
-                success: function (data) {
-                    console.log(data);
-                    window.location.href = "videoList.php";
-                }
-            });
-        }, function () {
-        })
-    }
-</script>
 </body>
 </html>

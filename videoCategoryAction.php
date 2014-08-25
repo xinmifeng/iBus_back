@@ -43,7 +43,8 @@ switch ($sign) {
 	case "delete": //É¾³ýÊÓÆµ·ÖÀà
 		$tIDs=$_POST["tids"];
 		$DB->where('type_id', $tIDs, 'IN');
-		$DB->delete('video_type');
+		$count=$DB->delete('video_type');
+        echo $count;
 		break;
 }
 
