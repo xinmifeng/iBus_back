@@ -50,7 +50,7 @@ switch ($sign) {
 		$details_id=$_POST["details_id"];
 		$orderID=$_POST["order_id"];
 		if(!empty($_POST["id"])){//如果存在ID，就修改记录
-			$v_id=$_POST["id"];
+			$id=$_POST["id"];
 			$data=Array(
 				  'type' => $type,
 				 'title' => $title,

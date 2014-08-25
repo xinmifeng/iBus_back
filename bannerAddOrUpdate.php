@@ -32,7 +32,8 @@
         </tr>
 		 <tr><td>分类：</td>
         <td>
-		<select id="type" name="type" onchange="changeValue();" value="<?php  if(!empty($banner['type'])){echo $banner['type']; }?>"> 
+		<input type="hidden" id="typeValue" name="typeValue" value="<?php  if(!empty($banner['type'])){echo $banner['type']; }?>">
+		<select id="type" name="type" value=""> 
 			<option value="1">首页</option>
 			<option value="2">视频</option>
 			<option value="3">优惠</option>
@@ -48,7 +49,8 @@
         </tr>
 		<tr><td>绑定分类：</td>
         <td>
-		<select id="details_type" name="details_type" onchange="changeValue();" value="<?php  if(!empty($banner['details_type'])){echo $banner['details_type']; }?>"> 
+		<input type="hidden" id="detailsValue" name="detailsValue" value="<?php echo $banner['details_type'];?>">
+		<select id="details_type" name="details_type" onchange="changeValue();" value=""> 
 			<option value="1">活动及应用</option>
 			<option value="2">视频</option>
 		</select>
@@ -56,8 +58,21 @@
         </tr>
 		 <tr><td>绑定标题：</td>
         <td>
-		<select id="details_id" name="details_id" value="<?php if(!empty($video['details_id'])){echo $video['details_id'];} ?>" >
-			 <option value="">请选择</option>
+		<input type="hidden" id="details_text" name="details_text" value="<?php
+		if($banner['details_type']=="1"){
+		$DB->where ("id", $banner['details_id']);
+	$details_text = $DB->getOne ("activity");
+	}else{
+		$DB->where ("v_id", $banner['details_id']);
+	$details_text = $DB->getOne ("video");
+	}
+		echo $details_text["title"];
+		?>"/>
+		<input type="hidden" id="details_id_value" name="details_id_value" value="<?php if(!empty($banner['details_id'])){echo $banner['details_id'];} ?>"/>
+		<select id="details_id" name="details_id" value="" >
+			 <option value="<?php
+			echo $banner['details_id'];?>"><?php
+			 echo $details_text["title"]?></option>
 		</select>
 		</td>
         </tr>
@@ -75,6 +90,15 @@
     </table>
 	</form>
 		<script>
+		   $(document).ready(function () {
+            if ($("#detailsValue").val() != "") {
+                $("#details_type").val($("#detailsValue").val())
+            }
+				 if ($("#typeValue").val() != "") {
+                $("#type").val($("#typeValue").val())
+            }
+        });
+
 		var url="bannerAction.php";
 		function insertDate(){
 			
@@ -124,6 +148,9 @@
 //					e.options= new Option(dataList[i][1],dataList[i][0]); 
 //				}
 //				
+			if ($("#details_text").val() != "") {
+                $("#details_id").val($("#details_id_value").val());
+            }
 		  },
 		   "error":function(){},
 		  "complete":function(){}

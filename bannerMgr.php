@@ -72,7 +72,16 @@
 								 break;
 							}		
 					 ?></td>
-				<td><? echo $rs['details_id']?></td>
+				<td><? if($rs['details_type']=="1"){
+		$DB->where ("id", $rs['details_id']);
+	$details_text = $DB->getOne ("activity");
+	}else{
+		$DB->where ("v_id", $rs['details_id']);
+	$details_text = $DB->getOne ("video");
+	}
+		echo $details_text["title"]; 
+				
+					 ?></td>
 				<td><? echo $rs['order_id']?></td>
 				<td><? echo $rs['create_date']?></td>
 			</tr>
@@ -117,7 +126,7 @@
 //			  "complete":function(){}
 //		});
 	
-			window.location.href="videoAdd.php?v_id="+groupTypeId[0];
+			window.location.href="bannerAddOrUpdate.php?id="+groupTypeId[0];
 		}
 
 	function insertDate(el){
