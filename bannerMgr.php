@@ -20,6 +20,13 @@
 	<script src="bower_components/jquery/jquery.js"></script>
 	<script src="js/layer/layer/layer.min.js"></script>
 	<script src="js/Layerutility.js"></script>
+	<script> 
+	function CheckAll(val) { 
+ $("input[name='chkJob']").each(function() { 
+ this.checked = val; 
+ }); 
+ } 
+	</script>
 	</head>
 	<body>
 		<table  border="1">
@@ -27,8 +34,8 @@
 				<td colspan="10" align="center">banner管理</td>
 			</tr>
 			<tr>
-			<td class="STYLE1">
-               <div align="center"><input type="checkbox" />全选</div>
+			<td>
+              <input type='checkbox' id='chkAll' onclick="CheckAll(this.checked)" />全选
             </td>
 			<td class="tab_header">序号</td>
 			<td class="tab_header">标题</td>
@@ -47,7 +54,7 @@
 			<tr> 
 			<td width="5%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
         <div align="center">
-            <input type="checkbox" name="checkboxName" value="<?php echo $rs['id'] ?>"/>
+		 <input name='chkJob' type='checkbox' value="<?php echo $rs['id'] ?>"/>
         </div>
     </td>	
 				<td><input type="hidden" name="id" /><? echo $i ?></td>
