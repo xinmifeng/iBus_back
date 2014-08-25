@@ -40,7 +40,7 @@
         var i = $.layer({
             type: 1,
             title: titleStr,
-            area: ['700px', '500px'],
+            area: ['323px', '200px'],
             page: {html: html},
             success: function (index) {
                 CloseBtn(index);

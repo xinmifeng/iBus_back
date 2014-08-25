@@ -20,6 +20,10 @@ header("content-Type: text/html; charset=gb2312");
     <script type="text/javascript" src="../SWFUpload/js/fileprogress.js"></script>
     <script type="text/javascript" src="../SWFUpload/js/handlers.js"></script>
     <script type="text/javascript" src="../js/Upload.js"></script>
+
+
+    <link href="../CSS/style.css" rel="stylesheet" type="text/css"/>
+
     <script>
         var swfu;
         var swfu1;
@@ -47,16 +51,17 @@ header("content-Type: text/html; charset=gb2312");
 </head>
 
 <body>
-<table style="width:1024px">
+<DIV class=main_title>新增活动及应用</DIV>
+<table class="form">
     <?php
     if (empty($_GET["id"])) {
         ?>
         <tr>
-            <td style="text-align: right">活动标题：</td>
+            <td class="item_title">活动标题：</td>
             <td><input type="text" id="hd_title"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">活动类型：</td>
+            <td class="item_title">活动类型：</td>
             <td><select id="Sel_type">
                     <option value="限时活动">限时活动</option>
                     <option value="活动">活动</option>
@@ -65,11 +70,11 @@ header("content-Type: text/html; charset=gb2312");
                 </select>
         </tr>
         <tr>
-            <td style="text-align: right">外链地址：</td>
+            <td class="item_title">外链地址：</td>
             <td><input type="text" id="hd_src"/>(无外链可忽略)</td>
         </tr>
         <tr>
-            <td style="text-align: right">图片上传：</td>
+            <td class="item_title">图片上传：</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
@@ -84,7 +89,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageInfo"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">详细图片上传：</td>
+            <td class="item_title">详细图片上传：</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
@@ -99,7 +104,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageDetails"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">应用上传：</td>
+            <td class="item_title">应用上传：</td>
             <td>
 
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
@@ -116,7 +121,7 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
 
         <tr>
-            <td style="text-align: right"><input type="button" value="提交" class="SaveChange"
+            <td class="item_title"><input type="button" value="提交" class="SaveChange"
                                                  onclick="SubmitToAction();"/>
             </td>
             <td><input type="button" value="关闭" id="closebtn"/></td>
@@ -132,11 +137,11 @@ header("content-Type: text/html; charset=gb2312");
 
         ?>
         <tr>
-            <td style="text-align: right">活动标题：</td>
+            <td class="item_title">活动标题：</td>
             <td><input type="text" id="hd_title" value="<?php echo iconv('UTF-8', 'GB2312', $title) ?>"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">活动类型：</td>
+            <td class="item_title">活动类型：</td>
             <td><select id="Sel_type">
                     <option value="限时活动">限时活动</option>
                     <option value="活动">活动</option>
@@ -146,11 +151,11 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="hidden" id="btnsel" value="<?php echo iconv('UTF-8', 'GB2312', $Type); ?>"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">外链地址：</td>
+            <td class="item_title">外链地址：</td>
             <td><input type="text" id="hd_src" value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(无外链可忽略)</td>
         </tr>
         <tr>
-            <td style="text-align: right">图片上传：</td>
+            <td class="item_title">图片上传：</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
@@ -165,7 +170,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageInfo"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">详细图片上传：</td>
+            <td class="item_title">详细图片上传：</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
@@ -180,7 +185,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageDetails"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">应用上传：</td>
+            <td class="item_title">应用上传：</td>
             <td>
 
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
@@ -197,7 +202,7 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
 
         <tr>
-            <td style="text-align: right"><input type="button" value="提交" class="SaveChange"
+            <td class="item_title"><input type="button" value="提交" class="SaveChange"
                                                  onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
             </td>
             <td><input type="button" value="关闭" id="closebtn"/></td>
