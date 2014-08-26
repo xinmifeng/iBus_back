@@ -210,9 +210,9 @@ $result = $DB->get("video_type");
             </table>
         </td>
     </tr>
-    <tr>
+    <tr style="display: none">
         <td height="35" background="images/tab_19.gif">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="display: none">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
                 <tr>
                     <td width="12" height="35"><img src="images/tab_18.gif" width="12" height="35"/></td>
                     <td>

@@ -5,7 +5,7 @@ function ModelUpload() {
     var swfu;
     var settings = {
         flash_url: "../SWFUpload/swfupload/swfupload.swf",
-        upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
+        upload_url: "http://192.168.1.103/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
         file_types: "*.*",
@@ -50,7 +50,7 @@ function ModelUpload1() {
     var swfu;
     var settings = {
         flash_url: "../SWFUpload/swfupload/swfupload.swf",
-        upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
+        upload_url: "http://192.168.1.103/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
         file_types: "*.*",
@@ -94,7 +94,7 @@ function ModelUpload2() {
     var swfu;
     var settings = {
         flash_url: "../SWFUpload/swfupload/swfupload.swf",
-        upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
+        upload_url: "http://192.168.1.103/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
         file_types: "*.*",
@@ -139,7 +139,7 @@ function ModelUpload3() {
     var swfu;
     var settings = {
         flash_url: "../SWFUpload/swfupload/swfupload.swf",
-        upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
+        upload_url: "http://192.168.1.103/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
         file_types: "*.*",
@@ -184,7 +184,7 @@ function ModelUpload4() {
     var swfu;
     var settings = {
         flash_url: "../SWFUpload/swfupload/swfupload.swf",
-        upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
+        upload_url: "http://192.168.1.103/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
         file_types: "*.*",

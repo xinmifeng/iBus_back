@@ -121,10 +121,10 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
 
         <tr>
-            <td class="item_title"><input type="button" value="提交" class="SaveChange"
-                                                 onclick="SubmitToAction();"/>
+            <td class="item_title">
             </td>
-            <td><input type="button" value="关闭" id="closebtn"/></td>
+            <td><input type="button" value="提交" class="button SaveChange"
+                       onclick="SubmitToAction();"/><input type="button" class="button" value="关闭" id="closebtn"/></td>
         </tr>
     <?php
     } else {
@@ -203,7 +203,7 @@ header("content-Type: text/html; charset=gb2312");
 
         <tr>
             <td class="item_title"><input type="button" value="提交" class="SaveChange"
-                                                 onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
+                                          onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
             </td>
             <td><input type="button" value="关闭" id="closebtn"/></td>
         </tr>
