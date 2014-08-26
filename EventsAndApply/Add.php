@@ -8,7 +8,7 @@ header("content-Type: text/html; charset=gb2312");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>ªÓ∂Øπ‹¿Ì</title>
+    <title>?Ó∂Ø????</title>
     <script src="../bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="../js/layer/layer/layer.min.js"></script>
     <script type="text/javascript" src="../js/Layerutility.js"></script>
@@ -30,7 +30,7 @@ header("content-Type: text/html; charset=gb2312");
             swfu2 = ModelUpload2();
         };
         function fileDialogComplete() {
-            alert("Add ˝æ›≥…π¶");
+            alert("Add???›≥…π?");
             swfu.startUpload();
             swfu1.startUpload();
             swfu2.startUpload();
@@ -52,31 +52,31 @@ header("content-Type: text/html; charset=gb2312");
     if (empty($_GET["id"])) {
         ?>
         <tr>
-            <td style="text-align: right">ªÓ∂Ø±ÍÃ‚£∫</td>
+            <td style="text-align: right">?Ó∂Ø???‚£∫</td>
             <td><input type="text" id="hd_title"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">ªÓ∂Ø¿‡–Õ£∫</td>
+            <td style="text-align: right">?Ó∂Ø???Õ£?</td>
             <td><select id="Sel_type">
-                    <option value="œﬁ ±ªÓ∂Ø">œﬁ ±ªÓ∂Ø</option>
-                    <option value="ªÓ∂Ø">ªÓ∂Ø</option>
-                    <option value="”¶”√£®”Œœ∑£©">”¶”√£®”Œœ∑£©</option>
-                    <option value="”¶”√£®App£©">”¶”√£®App£©</option>
+                    <option value="?? ±?Ó∂Ø">?? ±?Ó∂Ø</option>
+                    <option value="?Ó∂Ø">?Ó∂Ø</option>
+                    <option value="”¶?√£???œ∑??">”¶?√£???œ∑??</option>
+                    <option value="”¶?√£?App??">”¶?√£?App??</option>
                 </select>
         </tr>
         <tr>
-            <td style="text-align: right">Õ‚¡¥µÿ÷∑£∫</td>
-            <td><input type="text" id="hd_src"/>(ŒﬁÕ‚¡¥ø…∫ˆ¬‘)</td>
+            <td style="text-align: right">??¡¥??÷∑??</td>
+            <td><input type="text" id="hd_src"/>(????¡¥?…∫???)</td>
         </tr>
         <tr>
-            <td style="text-align: right">Õº∆¨…œ¥´£∫</td>
+            <td style="text-align: right">Õº∆¨?œ¥???</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder"></span>
 
                         <div id="fsUploadProgress"></div>
-                        <input id="btnCancel" type="button" value="»°œ˚À˘”–…œ¥´" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="»°???????œ¥?" onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -84,14 +84,14 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageInfo"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">œÍœ∏Õº∆¨…œ¥´£∫</td>
+            <td style="text-align: right">??œ∏Õº∆¨?œ¥???</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder1"></span>
 
                         <div id="fsUploadProgress1"></div>
-                        <input id="btnCancel" type="button" value="»°œ˚À˘”–…œ¥´" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="»°???????œ¥?" onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -99,7 +99,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageDetails"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">”¶”√…œ¥´£∫</td>
+            <td style="text-align: right">”¶???œ¥???</td>
             <td>
 
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
@@ -107,7 +107,7 @@ header("content-Type: text/html; charset=gb2312");
                         <span id="spanButtonPlaceHolder2"></span>
 
                         <div id="fsUploadProgress2"></div>
-                        <input id="btnCancel" type="button" value="»°œ˚À˘”–…œ¥´" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="»°???????œ¥?" onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -116,10 +116,14 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
 
         <tr>
-            <td style="text-align: right"><input type="button" value="Ã·Ωª" class="SaveChange"
+<!--
+            <td style="text-align: right"><input type="button" value="?·Ωª" class="SaveChange"
                                                  onclick="SubmitToAction();"/>
+-->
+            <td class="item_title">
             </td>
-            <td><input type="button" value="πÿ±’" id="closebtn"/></td>
+            <td><input type="button" value="?·Ωª" class="button SaveChange"
+                       onclick="SubmitToAction();"/><input type="button" class="button" value="?ÿ±?" id="closebtn"/></td>
         </tr>
     <?php
     } else {
@@ -132,32 +136,32 @@ header("content-Type: text/html; charset=gb2312");
 
         ?>
         <tr>
-            <td style="text-align: right">ªÓ∂Ø±ÍÃ‚£∫</td>
+            <td style="text-align: right">?Ó∂Ø???‚£∫</td>
             <td><input type="text" id="hd_title" value="<?php echo iconv('UTF-8', 'GB2312', $title) ?>"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">ªÓ∂Ø¿‡–Õ£∫</td>
+            <td style="text-align: right">?Ó∂Ø???Õ£?</td>
             <td><select id="Sel_type">
-                    <option value="œﬁ ±ªÓ∂Ø">œﬁ ±ªÓ∂Ø</option>
-                    <option value="ªÓ∂Ø">ªÓ∂Ø</option>
-                    <option value="”¶”√£®”Œœ∑£©">”¶”√£®”Œœ∑£©</option>
-                    <option value="”¶”√£®App£©">”¶”√£®App£©</option>
+                    <option value="?? ±?Ó∂Ø">?? ±?Ó∂Ø</option>
+                    <option value="?Ó∂Ø">?Ó∂Ø</option>
+                    <option value="”¶?√£???œ∑??">”¶?√£???œ∑??</option>
+                    <option value="”¶?√£?App??">”¶?√£?App??</option>
                 </select>
                 <input type="hidden" id="btnsel" value="<?php echo iconv('UTF-8', 'GB2312', $Type); ?>"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">Õ‚¡¥µÿ÷∑£∫</td>
-            <td><input type="text" id="hd_src" value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(ŒﬁÕ‚¡¥ø…∫ˆ¬‘)</td>
+            <td style="text-align: right">??¡¥??÷∑??</td>
+            <td><input type="text" id="hd_src" value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(????¡¥?…∫???)</td>
         </tr>
         <tr>
-            <td style="text-align: right">Õº∆¨…œ¥´£∫</td>
+            <td style="text-align: right">Õº∆¨?œ¥???</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder"></span>
 
                         <div id="fsUploadProgress"></div>
-                        <input id="btnCancel" type="button" value="»°œ˚À˘”–…œ¥´" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="»°???????œ¥?" onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -165,14 +169,14 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageInfo"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">œÍœ∏Õº∆¨…œ¥´£∫</td>
+            <td style="text-align: right">??œ∏Õº∆¨?œ¥???</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder1"></span>
 
                         <div id="fsUploadProgress1"></div>
-                        <input id="btnCancel" type="button" value="»°œ˚À˘”–…œ¥´" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="»°???????œ¥?" onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -180,7 +184,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageDetails"/></td>
         </tr>
         <tr>
-            <td style="text-align: right">”¶”√…œ¥´£∫</td>
+            <td style="text-align: right">”¶???œ¥???</td>
             <td>
 
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
@@ -188,7 +192,7 @@ header("content-Type: text/html; charset=gb2312");
                         <span id="spanButtonPlaceHolder2"></span>
 
                         <div id="fsUploadProgress2"></div>
-                        <input id="btnCancel" type="button" value="»°œ˚À˘”–…œ¥´" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="»°???????œ¥?" onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -197,10 +201,14 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
 
         <tr>
-            <td style="text-align: right"><input type="button" value="Ã·Ωª" class="SaveChange"
+<!--
+            <td style="text-align: right"><input type="button" value="?·Ωª" class="SaveChange"
                                                  onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
+-->
+            <td class="item_title"><input type="button" value="?·Ωª" class="SaveChange"
+                                          onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
             </td>
-            <td><input type="button" value="πÿ±’" id="closebtn"/></td>
+            <td><input type="button" value="?ÿ±?" id="closebtn"/></td>
         </tr>
     <?php } ?>
 </table>
