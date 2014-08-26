@@ -20,21 +20,29 @@
 	<script src="bower_components/jquery/jquery.js"></script>
 	<script src="js/layer/layer/layer.min.js"></script>
 	<script src="js/Layerutility.js"></script>
+	<script> 
+	function CheckAll(val) { 
+ $("input[name='chkJob']").each(function() { 
+ this.checked = val; 
+ }); 
+ } 
+	</script>
 	</head>
 	<body>
 		<table  border="1">
 			<tr>
-				<td colspan="9" align="center">banner管理</td>
+				<td colspan="10" align="center">banner管理</td>
 			</tr>
 			<tr>
-			<td class="STYLE1">
-               <div align="center"><input type="checkbox" />全选</div>
+			<td>
+              <input type='checkbox' id='chkAll' onclick="CheckAll(this.checked)" />全选
             </td>
 			<td class="tab_header">序号</td>
 			<td class="tab_header">标题</td>
 			<td class="tab_header">所属类别</td>
 			<td class="tab_header">图片地址</td>
 			<td class="tab_header">链接</td>
+			<td class="tab_header">绑定类型</td>
 			<td class="tab_header">绑定标题</td>
 			<td class="tab_header">排序值</td>
 			<td class="tab_header">创建时间</td>
@@ -46,7 +54,7 @@
 			<tr> 
 			<td width="5%" height="22" background="images/bg.gif" bgcolor="#FFFFFF">
         <div align="center">
-            <input type="checkbox" name="checkboxName" value="<?php echo $rs['id'] ?>"/>
+		 <input name='chkJob' type='checkbox' value="<?php echo $rs['id'] ?>"/>
         </div>
     </td>	
 				<td><input type="hidden" name="id" /><? echo $i ?></td>
@@ -54,23 +62,39 @@
 				<td><? switch ($rs['type']) {
 						case "1": echo "首页";
 								 break;
-						case "1": echo "视频";
+						case "2": echo "视频";
 								 break;
-						case "1": echo "优惠";
+						case "3": echo "优惠";
 								 break;
-						case "1": echo "应用";
+						case "4": echo "应用";
 								 break;
 							}		
 					 ?></td>
 				<td><? echo $rs['picture_url']?></td>
 				<td><? echo $rs['src']?></td>
-				<td><? echo $rs['details_id']?></td>
+				<td><? switch ($rs['details_type']) {
+						case "1": echo "活动及应用";
+								 break;
+						case "2": echo "视频";
+								 break;
+							}		
+					 ?></td>
+				<td><? if($rs['details_type']=="1"){
+		$DB->where ("id", $rs['details_id']);
+	$details_text = $DB->getOne ("activity");
+	}else{
+		$DB->where ("v_id", $rs['details_id']);
+	$details_text = $DB->getOne ("video");
+	}
+		echo $details_text["title"]; 
+				
+					 ?></td>
 				<td><? echo $rs['order_id']?></td>
 				<td><? echo $rs['create_date']?></td>
 			</tr>
 			<? $i++; }?>
 			<tr>
-			<td colspan="9">
+			<td colspan="10">
 				<input type="button" name="add" value="新增" onclick="javascript:to_addPage();" />
 				<input type="button" name="update" value="修改" onclick="to_updatePage();" />
 				<input type="button" name="del" value="删除" onclick="to_delete();"/>
@@ -148,7 +172,7 @@ if (confirm(msg)==true){
 			   "url":url,
 			   "data":{"tids":groupTypeId,"sign":"delete"},
 			   "success":function(data){
-			  window.location.href="videoList.php";
+			  window.location.href="bannerMgr.php";
 			  },
 			   "error":function(){},
 			  "complete":function(){}
