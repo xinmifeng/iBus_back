@@ -1,9 +1,9 @@
-var url = "videoAction.php";
-//µ¯³öÌí¼ÓÒ³Ãæ
+ï»¿var url = "videoAction.php";
+//å¼¹å‡ºæ·»åŠ é¡µé¢
 function to_addPage() {
     window.location.href = "videoAdd.php";
 }
-//µ¯³öĞŞ¸ÄÒ³Ãæ
+//å¼¹å‡ºä¿®æ”¹é¡µé¢
 function to_updatePage(id) {
     window.location.href = "videoAdd.php?v_id=" + id;
 }
@@ -18,7 +18,7 @@ function insertDate(el) {
         "url": url,
         "data": {"typeName": typeName, "orderID": orderID, "typeID": typeID, "sign": "insert"},
         "success": function () {
-            $.Show("±£´æ³É¹¦", 1);
+            $.Show("ä¿å­˜æˆåŠŸ", 1);
             $(".xubox_layer").find("#closebtn").click();
         },
         "error": function () {
@@ -29,8 +29,8 @@ function insertDate(el) {
 }
 
 function to_delete(id) {
-    var msg = "ÊÇ·ñÈ·¶¨É¾³ı£¿";
-    $.ShowAlert(msg, "È·¶¨", "È¡Ïû", function () {
+    var msg = "æ˜¯å¦ç¡®å®šåˆ é™¤ï¼Ÿ";
+    $.ShowAlert(msg, "ç¡®å®š", "å–æ¶ˆ", function () {
         var groupTypeId = new Array();
         if (id != undefined) {
             groupTypeId.push(id);
