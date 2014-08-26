@@ -27,7 +27,7 @@
 	<form id="addForm" name="addForm" action="indexAction.php" method="post">
     <table>
 	<tr><td>位置代号：</td><td><?php
-echo $position;	?><input type="hidden" id="position" name="position" value="<?echo $position;?>" /></td></tr>
+echo $position+1;	?><input type="hidden" id="position" name="position" value="<?echo $position;?>" /></td></tr>
          <tr><td>主页类别：</td>
         <td>
 		<input type="hidden" id="typeValue" name="typeValue" value="<?php  if(!empty($index['index_type'])){echo $index['index_type']; }?>">
@@ -70,6 +70,7 @@ echo $position;	?><input type="hidden" id="position" name="position" value="<?ec
             if ($("#typeValue").val() != "") {
                 $("#index_type").val($("#typeValue").val());
             }
+			changeValue();
         });
 
 		var url="indexAction.php";
@@ -94,6 +95,37 @@ echo $position;	?><input type="hidden" id="position" name="position" value="<?ec
 		function goback(){
 			window.location.href="indexMgr.php";
 		}
+		function changeValue(){
+			var details_type="";
+		var position=$('#position').val();
+		if(position=="2"||position=="3"){
+		details_type="2";
+		}else{
+		details_type="1";
+		}
+		$.ajax({
+		  "type":"post",
+		   "url":"bannerAction.php",
+		   "data":{"details_type":details_type,"sign":"select"},
+		   "success":function(dataList){
+	var selectbox = document.getElementById("details_id");
+	selectbox.length = 0;
+	for(var i=0;i<dataList.length;i++){
+		var newOption = document.createElement("option");
+	newOption.appendChild(document.createTextNode(dataList[i][1]));
+	newOption.setAttribute("value", dataList[i][0]);
+	selectbox.appendChild(newOption);
+	}
+
+			if ($("details_id_value").val() != "") {
+                $("#details_id").val($("#details_id_value").val());
+            }
+		  },
+		   "error":function(){},
+		  "complete":function(){}
+		});
+		
+	}
 	   </script>
 	</body>
 </html>
