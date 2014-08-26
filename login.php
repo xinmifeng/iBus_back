@@ -115,28 +115,23 @@ if (!empty($_POST["flag"])) {
                                                     <tr>
                                                         <td width="35%">&nbsp;</td>
                                                         <td height="25" colspan="2" class="left_txt">
-                                                            <p>1- 说明1</p></td>
+                                                            <p></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td height="25" colspan="2" class="left_txt">
-                                                            <p>2- 说明2</p></td>
+                                                            <p></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td height="25" colspan="2" class="left_txt">
-                                                            <p>3- 说明3</p></td>
+                                                            <p></p></td>
                                                     </tr>
                                                     <tr>
                                                         <td>&nbsp;</td>
                                                         <td width="30%" height="40">
-                                                            <img src="images/icon-demo.gif" width="16" height="16">
-                                                            <a href="http://www.865171.cn" target="_blank"
-                                                               class="left_txt3">登 录</a>
                                                         </td>
-                                                        <td width="35%"><img src="images/icon-login-seaver.gif"
-                                                                             width="16" height="16">
-                                                            <a href="http://www.865171.cn" class="left_txt3">取 消</a>
+                                                        <td width="35%">
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -152,7 +147,7 @@ if (!empty($_POST["flag"])) {
                         <table width="100%" height="59" border="0" align="center" cellpadding="0" cellspacing="0">
                             <tr>
                                 <td width="4%">&nbsp;</td>
-                                <td width="96%" height="38"><span class="login_txt_bt">登陆信息网后台管理</span></td>
+                                <td width="96%" height="38"><span class="login_txt_bt">BusFree后台登陆</span></td>
                             </tr>
                             <tr>
                                 <td>&nbsp;</td>
@@ -234,7 +229,7 @@ if (!empty($_POST["flag"])) {
         </td>
     </tr>
     <tr>
-        <td height="20">
+        <td height="10">
             <table width="100%" border="0" cellspacing="0" cellpadding="0" class="login-buttom-bg">
                 <tr>
                     <td align="center">

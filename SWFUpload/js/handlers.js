@@ -177,6 +177,7 @@ function uploadError(file, errorCode, message) {
 function uploadComplete(file) {
     if (this.getStats().files_queued === 0) {
         document.getElementById(this.customSettings.cancelButtonId).disabled = true;
+        alert("111");
         var idStr = $(this.settings.type).attr("id");
         var idValue = $(this.settings.type).val();
         switch (idStr) {
@@ -194,6 +195,16 @@ function uploadComplete(file) {
                 var jsStr = {"download_url": idValue};
                 var jsonData = {"UData": jsStr, "id": GUID, "Utype": "1"};
                 update_HD(GUID, jsonData);
+                break;
+            case "Video4_msg":
+                var jsStr = {"pic_url": idValue};
+                var jsonData = {"UData": jsStr, "id": GUID, "sign": 'update', "Utype": "1"};
+                Updatedata(GUID, jsonData);
+                break;
+            case "Video5_msg":
+                var jsStr = {"address": idValue};
+                var jsonData = {"UData": jsStr, "id": GUID, "sign": 'update', "Utype": "1"};
+                Updatedata(GUID, jsonData);
                 break;
             default:
                 break;

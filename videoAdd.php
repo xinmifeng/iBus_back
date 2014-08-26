@@ -1,111 +1,168 @@
 <?php
 /**
- * æ–°å¢è§†é¢‘.
- * 
- * @author  Dennis 
+ * ĞÂÔöÊÓÆµ.
+ *
+ * @author  Dennis
  * @version 1.0
  * @package main
  */
-	require_once("./MysqliDb.php");
-	require_once("./sqlDb.php");
-	require_once("./doAccess.php");
-	if(!empty($_GET["v_id"])){
-	$v_id=$_GET["v_id"];
-	$DB->where ("v_id", $v_id);
-	$video = $DB->getOne ("video");
-	}
+require_once("./MysqliDb.php");
+require_once("./sqlDb.php");
+if (!empty($_GET["v_id"])) {
+    $v_id = $_GET["v_id"];
+    $DB->where("v_id", $v_id);
+    $video = $DB->getOne("video");
+}
 ?>
-<!DOCTYPE html>
-<html>
-<meta charset="utf-8">
-	<head>
-	<script src="bower_components/jquery/jquery.js"></script>
-	<script src="js/layer/layer/layer.min.js"></script>
-	<script src="js/Layerutility.js"></script>
-	</head>
-	<body>
-	<form id="addForm" name="addForm" action="videoAction.php" method="post">
-    <table>
-        <tr><td>æ ‡é¢˜ï¼š</td>
-        <td><input type="hidden" id="sign" name="sign" /><input type="hidden" id="v_id" class="v_id" name="v_id" value="<?php
-       if(!empty($v_id)){ echo $v_id; }?>" /><input type="text" class="title" id="title" name="title" value="<?php  if(!empty($video['title'])){echo $video['title']; }?>" /></td>
-        </tr>
-		<tr><td>è§†é¢‘åç§°ï¼š</td>
-        <td><input type="select" class="v_name" id="v_name" name="v_name" value="<?php if(!empty($video['v_name'])){echo $video['v_name']; }?>" /></td>
-        </tr>
-		 <tr><td>è§†é¢‘æ‰€å±åˆ†ç±»ï¼š</td>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="js/layer/layer/layer.min.js"></script>
+    <script src="js/Layerutility.js"></script>
+    <script src="js/Video.js"></script>
+
+    <link href="SWFUpload/css/default.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="SWFUpload/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="SWFUpload/js/swfupload.queue.js"></script>
+    <script type="text/javascript" src="SWFUpload/js/fileprogress.js"></script>
+    <script type="text/javascript" src="SWFUpload/js/handlers.js"></script>
+    <script type="text/javascript" src="js/Upload.js"></script>
+
+
+    <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
+
+    <script type="text/javascript" language="javascript">
+        var swfu;
+        var swfu1;
+        window.onload = function () {
+            swfu = ModelUpload3();
+            swfu1 = ModelUpload4();
+        };
+        function fileDialogComplete() {
+            swfu.startUpload();
+            swfu1.startUpload();
+        }
+    </script>
+</head>
+<body>
+<DIV class=main_title>ĞÂÔöÊÓÆµ</DIV>
+<table class="form">
+    <tr>
+        <td class="item_title">±êÌâ£º</td>
+        <td><input type="hidden" id="sign" name="sign"/><input type="hidden" id="v_id" class="v_id" name="v_id"
+                                                               value="<?php
+                                                               if (!empty($v_id)) {
+                                                                   echo $v_id;
+                                                               }?>"/><input type="text" class="title" id="title"
+                                                                            name="title"
+                                                                            value="<?php if (!empty($video['title'])) {
+                                                                                echo iconv('UTF-8', 'GB2312', $video['title']);
+                                                                            } ?>"/></td>
+    </tr>
+    <tr>
+        <td class="item_title">ÊÓÆµÃû³Æ£º</td>
+        <td><input type="select" class="v_name" id="v_name" name="v_name"
+                   value="<?php if (!empty($video['v_name'])) {
+                       echo $video['v_name'];
+                   } ?>"/></td>
+    </tr>
+    <tr>
+        <td class="item_title">ÊÓÆµËùÊô·ÖÀà£º</td>
         <td>
-		<select id="type_id" name="type_id" value="<?php if(!empty($video['type_id'])){echo $video['type_id'];} ?>" >
-			  <?php 
-			  if(!empty($video['type_id'])){
-			  ?>
-			  <option value="<?php echo $video['type_id'] ?>"><?php
-			 $DB->where ("type_id", $video['type_id']);
-					$vType = $DB->getOne ("video_type");
-					echo $vType["type_name"];
-				?></option>
-			  <?php
-			  }
-			  $DB->orderBy("order_id","asc");
-				$result = $DB->get("video_type");
-			  foreach ($result as $v)
-			{?>
-				<option value="<?=$v['type_id']?>"><?=$v['type_name']?></option>
-			 <?php
-			 }
-			 ?>
-		</select>
-		</td>
-        </tr>
-		 <tr><td>å±•ç¤ºå›¾ç‰‡åœ°å€</td>
-        <td><input type="text" class="pic_url" name="pic_url" id="pic_url" value="<?php if(!empty($video['pic_url'])){echo $video['pic_url'];} ?>"/></td>
-        </tr>
-		 <tr><td>è§†é¢‘ä¸Šä¼ ï¼š</td>
-        <td><input type="text" class="address" name="address" id="address" value="<?php if(!empty($video['address'])){echo $video['address'];} ?>"/></td>
-        </tr>
-		 <tr><td>æ—¶é•¿ï¼š</td>
-        <td><input type="text" class="length" id="length" name="length" value="<?php if(!empty($video['length'])){echo $video['length'];} ?>"/></td>
-        </tr>
-		<tr><td>æ’åºå€¼</td>
-            <td><input type="text" class="OrderID" id="order_id" name="order_id" value="<?php
-           if(!empty($video['order_id'])){
-		   echo $video['order_id'];
-		   }else{
-            $maxOrderID=$DB->getOne("video","max(order_id) as maxID");
-			echo $maxOrderID['maxID']+10;
-		}
-			?>" /></td>
-        </tr>
-		<tr><td><input type="button" name="add" value="ç¡®å®š" onclick="insertDate();" /><input type="button" name="back" value="è¿”å›" onclick="goback();" /></td></tr>
-    </table>
-	</form>
-		<script>
-		var url="videoAction.php";
-		function insertDate(){
-			
-			var type_id=$('#type_id').val();
-			var v_id=$('#v_id').val();
-			var title=$('#title').val();
-			var v_name=$('#v_name').val();
-			var pic_url=$('#pic_url').val();
-			var address=$('#address').val();
-			var length=$('#length').val();
-			var order_id=$('#order_id').val();
-			$.ajax({
-		  "type":"post",
-		   "url":url,
-		   "data":{"type_id":type_id,"v_id":v_id,"title":title,"v_name":v_name,"pic_url":pic_url,"address":address,"length":length,"order_id":order_id,"sign":"insert"},
-		   "success":function(){
-						// $.Show("ä¿å­˜æˆåŠŸ", 1);
-                       window.location.href="videoList.php";
-					},
-		   "error":function(){},
-		  "complete":function(){}
-		});
-		}
-		function goback(){
-			window.location.href="videoList.php";
-		}
-	   </script>
-	</body>
+            <select id="type_id" value="<?php if (!empty($video['type_id'])) {
+                echo $video['type_id'];
+            } ?>">
+                <?php
+                if (!empty($video['type_id'])) {
+                    ?>
+                    <option value="<?php echo $video['type_id'] ?>"><?php
+                        $DB->where("type_id", $video['type_id']);
+                        $vType = $DB->getOne("video_type");
+                        echo iconv('UTF-8', 'GB2312', $vType["type_name"]);
+                        ?></option>
+                <?php
+                }
+                $DB->orderBy("order_id", "asc");
+                $result = $DB->get("video_type");
+                foreach ($result as $v) {
+                    ?>
+                    <option value="<?= $v['type_id'] ?>"><?= iconv('UTF-8', 'GB2312', $v['type_name']) ?></option>
+                <?php
+                }
+                ?>
+            </select>
+        </td>
+    </tr>
+    <tr>
+        <td class="item_title">Õ¹Ê¾Í¼Æ¬µØÖ·</td>
+        <td>
+
+            <form id="form1" action="SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <div>
+                    <span id="spanButtonPlaceHolder4"></span>
+
+                    <div id="fsUploadProgress4"></div>
+                    <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                           style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
+                </div>
+            </form>
+            <input type="text" style="display: none" id="Video4_msg"/>
+
+
+            <input type="text" class="pic_url" name="pic_url" id="pic_url"
+                   value="<?php if (!empty($video['pic_url'])) {
+                       echo $video['pic_url'];
+                   } ?>"/>
+
+        </td>
+    </tr>
+    <tr>
+        <td class="item_title">ÊÓÆµÉÏ´«£º</td>
+        <td>
+            <form id="form1" action="SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <div>
+                    <span id="spanButtonPlaceHolder5"></span>
+
+                    <div id="fsUploadProgress5"></div>
+                    <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                           style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
+                </div>
+            </form>
+            <input type="text" style="display: none" id="Video5_msg"/>
+
+            <input type="text" class="address" name="address" id="address"
+                   value="<?php if (!empty($video['address'])) {
+                       echo $video['address'];
+                   } ?>"/>
+        </td>
+    </tr>
+    <tr>
+        <td class="item_title">Ê±³¤£º</td>
+        <td><input type="text" class="length" id="length" name="length" value="<?php if (!empty($video['length'])) {
+                echo $video['length'];
+            } ?>"/></td>
+    </tr>
+    <tr>
+        <td class="item_title">ÅÅĞòÖµ</td>
+        <td><input type="text" class="OrderID" id="order_id" name="order_id" value="<?php
+            if (!empty($video['order_id'])) {
+                echo $video['order_id'];
+            } else {
+                $maxOrderID = $DB->getOne("video", "max(order_id) as maxID");
+                echo $maxOrderID['maxID'] + 10;
+            }
+            ?>"/></td>
+    </tr>
+    <tr>
+        <td class="item_title"></td>
+        <td><input type="button" name="add" class="button" value="È·¶¨" onclick="insertDate();"/><input type="button"
+                                                                                                      name="back"
+                                                                                                      value="·µ»Ø"
+                                                                                                      class="button"
+                                                                                                      onclick="goback();"/>
+        </td>
+    </tr>
+</table>
+</body>
 </html>

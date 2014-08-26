@@ -161,7 +161,7 @@
  <tr>
         <td width="182" valign="top">
             <div id="container">
-                <h1 class="type"><a href="javascript:void(0)">前台管理</a></h1>
+                <h1 class="type"><a href="javascript:void(0)">Banner管理</a></h1>
 
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -170,13 +170,10 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="right.php?name=首页绑定" target="main">首页绑定</a></li>
-                        <li><a href="http://www.865171.cn" target="main">应用绑定</a></li>
                         <li><a href="bannerMgr.php" target="main">Banner管理</a></li>
                     </ul>
                 </div>
                 <h1 class="type"><a href="javascript:void(0)">视频管理</a></h1>
-
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
