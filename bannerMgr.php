@@ -109,7 +109,7 @@
         }
 		//弹出修改页面
 		function to_updatePage(){
-		 var boxes = document.getElementsByName("checkboxName");  
+		 var boxes = document.getElementsByName("chkJob");  
 			 var groupTypeId = new Array(); 
 			 var h=0;
 			 for (var g = 0; g < boxes.length; g++)  
@@ -132,7 +132,6 @@
 //			   "error":function(){},
 //			  "complete":function(){}
 //		});
-	
 			window.location.href="bannerAddOrUpdate.php?id="+groupTypeId[0];
 		}
 
@@ -157,7 +156,7 @@
 	function to_delete(){
 		var msg = "是否确定删除？"; 
 if (confirm(msg)==true){ 
- var boxes = document.getElementsByName("checkboxName");  
+ var boxes = document.getElementsByName("chkJob");  
 			 var groupTypeId = new Array(); 
 			 var h=0;
 			 for (var g = 0; g < boxes.length; g++)  
