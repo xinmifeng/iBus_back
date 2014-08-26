@@ -85,8 +85,8 @@ echo $position+1;	?><input type="hidden" id="position" name="position" value="<?
 		   "url":url,
 		   "data":{"position":position,"index_type":index_type,"src":src,"pic_url":pic_url,"details_id":details_id},
 		   "success":function(){
-						$.Show("保存成功", 1);
-                     //  window.location.href="indexMgr.php";
+						//$.Show("保存成功", 1);
+                       window.location.href="indexMgr.php";
 					},
 		   "error":function(){},
 		  "complete":function(){}
