@@ -31,7 +31,7 @@
 	<body>
 		<table  border="1">
 			<tr>
-				<td colspan="10" align="center">banner管理</td>
+				<td colspan="11" align="center">banner管理</td>
 			</tr>
 			<tr>
 			<td>
@@ -40,6 +40,7 @@
 			<td class="tab_header">序号</td>
 			<td class="tab_header">标题</td>
 			<td class="tab_header">所属类别</td>
+			<td class="tab_header">子类别</td>
 			<td class="tab_header">图片地址</td>
 			<td class="tab_header">链接</td>
 			<td class="tab_header">绑定类型</td>
@@ -70,6 +71,10 @@
 								 break;
 							}		
 					 ?></td>
+				<td><?php	$DB->where ("type_id", $rs['sub_type']);
+						$videoType = $DB->getOne ("video_type");
+						echo $videoType['type_name'];	
+				?></td>
 				<td><? echo $rs['picture_url']?></td>
 				<td><? echo $rs['src']?></td>
 				<td><? switch ($rs['details_type']) {
@@ -94,7 +99,7 @@
 			</tr>
 			<? $i++; }?>
 			<tr>
-			<td colspan="10">
+			<td colspan="11">
 				<input type="button" name="add" value="新增" onclick="javascript:to_addPage();" />
 				<input type="button" name="update" value="修改" onclick="to_updatePage();" />
 				<input type="button" name="del" value="删除" onclick="to_delete();"/>

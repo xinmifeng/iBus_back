@@ -49,6 +49,7 @@ switch ($sign) {
 		$details_type=$_POST["details_type"];
 		$details_id=$_POST["details_id"];
 		$orderID=$_POST["order_id"];
+		$sub_type=$_POST["sub_type"];
 		if(!empty($_POST["id"])){//如果存在ID，就修改记录
 			$id=$_POST["id"];
 			$data=Array(
@@ -59,7 +60,8 @@ switch ($sign) {
 				 'details_type' => $details_type,
 				'details_id' => $details_id,
 	//			 'create_date' => $DB->now(), //修改创建时间
-				 'order_id' => $orderID
+				 'order_id' => $orderID,
+				'sub_type' => $sub_type
 				);
 			$DB->where ('id', $id);
 			$DB->update ('banner', $data);
@@ -72,7 +74,8 @@ switch ($sign) {
 				 'details_type' => $details_type,
 				'details_id' => $details_id,
 				 'create_date' => $DB->now(), //修改创建时间
-				 'order_id' => $orderID
+				 'order_id' => $orderID,
+				 'sub_type' => $sub_type
 			);
 			$DB->insert('banner',$data);
 		}

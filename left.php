@@ -170,7 +170,7 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="right.php?name=首页绑定" target="main">首页绑定</a></li>
+                        <li><a href="indexMgr.php" target="main">首页绑定</a></li>
                         <li><a href="http://www.865171.cn" target="main">应用绑定</a></li>
                         <li><a href="bannerMgr.php" target="main">Banner管理</a></li>
                     </ul>

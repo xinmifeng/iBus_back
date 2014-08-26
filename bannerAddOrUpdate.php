@@ -33,12 +33,37 @@
 		 <tr><td>分类：</td>
         <td>
 		<input type="hidden" id="typeValue" name="typeValue" value="<?php  if(!empty($banner['type'])){echo $banner['type']; }?>">
-		<select id="type" name="type" value=""> 
+		<select id="type" name="type" onchange="changeType();" value=""> 
 			<option value="1">首页</option>
 			<option value="2">视频</option>
 			<option value="3">优惠</option>
 			<option value="4">应用</option>
 		</select>
+		<input type="hidden" id="subTypeValue" name="subTypeValue" value="<?php
+	echo $banner['sub_type'];
+		?>" />
+		<div id="subType" style="display:none;">
+		子分类：<select id="sub_type" name="sub_type" value="<?php if(!empty($banner['sub_type'])){echo $banner['sub_type'];} ?>" >
+			  <?php 
+			  if(!empty($banner['sub_type'])){
+			  ?>
+			  <option value="<?php echo $banner['sub_type'] ?>"><?php
+			 $DB->where ("type_id", $banner['sub_type']);
+					$vType = $DB->getOne ("video_type");
+					echo $vType["type_name"];
+				?></option>
+			  <?php
+			  }
+			  $DB->orderBy("order_id","asc");
+				$result = $DB->get("video_type");
+			  foreach ($result as $v)
+			{?>
+				<option value="<?=$v['type_id']?>"><?=$v['type_name']?></option>
+			 <?php
+			 }
+			 ?>
+		</select>
+		</div>
 		</td>
         </tr>
 		 <tr><td>展示图片地址</td>
@@ -95,8 +120,12 @@
                 $("#details_type").val($("#detailsValue").val())
             }
 				 if ($("#typeValue").val() != "") {
-                $("#type").val($("#typeValue").val())
+                $("#type").val($("#typeValue").val());
             }
+				if($("#subTypeValue").val()!=""){
+				$($("#sub_type").val($("#subTypeValue")).val());
+				$("#subType").css("display", "block");
+				}
         });
 
 		var url="bannerAction.php";
@@ -110,10 +139,11 @@
 			var details_type=$('#details_type').val();
 			var details_id=$('#details_id').val();
 			var order_id=$('#order_id').val();
+			var sub_type=$('#sub_type').val();
 			$.ajax({
 		  "type":"post",
 		   "url":url,
-		   "data":{"type":type,"id":id,"title":title,"src":src,"picture_url":picture_url,"details_type":details_type,"details_id":details_id,"order_id":order_id,"sign":"insert"},
+		   "data":{"type":type,"id":id,"title":title,"src":src,"picture_url":picture_url,"details_type":details_type,"details_id":details_id,"order_id":order_id,"sub_type":sub_type,"sign":"insert"},
 		   "success":function(){
 						// $.Show("保存成功", 1);
                        window.location.href="bannerMgr.php";
@@ -156,6 +186,14 @@
 		  "complete":function(){}
 		});
 		
+	}
+
+	function changeType(){
+	if($("#type").val()==2){
+		$("#subType").css("display", "block");
+	}else{
+		$("#subType").css("display", "none");
+	}
 	}
 	   </script>
 	</body>
