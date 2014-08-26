@@ -161,8 +161,7 @@
  <tr>
         <td width="182" valign="top">
             <div id="container">
-                <h1 class="type"><a href="javascript:void(0)">Banner管理</a></h1>
-
+                <h1 class="type"><a href="javascript:void(0)">页面管理</a></h1>
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
@@ -171,8 +170,11 @@
                     </table>
                     <ul class="MM">
                         <li><a href="bannerMgr.php" target="main">Banner管理</a></li>
+                        <li><a href="IndexManager/indexMgr.php" target="main">首页管理</a></li>
                     </ul>
                 </div>
+
+
                 <h1 class="type"><a href="javascript:void(0)">视频管理</a></h1>
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -186,7 +188,7 @@
                     </ul>
                 </div>
 
-                <h1 class="type"><a href="javascript:void(0)">活动及应用管理</a></h1>
+                <h1 class="type"><a href="javascript:void(0)">活动\应用管理</a></h1>
 
                 <div class="content">
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -195,8 +197,8 @@
                         </tr>
                     </table>
                     <ul class="MM">
-                        <li><a href="EventsAndApply/EventsManger.php" target="main">活动及应用管理</a></li>
-                        <li><a href="EventsAndApply/Add.php" target="main">添加活动及应用</a></li>
+                        <li><a href="EventsAndApply/EventsManger.php" target="main">活动、应用</a></li>
+                        <li><a href="EventsAndApply/Add.php" target="main">添加</a></li>
                     </ul>
                 </div>
 

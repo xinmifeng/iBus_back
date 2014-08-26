@@ -33,7 +33,7 @@ function Updatedata(id, UpdateData) {
             alert(XmlHttpRequest.responseText);
         },
         success: function (d) {
-            alert("≥…π¶¡À");
+
         }
     });
 

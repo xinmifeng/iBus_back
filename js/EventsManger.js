@@ -132,22 +132,36 @@ function ajaxDel(id, num) {
             alert(XmlHttpRequest.responseText);
         },
         success: function (d) {
-            $("#ShowDataTable").find("tr").each(function () {
-                var indexval = $(this).find("td").eq(1).find(".IndexNum").text();
-                if (indexval >= 1) {
-                    $(this).remove();
-                }
-            });
-            $("#ShowDataTable tr").after(d);
+            location.href = "EventsManger.php";
+//            $("#ShowDataTable").find("tr").each(function () {
+//                var indexval = $(this).find("td").eq(1).find(".IndexNum").text();
+//                if (indexval >= 1) {
+//                    $(this).remove();
+//                }
+//            });
+//            $("#ShowDataTable tr").after(d);
         }
     });
 }
 
 ///删除数据的方法
 function Del_HD(id, num) {
-    $.Show("fdasf", 1);
+    var groupTypeId = new Array();
+    if (id != undefined) {
+        groupTypeId.push(id);
+    } else {
+        var boxes = document.getElementsByName("checkboxByTag");
+        console.log(boxes);
+        var h = 0;
+        for (var g = 0; g < boxes.length; g++) {
+            if (boxes[g].checked) {
+                groupTypeId[h] = boxes[g].value;
+                h++;
+            }
+        }
+    }
     $.ShowAlert("您确定删除当前记录?", "确定", "取消", function () {
-        ajaxDel(id, num);
+        ajaxDel(groupTypeId, num);
         $(".xubox_no").click();
     }, function () {
     })
@@ -183,7 +197,6 @@ function update_HD(id, paraJson) {
             alert(XmlHttpRequest.responseText);
         },
         success: function (d) {
-            console.log(d);
             if (d > 0) {
                 fileDialogComplete();
                 $.Show("保存成功", 1);

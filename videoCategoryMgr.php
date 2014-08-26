@@ -42,7 +42,7 @@ $result = $DB->get("video_type");
             </tr>
             <tr>
                 <td class="item_title"></td>
-                <td><input type="button" name="add" value="确定" class="button" onclick="insertDate(this);"/><input
+                <td><input type="button" name="add" id="BtnSave" value="确定" class="button" onclick="insertDate(this);"/><input
                         type="button"
                         id="closebtn"
                         value="关闭" class="button"/></td>
@@ -177,7 +177,7 @@ $result = $DB->get("video_type");
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
                                         <div align="center"><span class="STYLE1"><input type="hidden"
-                                                                                        name="type_id"/><? echo $i ?></span>
+                                                                                        id="type_id"/><? echo $i ?></span>
                                         </div>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">

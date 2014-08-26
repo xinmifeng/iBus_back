@@ -64,7 +64,7 @@ if (!empty($_GET["v_id"])) {
         <td class="item_title">สำฦตร๛ณฦฃบ</td>
         <td><input type="select" class="v_name" id="v_name" name="v_name"
                    value="<?php if (!empty($video['v_name'])) {
-                       echo $video['v_name'];
+                       echo iconv('UTF-8', 'GB2312', $video['v_name']);
                    } ?>"/></td>
     </tr>
     <tr>

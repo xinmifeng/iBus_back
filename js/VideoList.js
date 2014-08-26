@@ -1,4 +1,4 @@
-﻿var url = "videoAction.php";
+var url = "videoAction.php";
 //弹出添加页面
 function to_addPage() {
     window.location.href = "videoAdd.php";

@@ -45,7 +45,6 @@ function clickto() {
 //弹出添加页面
 function to_addPage() {
     var htm = $("#DIV_Event").html();
-    console.log(htm);
     $.ShowHtmlByForm(htm, "添加视频分类");
 }
 //弹出修改页面
@@ -59,8 +58,7 @@ function to_updatePage(id) {
             $.ShowHtmlByForm(htm, "修改视频分类");
             $(".xubox_layer").find("#type_name").val(data.type_name);
             $(".xubox_layer").find("#type_order_id").val(data.order_id);
-            $(".xubox_layer").find("#type_id").val(groupTypeId[0]);
-
+            $(".xubox_layer").find("#type_id").val(id);
         }
     });
 
@@ -75,13 +73,8 @@ function insertDate(el) {
         "type": "post",
         "url": url,
         "data": {"typeName": typeName, "orderID": orderID, "typeID": typeID, "sign": "insert"},
-        "success": function () {
-            $.Show("保存成功", 1);
-            $(".xubox_layer").find("#closebtn").click();
-        },
-        "error": function () {
-        },
-        "complete": function () {
+        success: function () {
+            location.href = "videoCategoryMgr.php";
         }
     });
 }

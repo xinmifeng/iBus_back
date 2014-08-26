@@ -12,7 +12,7 @@ switch ($title) {
         echo SearchAllList($DB);
         break;
     case "Del":
-        $DB->where("id", $_GET["id"]);
+        $DB->where("id", $_GET["id"], 'IN');
         $ActivInstan = $DB->get("activity");
         $Purl = $ActivInstan[0]["picture_url"];
         $Srcurl = $ActivInstan[0]["src"];
@@ -26,7 +26,7 @@ switch ($title) {
         if (is_file("SWFUpload/file/" . $DownUrl)) {
             unlink("SWFUpload/file/" . $DownUrl);
         }
-        $DB->where("id", $_GET["id"]);
+        $DB->where("id", $_GET["id"], 'IN');
         $delSign = $DB->delete("activity");
         if ($delSign > 0) {
             echo SearchAllList($DB);
@@ -89,7 +89,7 @@ function ShowList($BeeActivity)
             $createdate = $BeeActivity[$index]['create_date'];
             $idval = $BeeActivity[$index]['id'];
             $Picsrc = $BeeActivity[$index]['src'];
-            $Html .= "<tr><td height='20' bgcolor='#FFFFFF'><div align='center'><input type='checkbox' name='checkbox2' value='checkbox'/></div></td><td height='20' bgcolor='#FFFFFF'>
+            $Html .= "<tr><td height='20' bgcolor='#FFFFFF'><div align='center'><input type='checkbox' name='checkboxByTag' value=$idval/></div></td><td height='20' bgcolor='#FFFFFF'>
                                         <div align='center' class='STYLE1'>
                                             <div align='center' class='IndexNum'>$num</div>
                         </div>

@@ -1,4 +1,4 @@
-/*
+ï»¿/*
  [Leo.C, Studio] (C)2004 - 2008
 
  $Hanization: LeoChung $
@@ -22,7 +22,7 @@
 function fileQueued(file) {
     try {
         var progress = new FileProgress(file, this.customSettings.progressTarget);
-        progress.setStatus("ÕıÔÚµÈ´ı...");
+        progress.setStatus("æ­£åœ¨ç­‰å¾…...");
         progress.toggleCancel(true, this);
 
     } catch (ex) {
@@ -34,7 +34,7 @@ function fileQueued(file) {
 function fileQueueError(file, errorCode, message) {
     try {
         if (errorCode === SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED) {
-            alert("ÄúÕıÔÚÉÏ´«µÄÎÄ¼ş¶ÓÁĞ¹ı¶à.\n" + (message === 0 ? "ÄúÒÑ´ïµ½ÉÏ´«ÏŞÖÆ" : "Äú×î¶àÄÜÑ¡Ôñ " + (message > 1 ? "ÉÏ´« " + message + " ÎÄ¼ş." : "Ò»¸öÎÄ¼ş.")));
+            alert("æ‚¨æ­£åœ¨ä¸Šä¼ çš„æ–‡ä»¶é˜Ÿåˆ—è¿‡å¤š.\n" + (message === 0 ? "æ‚¨å·²è¾¾åˆ°ä¸Šä¼ é™åˆ¶" : "æ‚¨æœ€å¤šèƒ½é€‰æ‹© " + (message > 1 ? "ä¸Šä¼  " + message + " æ–‡ä»¶." : "ä¸€ä¸ªæ–‡ä»¶.")));
             return;
         }
 
@@ -44,22 +44,22 @@ function fileQueueError(file, errorCode, message) {
 
         switch (errorCode) {
             case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-                progress.setStatus("ÎÄ¼ş³ß´ç¹ı´ó.");
-                this.debug("´íÎó´úÂë: ÎÄ¼ş³ß´ç¹ı´ó, ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("æ–‡ä»¶å°ºå¯¸è¿‡å¤§.");
+                this.debug("é”™è¯¯ä»£ç : æ–‡ä»¶å°ºå¯¸è¿‡å¤§, æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-                progress.setStatus("ÎŞ·¨ÉÏ´«Áã×Ö½ÚÎÄ¼ş.");
-                this.debug("´íÎó´úÂë: Áã×Ö½ÚÎÄ¼ş, ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("æ— æ³•ä¸Šä¼ é›¶å­—èŠ‚æ–‡ä»¶.");
+                this.debug("é”™è¯¯ä»£ç : é›¶å­—èŠ‚æ–‡ä»¶, æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.QUEUE_ERROR.INVALID_FILETYPE:
-                progress.setStatus("²»Ö§³ÖµÄÎÄ¼şÀàĞÍ.");
-                this.debug("´íÎó´úÂë: ²»Ö§³ÖµÄÎÄ¼şÀàĞÍ, ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("ä¸æ”¯æŒçš„æ–‡ä»¶ç±»å‹.");
+                this.debug("é”™è¯¯ä»£ç : ä¸æ”¯æŒçš„æ–‡ä»¶ç±»å‹, æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
             default:
                 if (file !== null) {
-                    progress.setStatus("Î´´¦ÀíµÄ´íÎó");
+                    progress.setStatus("æœªå¤„ç†çš„é”™è¯¯");
                 }
-                this.debug("´íÎó´úÂë: " + errorCode + ", ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                this.debug("é”™è¯¯ä»£ç : " + errorCode + ", æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
         }
     } catch (ex) {
@@ -88,7 +88,7 @@ function uploadStart(file) {
          we can do is say we are uploading.
          */
         var progress = new FileProgress(file, this.customSettings.progressTarget);
-        progress.setStatus("ÕıÔÚÉÏ´«...");
+        progress.setStatus("æ­£åœ¨ä¸Šä¼ ...");
         progress.toggleCancel(true, this);
     }
     catch (ex) {
@@ -103,7 +103,7 @@ function uploadProgress(file, bytesLoaded, bytesTotal) {
 
         var progress = new FileProgress(file, this.customSettings.progressTarget);
         progress.setProgress(percent);
-        progress.setStatus("ÕıÔÚÉÏ´«...");
+        progress.setStatus("æ­£åœ¨ä¸Šä¼ ...");
     } catch (ex) {
         this.debug(ex);
     }
@@ -113,7 +113,7 @@ function uploadSuccess(file, serverData) {
     try {
         var progress = new FileProgress(file, this.customSettings.progressTarget);
         progress.setComplete();
-        progress.setStatus("ÉÏ´«³É¹¦");
+        progress.setStatus("ä¸Šä¼ æˆåŠŸ");
         $(this.settings.type).val(serverData);
         progress.toggleCancel(false);
 
@@ -130,43 +130,43 @@ function uploadError(file, errorCode, message) {
 
         switch (errorCode) {
             case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
-                progress.setStatus("ÉÏ´«´íÎó: " + message);
-                this.debug("´íÎó´úÂë: HTTP´íÎó, ÎÄ¼şÃû: " + file.name + ", ĞÅÏ¢: " + message);
+                progress.setStatus("ä¸Šä¼ é”™è¯¯: " + message);
+                this.debug("é”™è¯¯ä»£ç : HTTPé”™è¯¯, æ–‡ä»¶å: " + file.name + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
-                progress.setStatus("ÉÏ´«Ê§°Ü");
-                this.debug("´íÎó´úÂë: ÉÏ´«Ê§°Ü, ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("ä¸Šä¼ å¤±è´¥");
+                this.debug("é”™è¯¯ä»£ç : ä¸Šä¼ å¤±è´¥, æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.UPLOAD_ERROR.IO_ERROR:
-                progress.setStatus("·şÎñÆ÷ (IO) ´íÎó");
-                this.debug("´íÎó´úÂë: IO ´íÎó, ÎÄ¼şÃû: " + file.name + ", ĞÅÏ¢: " + message);
+                progress.setStatus("æœåŠ¡å™¨ (IO) é”™è¯¯");
+                this.debug("é”™è¯¯ä»£ç : IO é”™è¯¯, æ–‡ä»¶å: " + file.name + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
-                progress.setStatus("°²È«´íÎó");
-                this.debug("´íÎó´úÂë: °²È«´íÎó, ÎÄ¼şÃû: " + file.name + ", ĞÅÏ¢: " + message);
+                progress.setStatus("å®‰å…¨é”™è¯¯");
+                this.debug("é”™è¯¯ä»£ç : å®‰å…¨é”™è¯¯, æ–‡ä»¶å: " + file.name + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
-                progress.setStatus("³¬³öÉÏ´«ÏŞÖÆ.");
-                this.debug("´íÎó´úÂë: ³¬³öÉÏ´«ÏŞÖÆ, ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("è¶…å‡ºä¸Šä¼ é™åˆ¶.");
+                this.debug("é”™è¯¯ä»£ç : è¶…å‡ºä¸Šä¼ é™åˆ¶, æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
-                progress.setStatus("ÎŞ·¨ÑéÖ¤.  Ìø¹ıÉÏ´«.");
-                this.debug("´íÎó´úÂë: ÎÄ¼şÑéÖ¤Ê§°Ü, ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("æ— æ³•éªŒè¯.  è·³è¿‡ä¸Šä¼ .");
+                this.debug("é”™è¯¯ä»£ç : æ–‡ä»¶éªŒè¯å¤±è´¥, æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
             case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
                 // If there aren't any files left (they were all cancelled) disable the cancel button
                 if (this.getStats().files_queued === 0) {
                     document.getElementById(this.customSettings.cancelButtonId).disabled = true;
                 }
-                progress.setStatus("È¡Ïû");
+                progress.setStatus("å–æ¶ˆ");
                 progress.setCancelled();
                 break;
             case SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED:
-                progress.setStatus("Í£Ö¹");
+                progress.setStatus("åœæ­¢");
                 break;
             default:
-                progress.setStatus("Î´´¦ÀíµÄ´íÎó: " + errorCode);
-                this.debug("´íÎó´úÂë: " + errorCode + ", ÎÄ¼şÃû: " + file.name + ", ÎÄ¼ş³ß´ç: " + file.size + ", ĞÅÏ¢: " + message);
+                progress.setStatus("æœªå¤„ç†çš„é”™è¯¯: " + errorCode);
+                this.debug("é”™è¯¯ä»£ç : " + errorCode + ", æ–‡ä»¶å: " + file.name + ", æ–‡ä»¶å°ºå¯¸: " + file.size + ", ä¿¡æ¯: " + message);
                 break;
         }
     } catch (ex) {
@@ -177,7 +177,6 @@ function uploadError(file, errorCode, message) {
 function uploadComplete(file) {
     if (this.getStats().files_queued === 0) {
         document.getElementById(this.customSettings.cancelButtonId).disabled = true;
-        alert("111");
         var idStr = $(this.settings.type).attr("id");
         var idValue = $(this.settings.type).val();
         switch (idStr) {
@@ -206,6 +205,16 @@ function uploadComplete(file) {
                 var jsonData = {"UData": jsStr, "id": GUID, "sign": 'update', "Utype": "1"};
                 Updatedata(GUID, jsonData);
                 break;
+            case "banner":
+                var jsStr = {"picture_url": idValue};
+                var jsonData = {"UData": jsStr, "id": GUID, "sign": 'UPData', "Utype": "1"};
+                UploadData(jsonData);
+                break;
+            case "Image_Type":
+                var jsStr = {"pic_url": idValue};
+                var jsonData = {"UData": jsStr, "id": GUID, "sign": 'Index', "Utype": "1"};
+                UpData(jsonData);
+                break;
             default:
                 break;
 
@@ -216,5 +225,5 @@ function uploadComplete(file) {
 // This event comes from the Queue Plugin
 function queueComplete(numFilesUploaded) {
     var status = document.getElementById("divStatus");
-    status.innerHTML = numFilesUploaded + " ¸öÎÄ¼ş" + (numFilesUploaded === 1 ? "" : "s") + "ÒÑÉÏ´«.";
+    status.innerHTML = numFilesUploaded + " ä¸ªæ–‡ä»¶" + (numFilesUploaded === 1 ? "" : "s") + "å·²ä¸Šä¼ .";
 }

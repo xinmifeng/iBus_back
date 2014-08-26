@@ -34,7 +34,6 @@ header("content-Type: text/html; charset=gb2312");
             swfu2 = ModelUpload2();
         };
         function fileDialogComplete() {
-            alert("Add数据成功");
             swfu.startUpload();
             swfu1.startUpload();
             swfu2.startUpload();
@@ -204,10 +203,12 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
 
         <tr>
-            <td class="item_title"><input type="button" value="提交" class="SaveChange"
-                                          onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
+            <td class="item_title">
             </td>
-            <td><input type="button" value="返回" id="closebtn" onclick="location.href='EventsManger.php'"/></td>
+            <td><input type="button" value="提交" class="button SaveChange"
+                       onclick="SubmitToAction();"/><input type="button" class="button" value="返回"
+                                                           onclick="location.href='EventsManger.php'" id="closebtn"/>
+            </td>
         </tr>
     <?php } ?>
 </table>
