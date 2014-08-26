@@ -13,7 +13,6 @@ $DB->orderBy("order_id", "asc");
 $result = $DB->get("video");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<meta charset="utf-8">
 <head>
     <style type="text/css">
         <!--

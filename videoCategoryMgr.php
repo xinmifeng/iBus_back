@@ -26,7 +26,6 @@ $result = $DB->get("video_type");
 <body>
 <div style="display:none" id="DIV_Event">
     <form name="addForm" action="videoCategoryAction.php" method="post">
-        <DIV class=main_title>新增视频分类</DIV>
         <table class="form">
             <tr>
                 <td class="item_title">视频分类名称：</td>
@@ -117,7 +116,8 @@ $result = $DB->get("video_type");
                                                                                      height="14"/></div>
                                                         </td>
                                                         <td class="STYLE1">
-                                                            <div align="center">删除</div>
+                                                            <div align="center"><a href="#"
+                                                                                   onclick="to_delete();">删除</a></div>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -212,7 +212,7 @@ $result = $DB->get("video_type");
     </tr>
     <tr style="display: none">
         <td height="35" background="images/tab_19.gif">
-            <table width="100%" border="0" cellspacing="0" cellpadding="0" >
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
                     <td width="12" height="35"><img src="images/tab_18.gif" width="12" height="35"/></td>
                     <td>

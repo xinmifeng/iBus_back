@@ -6,55 +6,83 @@
  * @version 1.0
  * @package main
  */
-
- require_once ("sqlDb.php");
+	require_once("./MysqliDb.php");
+	require_once ("sqlDb.php");
  $sign = $_POST["sign"];
 switch ($sign) {
 	case "select"://查询关联标题
-	    
+	$i=0;
+	$details_type=$_POST["details_type"];
+	    switch($details_type){
+		case '1'://活动及应用
+		    $cols = Array ("id", "title");
+			$dataLists = $DB->get ("activity", null, $cols);
+			if ($DB->count > 0)
+			foreach ($dataLists as $dataList) { 
+				$arrayData[$i][0]=$dataList["id"];
+				$arrayData[$i][1]=$dataList["title"];
+					$i++;
+			}
+			header("Content-type: application/json"); 
+			echo json_encode($arrayData);
+		    break;
+		case '2'://视频
+			$cols = Array ("v_id", "title");
+			$dataLists = $DB->get ("video", null, $cols);
+			if ($DB->count > 0)
+			foreach ($dataLists as $dataList) { 
+				$arrayData[$i][0]=$dataList["v_id"];
+				$arrayData[$i][1]=$dataList["title"];
+					$i++;
+			}
+			header("Content-type: application/json"); 
+			echo json_encode($arrayData);
+			break;
+		}
 	    break;
-    case "insert": //新增视频信息
-		$type_id=$_POST["type_id"];
+    case "insert": //新增banner信息
+		$type=$_POST["type"];
 		$title=$_POST["title"];
-		$pic_url=$_POST["pic_url"];
-		$v_name=$_POST["v_name"];
+		$picture_url=$_POST["picture_url"];
+		$src=$_POST["src"];
 		$address=$_POST["address"];
-		$length=$_POST["length"];
+		$details_type=$_POST["details_type"];
+		$details_id=$_POST["details_id"];
 		$orderID=$_POST["order_id"];
-		if(!empty($_POST["v_id"])){//如果存在ID，就修改记录
-			$v_id=$_POST["v_id"];
+		if(!empty($_POST["id"])){//如果存在ID，就修改记录
+			$id=$_POST["id"];
 			$data=Array(
-				  'type_id' => $type_id,
+				  'type' => $type,
 				 'title' => $title,
-				 'pic_url' => $pic_url,
-				 'v_name' => $v_name,
-				 'address' => $address,
-				 'length' => $length,
+				 'picture_url' => $picture_url,
+				 'src' => $src,
+				 'details_type' => $details_type,
+				'details_id' => $details_id,
 	//			 'create_date' => $DB->now(), //修改创建时间
 				 'order_id' => $orderID
 				);
-			$DB->where ('v_id', $v_id);
-			$DB->update ('video', $data);
+			$DB->where ('id', $id);
+			$DB->update ('banner', $data);
 		}else{
 			$data=Array(
-				 'type_id' => $type_id,
+				  'type' => $type,
 				 'title' => $title,
-				 'pic_url' => $pic_url,
-				 'v_name' => $v_name,
-				 'address' => $address,
-				 'length' => $length,
-				 'create_date' => $DB->now(),
+				 'picture_url' => $picture_url,
+				 'src' => $src,
+				 'details_type' => $details_type,
+				'details_id' => $details_id,
+				 'create_date' => $DB->now(), //修改创建时间
 				 'order_id' => $orderID
 			);
-			$DB->insert('video',$data);
+			$DB->insert('banner',$data);
 		}
 		// header('Location:videoList.php');
 		 break;
 
 	case "delete": //删除视频分类
 		$tIDs=$_POST["tids"];
-		$DB->where('v_id', $tIDs, 'IN');
-		$DB->delete('video');
+		$DB->where('id', $tIDs, 'IN');
+		$DB->delete('banner');
 		break;
 }
 

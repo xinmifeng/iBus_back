@@ -124,7 +124,9 @@ header("content-Type: text/html; charset=gb2312");
             <td class="item_title">
             </td>
             <td><input type="button" value="提交" class="button SaveChange"
-                       onclick="SubmitToAction();"/><input type="button" class="button" value="关闭" id="closebtn"/></td>
+                       onclick="SubmitToAction();"/><input type="button" class="button" value="返回"
+                                                           onclick="location.href='EventsManger.php'" id="closebtn"/>
+            </td>
         </tr>
     <?php
     } else {
@@ -205,7 +207,7 @@ header("content-Type: text/html; charset=gb2312");
             <td class="item_title"><input type="button" value="提交" class="SaveChange"
                                           onclick="ExecuteUpdate(<?php echo $id; ?>);"/>
             </td>
-            <td><input type="button" value="关闭" id="closebtn"/></td>
+            <td><input type="button" value="返回" id="closebtn" onclick="location.href='EventsManger.php'"/></td>
         </tr>
     <?php } ?>
 </table>
