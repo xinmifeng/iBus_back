@@ -4,7 +4,7 @@ header("Content-Type:text/html;charset=GB2312");  ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
     <script src="bower_components/jquery/jquery.js"></script>
-    <link href="/CSS/style.css" rel="stylesheet" type="text/css"/>
+    <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
     <script>
         function UpdatePsd() {
             var json = {"password": $("#password").val(), "newpsd": $("#newpsd").val(), "newpsd2": $("#newpsd2").val()};

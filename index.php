@@ -16,7 +16,7 @@
 	<frameset cols="200,*" id="frame">
 		<frame src="left.php" name="leftFrame" noresize="noresize" marginwidth="0" 
 				marginheight="0" frameborder="0" scrolling="no" target="main" />
-		<frame  src="right.php" name="main" marginwidth="0" marginheight="0"
+		<frame  src="IndexManager/indexMgr.php" name="main" marginwidth="0" marginheight="0"
 				frameborder="0" scrolling="auto" target="_self" />
 	</frameset>
 	<noframes>

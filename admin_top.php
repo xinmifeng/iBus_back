@@ -6,8 +6,8 @@ require_once("doAccess.php");
     <title><%= title %> - 管理页面</title>
     <script language=JavaScript>
         function logout() {
-            if (confirm("您确定要退出控制面板吗？"))
-                top.location = "out.asp";
+            if (confirm("您确定要退出吗？"))
+                top.location = "Login.php";
             return false;
         }
     </script>
@@ -18,7 +18,7 @@ require_once("doAccess.php");
 <body leftmargin="0" topmargin="0">
 <table width="100%" height="64" border="0" cellpadding="0" cellspacing="0" class="admin_topbg">
     <tr>
-        <td width="61%" height="64" ><!--<img src="images/logo.gif" width="262" height="64">--></td>
+        <td width="61%" height="64"><!--<img src="images/logo.gif" width="262" height="64">--></td>
         <td width="39%" valign="top">
             <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>

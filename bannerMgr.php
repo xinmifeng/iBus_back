@@ -98,10 +98,10 @@ $result = $DB->get("banner");
 
 <table width="100%" border="0" cellspacing="0" cellpadding="0">
 <tr>
-    <td height="30" background="../images/tab_05.gif">
+    <td height="30" background="./images/tab_05.gif">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-                <td width="12" height="30"><img src="../images/tab_03.gif" width="12" height="30"/></td>
+                <td width="12" height="30"><img src="./images/tab_03.gif" width="12" height="30"/></td>
                 <td>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
@@ -109,7 +109,7 @@ $result = $DB->get("banner");
                                 <table width="100%" border="0" cellspacing="0" cellpadding="0">
                                     <tr>
                                         <td width="5%">
-                                            <div align="center"><img src="../images/tb.gif" width="16" height="16"/>
+                                            <div align="center"><img src="./images/tb.gif" width="16" height="16"/>
                                             </div>
                                         </td>
                                         <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[Banner管理]->[Banner管理]
@@ -143,7 +143,7 @@ $result = $DB->get("banner");
                                             <table width="90%" border="0" cellpadding="0" cellspacing="0">
                                                 <tr>
                                                     <td class="STYLE1">
-                                                        <div align="center"><img src="../images/22.gif" width="14"
+                                                        <div align="center"><img src="./images/22.gif" width="14"
                                                                                  height="14"/></div>
                                                     </td>
                                                     <td class="STYLE1">
@@ -157,7 +157,7 @@ $result = $DB->get("banner");
                                             <table width="88%" border="0" cellpadding="0" cellspacing="0">
                                                 <tr>
                                                     <td class="STYLE1">
-                                                        <div align="center"><img src="../images/11.gif" width="14"
+                                                        <div align="center"><img src="./images/11.gif" width="14"
                                                                                  height="14"/></div>
                                                     </td>
                                                     <td class="STYLE1">
@@ -172,7 +172,7 @@ $result = $DB->get("banner");
                         </tr>
                     </table>
                 </td>
-                <td width="16"><img src="../images/tab_07.gif" width="16" height="30"/></td>
+                <td width="16"><img src="./images/tab_07.gif" width="16" height="30"/></td>
             </tr>
         </table>
     </td>
@@ -181,49 +181,49 @@ $result = $DB->get("banner");
     <td>
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-                <td width="8" background="../images/tab_12.gif">&nbsp;</td>
+                <td width="8" background="./images/tab_12.gif">&nbsp;</td>
                 <td>
                     <table width="100%" border="0" id="ShowDataTable" cellpadding="0" cellspacing="1"
                            bgcolor="b5d6e6"
                            onmouseover="changeto()"
                            onmouseout="changeback()">
                         <tr>
-                            <td width="5%" height="22" background="../images/bg.gif" class="STYLE1" bgcolor="#FFFFFF">
+                            <td width="5%" height="22" background="./images/bg.gif" class="STYLE1" bgcolor="#FFFFFF">
                                 <div align="center">
                                     <input type='checkbox' id='chkAll' onclick="CheckAll(this.checked)"/>全选
                                 </div>
                             </td>
-                            <td width="3%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="3%" height="22" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">序号</span></div>
                             </td>
-                            <td width="8%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="8%" height="22" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">标题</span></div>
                             </td>
-                            <td width="8%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="8%" height="22" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">所属类别</span></div>
                             </td>
-                            <td width="8%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="8%" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">子类别</span></div>
                             </td>
-                            <td width="15%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="15%" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">图片地址</span></div>
                             </td>
-                            <td width="8%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="8%" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">链接</span></div>
                             </td>
-                            <td width="8%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="8%" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">绑定类型</span></div>
                             </td>
-                            <td width="8%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="8%" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">绑定标题</span></div>
                             </td>
-                            <td width="5%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="5%" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">排序值</span></div>
                             </td>
-                            <td width="10%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="10%" height="22" background="./images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">创建时间</span></div>
                             </td>
-                            <td width="23%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF"
+                            <td width="23%" height="22" background="./images/bg.gif" bgcolor="#FFFFFF"
                                 class="STYLE1">
                                 <div align="center">基本操作</div>
                             </td>
@@ -315,10 +315,10 @@ $result = $DB->get("banner");
                                             class='STYLE1'><? echo $rs['create_date'] ?></span>
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
-                                    <div align='center'><span class='STYLE4'><img src='../images/edt.gif' width='16'
+                                    <div align='center'><span class='STYLE4'><img src='./images/edt.gif' width='16'
                                                                                   height='16'/><a href='#'
                                                                                                   onclick='to_updatePage(<?php echo $rs['id'] ?>)'>编辑</a>&nbsp; &nbsp;<img
-                                                src='../images/del.gif'
+                                                src='./images/del.gif'
                                                 width='16' height='16'/><a href='#'
                                                                            onclick='to_delete(<?php echo $rs['id'] ?>)'>删除</a></span>
                                     </div>
@@ -328,16 +328,16 @@ $result = $DB->get("banner");
                         } ?>
                     </table>
                 </td>
-                <td width="8" background="../images/tab_15.gif">&nbsp;</td>
+                <td width="8" background="./images/tab_15.gif">&nbsp;</td>
             </tr>
         </table>
     </td>
 </tr>
 <tr style="display: none">
-    <td height="35" background="../images/tab_19.gif">
+    <td height="35" background="./images/tab_19.gif">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
             <tr>
-                <td width="12" height="35"><img src="../images/tab_18.gif" width="12" height="35"/></td>
+                <td width="12" height="35"><img src="./images/tab_18.gif" width="12" height="35"/></td>
                 <td>
                     <table width="100%" border="0" cellspacing="0" cellpadding="0">
                         <tr>
@@ -345,24 +345,24 @@ $result = $DB->get("banner");
                             <td>
                                 <table border="0" align="right" cellpadding="0" cellspacing="0">
                                     <tr>
-                                        <td width="40"><img src="../images/first.gif" width="37" height="15"/></td>
-                                        <td width="45"><img src="../images/back.gif" width="43" height="15"/></td>
-                                        <td width="45"><img src="../images/next.gif" width="43" height="15"/></td>
-                                        <td width="40"><img src="../images/last.gif" width="37" height="15"/></td>
+                                        <td width="40"><img src="./images/first.gif" width="37" height="15"/></td>
+                                        <td width="45"><img src="./images/back.gif" width="43" height="15"/></td>
+                                        <td width="45"><img src="./images/next.gif" width="43" height="15"/></td>
+                                        <td width="40"><img src="./images/last.gif" width="37" height="15"/></td>
                                         <td width="100">
                                             <div align="center"><span class="STYLE1">转到第
                     <input name="textfield" type="text" size="4"
                            style="height:12px; width:20px; border:1px solid #999999;"/>
                     页 </span></div>
                                         </td>
-                                        <td width="40"><img src="../images/go.gif" width="37" height="15"/></td>
+                                        <td width="40"><img src="./images/go.gif" width="37" height="15"/></td>
                                     </tr>
                                 </table>
                             </td>
                         </tr>
                     </table>
                 </td>
-                <td width="16"><img src="../images/tab_20.gif" width="16" height="35"/></td>
+                <td width="16"><img src="./images/tab_20.gif" width="16" height="35"/></td>
             </tr>
         </table>
     </td>

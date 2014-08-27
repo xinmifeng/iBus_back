@@ -1,6 +1,6 @@
 <?php
 session_start();
-require ("./MysqliDb.php");
+require("./MysqliDb.php");
 require_once("./sqlDb.php");
 $error_info = "";
 if (!empty($_POST["flag"])) {
@@ -14,8 +14,7 @@ if (!empty($_POST["flag"])) {
             $error_info = "验证码已经过期！请重新刷新并输入！";
         } else {
             $true_code = $_SESSION['authnum_session'];
-            // if (strtolower($true_code) === strtolower($verifycode)) {
-            if (true) {
+            if (strtolower($true_code) === strtolower($verifycode)) {
                 $DB->where("name", $username)
                     ->where("password", md5($password));
                 $users = $DB->get("system_user");
@@ -24,7 +23,7 @@ if (!empty($_POST["flag"])) {
                     header('Location:./index.php');
                     exit(0);
                 } else {
-                    $error_info = "用户名或密码错误!";
+                    $error_info = "账号有误!";
                 }
             } else {
                 $error_info = "验证码错误!";
@@ -207,7 +206,7 @@ if (!empty($_POST["flag"])) {
                                                         </tr>
                                                         <tr>
                                                             <td cols="3">
-                                                                <p><?php echo $error_info; ?></p>
+                                                                <p style="color: #ff0000"><?php echo $error_info; ?></p>
                                                             </td>
                                                     </table>
                                                     <br>

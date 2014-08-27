@@ -137,7 +137,7 @@ function ModelUpload2() {
 function ModelUpload3() {
     var swfu;
     var settings = {
-        flash_url: "../SWFUpload/swfupload/swfupload.swf",
+        flash_url: "./SWFUpload/swfupload/swfupload.swf",
         upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
@@ -154,7 +154,7 @@ function ModelUpload3() {
 
 
         // Button settings
-        button_image_url: "../SWFUpload/images/TestImageNoText_65x29.png",	// Relative to the Flash file
+        button_image_url: "./SWFUpload/images/TestImageNoText_65x29.png",	// Relative to the Flash file
         button_width: "65",
         button_height: "29",
         button_placeholder_id: "spanButtonPlaceHolder5",
@@ -182,7 +182,7 @@ function ModelUpload3() {
 function ModelUpload4() {
     var swfu;
     var settings = {
-        flash_url: "../SWFUpload/swfupload/swfupload.swf",
+        flash_url: "./SWFUpload/swfupload/swfupload.swf",
         upload_url: "http://localhost/SWFUpload/upload.php",	// Relative to the SWF file
         post_params: {"PHPSESSID": "<?php echo session_id(); ?>"},
         file_size_limit: "200 MB",
@@ -199,7 +199,7 @@ function ModelUpload4() {
 
 
         // Button settings
-        button_image_url: "../SWFUpload/images/TestImageNoText_65x29.png",	// Relative to the Flash file
+        button_image_url: "./SWFUpload/images/TestImageNoText_65x29.png",	// Relative to the Flash file
         button_width: "65",
         button_height: "29",
         button_placeholder_id: "spanButtonPlaceHolder4",

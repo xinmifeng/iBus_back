@@ -1,5 +1,5 @@
-var highlightcolor = '#c1ebff';
-//�˴�clickcolorֻ����winϵͳ��ɫ������ܳɹ�,�����#xxxxxx�Ĵ���Ͳ���,��û�����Ϊʲô:(
+﻿var highlightcolor = '#c1ebff';
+//此处clickcolor只能用win系统颜色代码才能成功,如果用#xxxxxx的代码就不行,还没搞清楚为什么:(
 var clickcolor = '#51b2f6';
 var GUID = "";
 function changeto() {
@@ -42,17 +42,17 @@ function clickto() {
 }
 
 
-//��������ҳ��
+//弹出添加页面
 function AddEvents() {
     location.href = "Add.php?type=add";
 }
-///���ӻ
+///添加活动
 function SubmitToAction() {
     $AppType = 0;
-    if ($("#Sel_type").val() == "Ӧ�ã���Ϸ��") {
+    if ($("#Sel_type").val() == "应用（游戏）") {
         $AppType = 1;
     }
-    if ($("#Sel_type").val() == "Ӧ�ã�App��") {
+    if ($("#Sel_type").val() == "应用（App）") {
         $AppType = 2;
     }
 
@@ -73,7 +73,7 @@ function SubmitToAction() {
         }
     });
 }
-//�������ķ���
+//序号排序的方法
 function SortNumber(type, id) {
     if (type != undefined) {
         $("#ShowDataTable").find("tr").each(function (i) {
@@ -93,7 +93,7 @@ function SortNumber(type, id) {
         });
     }
 }
-///��������׷����
+///添加数据追加行
 function addTr(trHtml) {
     var $tr = $("#ShowDataTable tr").eq(0);
     if ($tr.size() == 0) {
@@ -102,7 +102,7 @@ function addTr(trHtml) {
     $tr.after(trHtml);
 }
 
-///Ĭ�ϼ�������
+///默认加载数据
 function SearchToAction() {
     var jsonStr = {"hd_title": "aaa"};
     $.ajax({
@@ -144,7 +144,7 @@ function ajaxDel(id, num) {
     });
 }
 
-///ɾ�����ݵķ���
+///删除数据的方法
 function Del_HD(id, num) {
     var groupTypeId = new Array();
     if (id != undefined) {
@@ -160,25 +160,25 @@ function Del_HD(id, num) {
             }
         }
     }
-    $.ShowAlert("��ȷ��ɾ����ǰ��¼?", "ȷ��", "ȡ��", function () {
+    $.ShowAlert("您确定删除当前记录?", "确定", "取消", function () {
         ajaxDel(groupTypeId, num);
         $(".xubox_no").click();
     }, function () {
     })
 }
 
-///չʾ�޸ĵ�����
+///展示修改的数据
 function UpdateShow_HD(id) {
-    location.href = "add.php?id=" + id;
+    location.href = "/EventsAndApply/add.php?id=" + id;
 }
-//ҳ���޸���ں���
+//页面修改入口函数
 function ExecuteUpdate(id) {
     GUID = id;
     $AppType = 0;
-    if ($("#Sel_type").val() == "Ӧ�ã���Ϸ��") {
+    if ($("#Sel_type").val() == "应用（游戏）") {
         $AppType = 1;
     }
-    if ($("#Sel_type").val() == "Ӧ�ã�App��") {
+    if ($("#Sel_type").val() == "应用（App）") {
         $AppType = 2;
     }
     var jsonStr = {"title": $("#hd_title").val(), "type": $("#Sel_type").val(), "web_Url": $("#hd_src").val(), "app_type": $AppType};
@@ -199,7 +199,7 @@ function update_HD(id, paraJson) {
         success: function (d) {
             if (d > 0) {
                 fileDialogComplete();
-                $.Show("����ɹ�", 1);
+                $.Show("保存成功", 1);
             }
         }
     });
