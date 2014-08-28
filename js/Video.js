@@ -1,4 +1,5 @@
 var url = "videoAction.php";
+var GUID = "";
 function insertDate() {
 
     var type_id = $('#type_id').val();
@@ -36,7 +37,6 @@ function Updatedata(id, UpdateData) {
 
         }
     });
-
 }
 
 function goback() {

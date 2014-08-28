@@ -50,7 +50,7 @@ function changeValue() {
         "type": "post",
         "url": "../bannerAction.php",
         "data": {"details_type": details_type, "sign": "select"},
-        "success": function (dataList) {
+        success: function (dataList) {
             var selectbox = document.getElementById("details_id");
             selectbox.length = 0;
             for (var i = 0; i < dataList.length; i++) {
@@ -63,11 +63,6 @@ function changeValue() {
             if ($("details_id_value").val() != "") {
                 $("#details_id").val($("#details_id_value").val());
             }
-        },
-        "error": function () {
-        },
-        "complete": function () {
         }
     });
-
 }

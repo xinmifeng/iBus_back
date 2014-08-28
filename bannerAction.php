@@ -46,7 +46,6 @@ switch ($sign) {
         $title = $_POST["title"];
         $picture_url = $_POST["picture_url"];
         $src = $_POST["src"];
-        $address = $_POST["address"];
         $details_type = $_POST["details_type"];
         $details_id = $_POST["details_id"];
         $orderID = $_POST["order_id"];
@@ -100,12 +99,13 @@ switch ($sign) {
         $DB->where('id', $tIDs, 'IN');
         $DB->delete('banner');
         break;
+
     case "UPData":
         $Id = $_POST["id"];
         $UpData = $_POST["UData"];
-        $DB->where("id", $id);
+        $DB->where("id", $Id);
         $count = $DB->update("banner", $UpData);
-        echo $count;
+        echo $Id;
         break;
 }
 
