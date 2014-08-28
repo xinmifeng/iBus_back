@@ -66,6 +66,7 @@ function SubmitToAction() {
             alert(XmlHttpRequest.responseText);
         },
         success: function (d) {
+            console.log(d);
             if (d > 0) {
                 GUID = d;
                 fileDialogComplete();

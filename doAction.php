@@ -6,6 +6,10 @@ switch ($title) {
     case "Event_HD":
         $arr = array('title' => $_GET["hd_title"], 'web_url' => $_GET["hd_webUrl"], 'create_date' => date("Y-m-d H:i:s"), 'type' => $_GET["hd_type"], 'app_type' => $_GET["hd_apptype"]);
         $id = $DB->insert("activity", $arr);
+        $History = AddHistory($arr);
+        if ($id > 0) {
+            $DB->insert("history", $History);
+        }
         echo $id;
         break;
     case "Event_HD_Search":
@@ -65,6 +69,34 @@ switch ($title) {
         echo "未找到对应的方法。";
         break;
 }
+
+//添加历史记录
+function AddHistory($ModefyData)
+{
+    $Modefiy = json_encode($ModefyData);;
+    $Action = "add";
+    $TableName = "bee_activity";
+    $sql = JsonParsSql($TableName, $ModefyData);
+    $array = array("table_name" => $TableName, "action" => $Action, "cost" => "", "modified" => $Modefiy, "modified_sql" => $sql, "action_time" => date("Y-m-d H:i:s"));
+    return $array;
+}
+
+function JsonParsSql($tableName, $jsonInstan)
+{
+    $sqlStr = "INSERT INTO " . $tableName;
+    $FiledStr = "(";
+    $ValueStr = "(";
+    foreach ($jsonInstan as $key => $val) {
+        $FiledStr .= $key . ",";
+        $ValueStr .= "'" . $val . "',";
+    }
+    $FiledStr = substr($FiledStr, 0, strlen($FiledStr) - 1);
+    $ValueStr = substr($ValueStr, 0, strlen($ValueStr) - 1);
+    $FiledStr .= ")";
+    $ValueStr .= ")";
+    return $sqlStr . " " . $FiledStr . " values " . $ValueStr . ";";
+}
+
 
 ///查询列表 倒序排序
 function SearchAllList($DB)

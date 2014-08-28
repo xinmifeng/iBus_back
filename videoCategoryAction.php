@@ -22,7 +22,8 @@ switch ($sign) {
 				 'order_id' => $orderID
 				);
 			$DB->where ('type_id', $typeID);
-			$DB->update ('video_type', $data);
+			$result=$DB->update ('video_type', $data);
+            echo $result;
 		}else{
 			$data=Array(
 			 'type_name' => $typeName,
