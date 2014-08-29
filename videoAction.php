@@ -1,6 +1,6 @@
-<?php
+ï»¿<?php
 /**
- * ÊÓÆµ¹ÜÀíaction
+ * è§†é¢‘ç®¡ç†action
  *
  * @author  dennis
  * @version 1.0
@@ -10,7 +10,7 @@ require_once("./MysqliDb.php");
 require_once("sqlDb.php");
 $sign = $_POST["sign"];
 switch ($sign) {
-    case "insert": //ÐÂÔöÊÓÆµÐÅÏ¢
+    case "insert": //æ–°å¢žè§†é¢‘ä¿¡æ¯
         $type_id = $_POST["type_id"];
         $title = $_POST["title"];
         $pic_url = $_POST["pic_url"];
@@ -20,7 +20,7 @@ switch ($sign) {
         $orderID = $_POST["order_id"];
         $GUID = "";
 
-        if (!empty($_POST["v_id"])) { //Èç¹û´æÔÚID£¬¾ÍÐÞ¸Ä¼ÇÂ¼
+        if (!empty($_POST["v_id"])) { //å¦‚æžœå­˜åœ¨IDï¼Œå°±ä¿®æ”¹è®°å½•
             $v_id = $_POST["v_id"];
             $data = Array(
                 'type_id' => $type_id,
@@ -28,7 +28,7 @@ switch ($sign) {
                 'pic_url' => $pic_url,
                 'v_name' => $v_name,
                 'length' => $length,
-                //			 'create_date' => $DB->now(), //ÐÞ¸Ä´´½¨Ê±¼ä
+                //			 'create_date' => $DB->now(), //ä¿®æ”¹åˆ›å»ºæ—¶é—´
                 'order_id' => $orderID
             );
             $DB->where('v_id', $v_id);
@@ -56,7 +56,7 @@ switch ($sign) {
         $ECount = $DB->update('video', $UpdateAddress);
         echo $ECount;
         break;
-    case "delete": //É¾³ýÊÓÆµ·ÖÀà
+    case "delete": //åˆ é™¤è§†é¢‘åˆ†ç±»
         $tIDs = $_POST["tids"];
         $DB->where('v_id', $tIDs, 'IN');
         $bojInstan = $DB->get("video");

@@ -1,12 +1,13 @@
 <?php
 require_once("./MysqliDb.php");
 require_once("./sqlDb.php");
+require_once("./PublicAction.php");
 $title = $_GET["sign"];
 switch ($title) {
     case "Event_HD":
         $arr = array('title' => $_GET["hd_title"], 'web_url' => $_GET["hd_webUrl"], 'create_date' => date("Y-m-d H:i:s"), 'type' => $_GET["hd_type"], 'app_type' => $_GET["hd_apptype"]);
         $id = $DB->insert("activity", $arr);
-        $History = AddHistory($arr);
+        $History = AddHistory($arr, "bee_activity");
         if ($id > 0) {
             $DB->insert("history", $History);
         }
@@ -16,8 +17,12 @@ switch ($title) {
         echo SearchAllList($DB);
         break;
     case "Del":
-        $DB->where("id", $_GET["id"], 'IN');
+        $Delid = $_GET["id"];
+        $DB->where("id",$Delid, 'IN');
         $ActivInstan = $DB->get("activity");
+        $DelArray = DelHistory($ActivInstan, "bee_activity", "id", $Delid);
+        $DB->insert("history", $DelArray);
+
         $Purl = $ActivInstan[0]["picture_url"];
         $Srcurl = $ActivInstan[0]["src"];
         $DownUrl = $ActivInstan[0]["download_url"];
@@ -30,7 +35,7 @@ switch ($title) {
         if (is_file("SWFUpload/file/" . $DownUrl)) {
             unlink("SWFUpload/file/" . $DownUrl);
         }
-        $DB->where("id", $_GET["id"], 'IN');
+        $DB->where("id", $Delid, 'IN');
         $delSign = $DB->delete("activity");
         if ($delSign > 0) {
             echo SearchAllList($DB);
@@ -62,39 +67,20 @@ switch ($title) {
 //        }
         $arr = $_GET["UData"];
         $DB->where("id", $_GET["id"]);
+        $CostInstan = $DB->get("activity");
+        $arrayData = GetCostAndUpdateValue($CostInstan, $arr);
+
+        $DB->where("id", $_GET["id"]);
         $Count = $DB->update("activity", $arr);
+        $HistoryData = UpdateHistory($arrayData, "id", $_GET["id"], "bee_activity");
+        if ($Count > 0) {
+            $DB->insert("history", $HistoryData);
+        }
         echo $Count;
         break;
     default:
         echo "未找到对应的方法。";
         break;
-}
-
-//添加历史记录
-function AddHistory($ModefyData)
-{
-    $Modefiy = json_encode($ModefyData);;
-    $Action = "add";
-    $TableName = "bee_activity";
-    $sql = JsonParsSql($TableName, $ModefyData);
-    $array = array("table_name" => $TableName, "action" => $Action, "cost" => "", "modified" => $Modefiy, "modified_sql" => $sql, "action_time" => date("Y-m-d H:i:s"));
-    return $array;
-}
-
-function JsonParsSql($tableName, $jsonInstan)
-{
-    $sqlStr = "INSERT INTO " . $tableName;
-    $FiledStr = "(";
-    $ValueStr = "(";
-    foreach ($jsonInstan as $key => $val) {
-        $FiledStr .= $key . ",";
-        $ValueStr .= "'" . $val . "',";
-    }
-    $FiledStr = substr($FiledStr, 0, strlen($FiledStr) - 1);
-    $ValueStr = substr($ValueStr, 0, strlen($ValueStr) - 1);
-    $FiledStr .= ")";
-    $ValueStr .= ")";
-    return $sqlStr . " " . $FiledStr . " values " . $ValueStr . ";";
 }
 
 

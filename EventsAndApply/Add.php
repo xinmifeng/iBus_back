@@ -206,8 +206,9 @@ header("content-Type: text/html; charset=gb2312");
             <td class="item_title">
             </td>
             <td><input type="button" value="提交" class="button SaveChange"
-                       onclick="SubmitToAction();"/><input type="button" class="button" value="返回"
-                                                           onclick="location.href='EventsManger.php'" id="closebtn"/>
+                       onclick="ExecuteUpdate(<?php echo $id ?>);"/><input type="button" class="button" value="返回"
+                                                                           onclick="location.href='EventsManger.php'"
+                                                                           id="closebtn"/>
             </td>
         </tr>
     <?php } ?>

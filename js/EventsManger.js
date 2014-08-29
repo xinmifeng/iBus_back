@@ -182,7 +182,7 @@ function ExecuteUpdate(id) {
     if ($("#Sel_type").val() == "应用（App）") {
         $AppType = 2;
     }
-    var jsonStr = {"title": $("#hd_title").val(), "type": $("#Sel_type").val(), "web_Url": $("#hd_src").val(), "app_type": $AppType};
+    var jsonStr = {"title": $("#hd_title").val(), "type": $("#Sel_type").val(), "web_url": $("#hd_src").val(), "app_type": $AppType};
     var jsonStr = {"UData": jsonStr, "id": id};
     update_HD(id, jsonStr);
 }
