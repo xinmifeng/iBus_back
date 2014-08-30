@@ -8,6 +8,8 @@
  */
 require_once("./MysqliDb.php");
 require_once("sqlDb.php");
+require_once("./PublicAction.php");
+
 $sign = $_POST["sign"];
 switch ($sign) {
     case "select": //查询关联标题
@@ -61,12 +63,22 @@ switch ($sign) {
                 'src' => $src,
                 'details_type' => $details_type,
                 'details_id' => $details_id,
-                //			 'create_date' => $DB->now(), //修改创建时间
                 'order_id' => $orderID,
                 'sub_type' => $sub_type
             );
+
+
+            $DB->where("id", $id);
+            $CostInstan = $DB->get("banner");
+            $arrayData = GetCostAndUpdateValue($CostInstan, $data);
+
+
             $DB->where('id', $id);
-            $DB->update('banner', $data);
+            $UpCount = $DB->update('banner', $data);
+            $HistoryData = UpdateHistory($arrayData, "id", $id, "bee_banner");
+            if ($UpCount > 0) {
+                $DB->insert("history", $HistoryData);
+            }
         } else {
             $data = Array(
                 'type' => $type,
@@ -75,18 +87,29 @@ switch ($sign) {
                 'src' => $src,
                 'details_type' => $details_type,
                 'details_id' => $details_id,
-                'create_date' => $DB->now(), //修改创建时间
+                'create_date' => date("Y-m-d H:i:s"), //修改创建时间
                 'order_id' => $orderID,
                 'sub_type' => $sub_type
             );
             $ECHID = $DB->insert('banner', $data);
+            if ($ECHID > 0) {
+                $data["id"] = $ECHID;
+                $History = AddHistory($data, "bee_banner");
+                $DB->insert("history", $History);
+            }
         }
-        // header('Location:videoList.php');
         echo $ECHID;
         break;
 
     case "delete": //删除视频分类
         $tIDs = $_POST["tids"];
+        $DB->where('id', $tIDs, 'IN');
+
+        $ActivInstan = $DB->get("banner");
+        $DelArray = DelHistory($ActivInstan, "bee_banner", "id", $tIDs);
+        $DB->insert("history", $DelArray);
+
+
         $DB->where('id', $tIDs, 'IN');
         $bojInstan = $DB->get("banner");
         for ($i = 0; $i < count($bojInstan); $i++) {
@@ -103,8 +126,18 @@ switch ($sign) {
     case "UPData":
         $Id = $_POST["id"];
         $UpData = $_POST["UData"];
+
+
+        $DB->where("id", $Id);
+        $CostInstan = $DB->get("banner");
+        $arrayData = GetCostAndUpdateValue($CostInstan, $UpData);
+
         $DB->where("id", $Id);
         $count = $DB->update("banner", $UpData);
+        $HistoryData = UpdateHistory($arrayData, "id", $Id, "bee_banner");
+        if ($count > 0) {
+            $DB->insert("history", $HistoryData);
+        }
         echo $Id;
         break;
 }

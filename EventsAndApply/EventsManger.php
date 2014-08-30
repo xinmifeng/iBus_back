@@ -58,7 +58,7 @@ require_once("../sqlDb.php");
                                                 <div align="center"><img src="../images/tb.gif" width="16" height="16"/>
                                                 </div>
                                             </td>
-                                            <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[活动及应用管理]?>[活动管理]
+                                            <td width="95%" class="STYLE1"><span class="STYLE3">你当前的位置</span>：[活动及应用管理]->[活动管理]
                                             </td>
                                         </tr>
                                     </table>

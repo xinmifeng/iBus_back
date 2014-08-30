@@ -68,9 +68,9 @@ if (!empty($_GET["id"])) {
                 <option value="3">优惠</option>
                 <option value="4">应用</option>
             </select>
-            <input type="hidden" id="subTypeValue" name="subTypeValue" value="<?php
-            echo $banner['sub_type'];
-            ?>"/>
+            <input type="hidden" id="subTypeValue" name="subTypeValue" value="<?php if (!empty($banner['sub_type'])) {
+                echo $banner['sub_type'];
+            } ?>"/>
 
             <div id="subType" style="display:none;">
                 子分类：<select id="sub_type" name="sub_type" value="<?php if (!empty($banner['sub_type'])) {
@@ -154,8 +154,10 @@ if (!empty($_GET["id"])) {
                        echo $banner['details_id'];
                    } ?>"/>
             <select id="details_id" name="details_id" value="">
-                <option value="<?php
-                echo $banner['details_id'];?>"><?php
+                <option value="<?php if (!empty($banner['details_id'])) {
+                    echo $banner['details_id'];
+                }?>">
+                    <?php
                     echo $details_text["title"]?></option>
             </select>
         </td>

@@ -85,8 +85,52 @@ function JsonParseDel($TableName, $id, $idVal)
         $ids .= "'" . $idVal[$index] . "'" . ",";
     }
     $ids .= substr($ids, 0, strlen($ids) - 1);
-    $sqlStr = "DELETE FROM " . $TableName . " where " . $id . " in (" . $ids . ")";
+    $sqlStr = "DELETE FROM " . $TableName . " where " . $id . " in (" . $ids . ");";
     return $sqlStr;
+}
+
+///返回对应操作表的名称
+function ResultTableDetails($TableName)
+{
+    $tableName = "";
+    switch ($TableName) {
+        case "bee_activity":
+            $tableName = "活动及应用";
+            break;
+        case "bee_banner":
+            $tableName = "Banner";
+            break;
+        case "bee_index":
+            $tableName = "首页管理";
+            break;
+        case "bee_video":
+            $tableName = "视频";
+            break;
+        case "bee_video_type":
+            $tableName = "视频类型";
+            break;
+    }
+    return $tableName;
+}
+
+///操作类型
+function GetDoType($typeStr)
+{
+    $ResuleStr = "";
+    switch ($typeStr) {
+        case "add":
+            $ResuleStr = "添加";
+            break;
+        case "upd":
+            $ResuleStr = "修改";
+            break;
+        case "del":
+            $ResuleStr = "删除";
+            break;
+        default:
+            break;
+    }
+    return $ResuleStr;
 }
 
 ?>

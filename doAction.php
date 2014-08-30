@@ -7,8 +7,9 @@ switch ($title) {
     case "Event_HD":
         $arr = array('title' => $_GET["hd_title"], 'web_url' => $_GET["hd_webUrl"], 'create_date' => date("Y-m-d H:i:s"), 'type' => $_GET["hd_type"], 'app_type' => $_GET["hd_apptype"]);
         $id = $DB->insert("activity", $arr);
-        $History = AddHistory($arr, "bee_activity");
         if ($id > 0) {
+            $arr["id"] = $id;
+            $History = AddHistory($arr, "bee_activity");
             $DB->insert("history", $History);
         }
         echo $id;
@@ -18,7 +19,7 @@ switch ($title) {
         break;
     case "Del":
         $Delid = $_GET["id"];
-        $DB->where("id",$Delid, 'IN');
+        $DB->where("id", $Delid, 'IN');
         $ActivInstan = $DB->get("activity");
         $DelArray = DelHistory($ActivInstan, "bee_activity", "id", $Delid);
         $DB->insert("history", $DelArray);

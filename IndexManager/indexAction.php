@@ -8,6 +8,7 @@
  */
 require_once("../MysqliDb.php");
 require_once("../sqlDb.php");
+require_once("../PublicAction.php");
 
 
 $sign = $_POST["sign"];
@@ -16,9 +17,22 @@ switch ($sign) {
     case"Index":
         $index_id = $_POST["id"];
         $data1 = $_POST["UData"];
+
+
+        $DB->where("index_id", $index_id);
+        $CostInstan = $DB->get("index");
+        $arrayData = GetCostAndUpdateValue($CostInstan, $data1);
+
         $DB->where('index_id', $index_id);
         $count1 = $DB->update('index', $data1);
+
+        $HistoryData = UpdateHistory($arrayData, "index_id", $index_id, "bee_index");
+
+        if ($count1 > 0) {
+            $DB->insert("history", $HistoryData);
+        }
         $Result = $index_id;
+
         break;
     default;
         $position = $_POST["position"];
@@ -32,8 +46,20 @@ switch ($sign) {
             'src' => $src,
             'details_id' => $details_id,
         );
+
+
+        $DB->where("index_id", $position);
+        $CostInstan = $DB->get("index");
+        $arrayData = GetCostAndUpdateValue($CostInstan, $data);
+
+
         $DB->where('index_id', $position);
         $DB->update('index', $data);
+
+        $HistoryData = UpdateHistory($arrayData, "index_id", $position, "bee_index");
+
+        $DB->insert("history", $HistoryData);
+
         $Result = $position;
         break;
 }

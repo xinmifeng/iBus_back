@@ -40,8 +40,6 @@ function UploadData(Data) {
         "url": url,
         "data": Data,
         success: function (d) {
-            console.log("这是什么东西？");
-            console.log(d);
         }
     });
 }

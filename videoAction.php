@@ -8,6 +8,9 @@
  */
 require_once("./MysqliDb.php");
 require_once("sqlDb.php");
+require_once("./PublicAction.php");
+
+
 $sign = $_POST["sign"];
 switch ($sign) {
     case "insert": //新增视频信息
@@ -28,11 +31,19 @@ switch ($sign) {
                 'pic_url' => $pic_url,
                 'v_name' => $v_name,
                 'length' => $length,
-                //			 'create_date' => $DB->now(), //修改创建时间
                 'order_id' => $orderID
             );
+
+
+            $DB->where("v_id", $v_id);
+            $CostInstan = $DB->get("video");
+            $arrayData = GetCostAndUpdateValue($CostInstan, $data);
+
             $DB->where('v_id', $v_id);
             $DB->update('video', $data);
+            $HistoryData = UpdateHistory($arrayData, "v_id", $v_id, "bee_video");
+            $DB->insert("history", $HistoryData);
+
             $GUID = $v_id;
         } else {
             $data = Array(
@@ -41,23 +52,43 @@ switch ($sign) {
                 'pic_url' => $pic_url,
                 'v_name' => $v_name,
                 'length' => $length,
-                'create_date' => $DB->now(),
+                'create_date' => date("Y-m-d H:i:s"),
                 'order_id' => $orderID
             );
             $GUID = $DB->insert('video', $data);
+            if ($GUID > 0) {
+                $data["v_id"] = $GUID;
+                $History = AddHistory($data, "bee_video");
+                $DB->insert("history", $History);
+            }
         }
-        // header('Location:videoList.php');
         echo $GUID;
         break;
     case "update":
         $UpdateAddress = $_POST["UData"];
         $id = $_POST["id"];
+
+
+        $DB->where("v_id", $id);
+        $CostInstan = $DB->get("video");
+        $arrayData = GetCostAndUpdateValue($CostInstan, $UpdateAddress);
+
         $DB->where('v_id', $id);
         $ECount = $DB->update('video', $UpdateAddress);
+        $HistoryData = UpdateHistory($arrayData, "v_id", $id, "bee_video");
+        if ($ECount > 0) {
+            $DB->insert("history", $HistoryData);
+        }
         echo $ECount;
         break;
     case "delete": //删除视频分类
         $tIDs = $_POST["tids"];
+
+        $DB->where("v_id", $tIDs, 'IN');
+        $ActivInstan = $DB->get("video");
+        $DelArray = DelHistory($ActivInstan, "bee_video", "v_id", $tIDs);
+        $DB->insert("history", $DelArray);
+
         $DB->where('v_id', $tIDs, 'IN');
         $bojInstan = $DB->get("video");
         for ($i = 0; $i < count($bojInstan); $i++) {
