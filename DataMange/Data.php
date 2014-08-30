@@ -142,7 +142,7 @@ require_once("../PublicAction.php");
                             <td width="14%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">操作类型</span></div>
                             </td>
-                            <td width="20%" background="../images/bg.gif" bgcolor="#FFFFFF">
+                            <td width="4px" background="../images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">操作内容</span></div>
                             </td>
                             <td width="18%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
@@ -202,8 +202,7 @@ require_once("../PublicAction.php");
                                 </td>
                             </tr>
                         <?php
-                        }
-                        ?>
+                        }?>
                     </table>
                 </td>
                 <td width="8" background="../images/tab_15.gif">&nbsp;</td>
@@ -248,7 +247,6 @@ require_once("../PublicAction.php");
     </td>
 </tr>
 </table>
-
 </body>
 </html>
 
