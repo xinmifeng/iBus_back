@@ -52,7 +52,8 @@
                 layer.close(i);
             })
         }
-
-		callback(i);
+        if(callback){
+		    callback(i);
+        }
     }
 })

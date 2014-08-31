@@ -17,10 +17,10 @@ $result = $DB->get("video_type");
 <meta charset="utf-8">
 <head>
     <script src="bower_components/jquery/jquery.js"></script>
+    <script src="js/JunValidator/JunValidator.js"></script>
     <script src="js/layer/layer/layer.min.js"></script>
     <script src="js/Layerutility.js"></script>
     <script src="js/CategoryMgr.js"></script>
-	<script src="js/JunValidator/JunValidator.js"></script>
     <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
 
 </head>

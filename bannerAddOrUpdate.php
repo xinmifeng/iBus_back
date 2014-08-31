@@ -119,7 +119,7 @@ if (!empty($_GET["id"])) {
     <tr>
         <td class="item_title">外部链接：</td>
         <td><input type="text" class="src checkInput" name="src" id="src"
-		empty="false" emptymsg="外部链接不能为空" illleagle="请输入有效的http或https链接" reg="url"  
+		empty="true" emptymsg="外部链接不能为空" illleagle="请输入有效的http或https链接" reg="url"
 		value="<?php if (!empty($banner['src'])) {echo $banner['src'];} ?>"/></td>
     </tr>
     <tr>
