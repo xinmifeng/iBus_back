@@ -28,6 +28,7 @@ if (!empty($_GET["v_id"])) {
     <script type="text/javascript" src="SWFUpload/js/fileprogress.js"></script>
     <script type="text/javascript" src="SWFUpload/js/handlers.js"></script>
     <script type="text/javascript" src="js/Upload.js"></script>
+	<script src="js/JunValidator/JunValidator.js"></script>
 
 
     <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
@@ -50,19 +51,19 @@ if (!empty($_GET["v_id"])) {
 <table class="form">
     <tr>
         <td class="item_title">标题：</td>
-        <td><input type="hidden" id="sign" name="sign"/><input type="hidden" id="v_id" class="v_id" name="v_id"
-                                                               value="<?php
-                                                               if (!empty($v_id)) {
-                                                                   echo $v_id;
-                                                               }?>"/><input type="text" class="title" id="title"
-                                                                            name="title"
-                                                                            value="<?php if (!empty($video['title'])) {
-                                                                                echo iconv('UTF-8', 'GB2312', $video['title']);
-                                                                            } ?>"/></td>
+        <td><input type="hidden" id="sign" name="sign"/>
+		<input type="hidden" id="v_id" class="v_id" name="v_id"
+		value="<?php if (!empty($v_id)) { echo $v_id; }?>"/>
+		<input type="text" class="title checkInput" id="title" name="title" 
+		empty="false" emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title"  
+		value="<?php if (!empty($video['title'])) {
+		echo iconv('UTF-8', 'GB2312', $video['title']);} ?>"/>
+		</td>
     </tr>
     <tr>
         <td class="item_title">视频名称：</td>
-        <td><input type="select" class="v_name" id="v_name" name="v_name"
+        <td><input type="select" class="v_name checkInput" id="v_name" name="v_name"
+		empty="false" emptymsg="视频名称不能为空" illleagle="视频名称长度为1~20" reg="title"  
                    value="<?php if (!empty($video['v_name'])) {
                        echo iconv('UTF-8', 'GB2312', $video['v_name']);
                    } ?>"/></td>
@@ -139,13 +140,15 @@ if (!empty($_GET["v_id"])) {
     </tr>
     <tr>
         <td class="item_title">时长：</td>
-        <td><input type="text" class="length" id="length" name="length" value="<?php if (!empty($video['length'])) {
-                echo $video['length'];
-            } ?>"/></td>
+        <td><input type="text" class="length checkInput" id="length" name="length" 
+		empty="false" emptymsg="时长不能为空" illleagle="视频时长格式为:00:20:38 (代表0小时20分38秒)" reg="time"  
+		value="<?php if (!empty($video['length'])) { echo $video['length'];} ?>"/></td>
     </tr>
     <tr>
         <td class="item_title">排序值</td>
-        <td><input type="text" class="OrderID" id="order_id" name="order_id" value="<?php
+        <td><input type="text" class="OrderID checkInput" id="order_id" name="order_id" 
+		empty="false" emptymsg="排序值不能为空" illleagle="排序值为数字" reg="num"  
+		value="<?php
             if (!empty($video['order_id'])) {
                 echo $video['order_id'];
             } else {
@@ -156,7 +159,7 @@ if (!empty($_GET["v_id"])) {
     </tr>
     <tr>
         <td class="item_title"></td>
-        <td><input type="button" name="add" class="button" value="确定" onclick="insertDate();"/><input type="button"
+        <td><input type="button" name="add" id="btn_add" class="button" value="确定" /><input type="button"
                                                                                                       name="back"
                                                                                                       value="返回"
                                                                                                       class="button"
@@ -166,3 +169,21 @@ if (!empty($_GET["v_id"])) {
 </table>
 </body>
 </html>
+<script>
+	var Regs={
+		title:/^\w{1,20}$/,
+		time:/^[0-5][0-9]:[0-5][0-9]:[0-5][0-9]$/,
+		num:/^\d{1,4}$/
+	};
+	$inputs=$(".checkInput");
+    var validator = new JunValidator({
+        "Regs": Regs,
+        "elements": $inputs,
+        "blurAfter": function (element, data) {
+			addJunIcon(element,data);
+		}
+	});
+	$("#btn_add").click(function(){
+		insertDate(validator);
+	});
+</script>

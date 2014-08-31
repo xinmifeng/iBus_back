@@ -20,6 +20,7 @@ header("content-Type: text/html; charset=gb2312");
     <script type="text/javascript" src="../SWFUpload/js/fileprogress.js"></script>
     <script type="text/javascript" src="../SWFUpload/js/handlers.js"></script>
     <script type="text/javascript" src="../js/Upload.js"></script>
+	<script src="../js/JunValidator/JunValidator.js"></script>
 
 
     <link href="../CSS/style.css" rel="stylesheet" type="text/css"/>
@@ -57,7 +58,10 @@ header("content-Type: text/html; charset=gb2312");
         ?>
         <tr>
             <td class="item_title">活动标题：</td>
-            <td><input type="text" id="hd_title"/></td>
+            <td>
+				<input type="text" id="hd_title" empty="false"  class="checkInput"
+				emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title" />  
+			</td>
         </tr>
         <tr>
             <td class="item_title">活动类型：</td>
@@ -70,7 +74,9 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
         <tr>
             <td class="item_title">外链地址：</td>
-            <td><input type="text" id="hd_src"/>(无外链可忽略)</td>
+            <td><input type="text" empty="true"  class="checkInput"
+			emptymsg="外部链接不能为空" illleagle="请输入有效的http或https链接" reg="url" 
+			id="hd_src"/>(无外链可忽略)</td>
         </tr>
         <tr>
             <td class="item_title">图片上传：</td>
@@ -122,9 +128,8 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">
             </td>
-            <td><input type="button" value="提交" class="button SaveChange"
-                       onclick="SubmitToAction();"/><input type="button" class="button" value="返回"
-                                                           onclick="location.href='EventsManger.php'" id="closebtn"/>
+            <td><input type="button" id="btn_add" value="提交" class="button SaveChange" />
+			<input type="button" class="button" value="返回" onclick="location.href='EventsManger.php'" id="closebtn"/>
             </td>
         </tr>
     <?php
@@ -139,7 +144,9 @@ header("content-Type: text/html; charset=gb2312");
         ?>
         <tr>
             <td class="item_title">活动标题：</td>
-            <td><input type="text" id="hd_title" value="<?php echo iconv('UTF-8', 'GB2312', $title) ?>"/></td>
+            <td><input type="hidden" id="updateId" value="<?php echo $id ?>" ><input class="checkInput" type="text" id="hd_title" 
+				empty="false" emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title" 
+			value="<?php echo iconv('UTF-8', 'GB2312', $title) ?>"/></td>
         </tr>
         <tr>
             <td class="item_title">活动类型：</td>
@@ -153,7 +160,9 @@ header("content-Type: text/html; charset=gb2312");
         </tr>
         <tr>
             <td class="item_title">外链地址：</td>
-            <td><input type="text" id="hd_src" value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(无外链可忽略)</td>
+            <td><input class="checkInput" type="text" id="hd_src" 
+			empty="true" emptymsg="外部链接不能为空" illleagle="请输入有效的http或https链接" reg="url"
+			value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(无外链可忽略)</td>
         </tr>
         <tr>
             <td class="item_title">图片上传：</td>
@@ -205,10 +214,8 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">
             </td>
-            <td><input type="button" value="提交" class="button SaveChange"
-                       onclick="ExecuteUpdate(<?php echo $id ?>);"/><input type="button" class="button" value="返回"
-                                                                           onclick="location.href='EventsManger.php'"
-                                                                           id="closebtn"/>
+            <td><input type="button" id="btn_update" value="提交" class="button SaveChange"/>
+			<input type="button" class="button" value="返回"  onclick="location.href='EventsManger.php'" id="closebtn"/>
             </td>
         </tr>
     <?php } ?>
@@ -216,4 +223,34 @@ header("content-Type: text/html; charset=gb2312");
 </div>
 </body>
 </html>
+<script>
+	var Regs={
+		title:/^\w{1,20}$/,
+		url:/^(http:\/\/|https:\/\/)/
+	};
+	$inputs=$(".checkInput");
+    var validator = new JunValidator({
+        "Regs": Regs,
+        "elements": $inputs,
+        "blurAfter": function (element, data) {
+			addJunIcon(element,data,"../js/JunValidator/reg_ok.png");
+		}
+	});
+	$("#btn_add").click(function(){
+		if(!validator.check()){
+			$.Show("信息填写错误,请重新填写!",2);
+			return;
+		}
+		SubmitToAction();
+	});
 
+	$("#btn_update").click(function(){
+		if(!validator.check()){
+			$.Show("信息填写错误,请重新填写!",2);
+			return;
+		}
+		var id=$("#updateId").val();
+		ExecuteUpdate(id);
+	});
+
+</script>
