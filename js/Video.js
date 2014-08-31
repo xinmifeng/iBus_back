@@ -1,7 +1,10 @@
 var url = "videoAction.php";
 var GUID = "";
-function insertDate() {
-
+function insertDate(va) {
+	if(va && !va.check()){
+		$.Show('信息填写错误,请重新填写',2);
+		return;
+	}
     var type_id = $('#type_id').val();
     var v_id = $('#v_id').val();
     var title = $('#title').val();

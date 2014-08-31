@@ -32,7 +32,7 @@
         });
     },
 
-    ShowHtmlByForm: function (htmlStr, titleStr) {
+    ShowHtmlByForm: function (htmlStr, titleStr, m_area,callback) {
         var html = "暂无信息!";
         if (htmlStr != "" && htmlStr != undefined) {
             html = htmlStr;
@@ -40,7 +40,7 @@
         var i = $.layer({
             type: 1,
             title: titleStr,
-            area: ['323px', '200px'],
+            area: m_area || ['323px', '200px'],
             page: {html: html},
             success: function (index) {
                 CloseBtn(index);
@@ -52,5 +52,7 @@
                 layer.close(i);
             })
         }
+
+		callback(i);
     }
 })

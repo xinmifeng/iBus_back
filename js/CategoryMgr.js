@@ -45,7 +45,9 @@ function clickto() {
 //弹出添加页面
 function to_addPage() {
     var htm = $("#DIV_Event").html();
-    $.ShowHtmlByForm(htm, "添加视频分类");
+    $.ShowHtmlByForm(htm, "添加视频分类",["500px","170px"],function(index){
+		doCheck($("#xubox_layer"+index));
+	});
 }
 //弹出修改页面
 function to_updatePage(id) {
@@ -64,8 +66,11 @@ function to_updatePage(id) {
 
 }
 
-function insertDate(el) {
-    var $table = $(el).closest("table");
+function insertDate(va,$table) {
+	if(va && !va.check()){
+		$.Show('信息填写错误,请重新填写',2);
+		return;
+	}
     var typeName = $("input.typeName", $table).val();
     var orderID = $("input.typeOrderID", $table).val();
     var typeID = $("input.type_id", $table).val();

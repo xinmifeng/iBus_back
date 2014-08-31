@@ -28,8 +28,8 @@ if (!empty($_GET["id"])) {
     <script type="text/javascript" src="SWFUpload/js/handlers.js"></script>
     <script type="text/javascript" src="js/Upload.js"></script>
     <script src="js/Banner.js"></script>
+	<script src="js/JunValidator/JunValidator.js"></script>
     <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
-
     <script>
         var swfu;
         window.onload = function () {
@@ -46,15 +46,12 @@ if (!empty($_GET["id"])) {
 <table class="form">
     <tr>
         <td class="item_title">标题：</td>
-        <td><input type="hidden" id="sign" name="sign"/><input type="hidden" id="id" class="id" name="id"
-                                                               value="<?php
-                                                               if (!empty($id)) {
-                                                                   echo $id;
-                                                               }?>"/><input type="text" class="title" id="title"
-                                                                            name="title"
-                                                                            value="<?php if (!empty($banner['title'])) {
-                                                                                echo $banner['title'];
-                                                                            } ?>"/></td>
+        <td><input type="hidden" id="sign" name="sign"/>
+			<input type="hidden" id="id" class="id" name="id" value="<?php if (!empty($id)) { echo $id;}?>"/>
+			<input type="text" class="title checkInput" id="title" name="title" 
+			empty="false" emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title"  
+			value="<?php if (!empty($banner['title'])) {echo $banner['title'];} ?>"/>
+		</td>
     </tr>
     <tr>
         <td class="item_title">分类：</td>
@@ -120,10 +117,10 @@ if (!empty($_GET["id"])) {
         </td>
     </tr>
     <tr>
-        <td class="item_title">链接：</td>
-        <td><input type="text" class="src" name="src" id="src" value="<?php if (!empty($banner['src'])) {
-                echo $banner['src'];
-            } ?>"/></td>
+        <td class="item_title">外部链接：</td>
+        <td><input type="text" class="src checkInput" name="src" id="src"
+		empty="false" emptymsg="外部链接不能为空" illleagle="请输入有效的http或https链接" reg="url"  
+		value="<?php if (!empty($banner['src'])) {echo $banner['src'];} ?>"/></td>
     </tr>
     <tr>
         <td class="item_title">绑定分类：</td>
@@ -137,7 +134,7 @@ if (!empty($_GET["id"])) {
         </td>
     </tr>
     <tr>
-        <td class="item_title">绑定标题：</td>
+        <td class="item_title">绑定的视频或活动：</td>
         <td>
             <input type="hidden" id="details_text" name="details_text" value="<?php
             if ($banner['details_type'] == "1") {
@@ -164,10 +161,9 @@ if (!empty($_GET["id"])) {
     </tr>
     <tr>
         <td class="item_title">排序值</td>
-        <td><input type="text" class="OrderID" id="order_id" name="order_id" value="<?php
-            if (!empty($banner['order_id'])) {
-                echo $banner['order_id'];
-            } else {
+        <td><input type="text" class="OrderID checkInput" id="order_id" name="order_id" 
+		empty="false" emptymsg="排序值不能为空" illleagle="排序值为数字" reg="num"  
+		value="<?php if (!empty($banner['order_id'])) { echo $banner['order_id'];} else {
                 $maxOrderID = $DB->getOne("banner", "max(order_id) as maxID");
                 echo $maxOrderID['maxID'] + 10;
             }
@@ -175,7 +171,7 @@ if (!empty($_GET["id"])) {
     </tr>
     <tr>
         <td class="item_title"></td>
-        <td><input type="button" class="button" name="add" value="确定" onclick="insertDate();"/><input class="button"
+        <td><input type="button" class="button" id="btn_add" name="add" value="确定"/><input class="button"
                                                                                                       type="button"
                                                                                                       name="back"
                                                                                                       value="返回"
@@ -185,3 +181,21 @@ if (!empty($_GET["id"])) {
 </table>
 </body>
 </html>
+<script>
+	var Regs={
+		title:/^\w{1,20}$/,
+		url:/^(http:\/\/|https:\/\/)/,
+		num:/^\d{1,4}$/
+	};
+	$inputs=$(".checkInput");
+    var validator = new JunValidator({
+        "Regs": Regs,
+        "elements": $inputs,
+        "blurAfter": function (element, data) {
+			addJunIcon(element,data);
+		}
+	});
+	$("#btn_add").click(function(){
+		insertDate(validator);
+	});
+</script>

@@ -20,6 +20,7 @@ $result = $DB->get("video_type");
     <script src="js/layer/layer/layer.min.js"></script>
     <script src="js/Layerutility.js"></script>
     <script src="js/CategoryMgr.js"></script>
+	<script src="js/JunValidator/JunValidator.js"></script>
     <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
 
 </head>
@@ -29,20 +30,23 @@ $result = $DB->get("video_type");
         <table class="form">
             <tr>
                 <td class="item_title">视频分类名称：</td>
-                <td><input type="hidden" id="type_id" class="type_id" name="type_id"/><input type="text"
-                                                                                             class="typeName"
-                                                                                             id="type_name"/></td>
+                <td style="width:350px;"><input type="hidden" id="type_id" class="type_id" name="type_id"/>
+				<input type="text" class="typeName checkInput" 
+				empty="false" emptymsg="名称不能为空" illleagle="分类名称长度为1~10" reg="title"  
+				id="type_name"/></td>
             </tr>
             <tr>
                 <td class="item_title">排序值</td>
-                <td><input type="text" class="typeOrderID" id="type_order_id" name="type_order_id" value="<?php
+                <td><input type="text" class="typeOrderID checkInput" id="type_order_id" name="type_order_id" 
+				empty="false" emptymsg="排序值不能为空" illleagle="排序值为数字" reg="num"  
+				value="<?php
                     $maxOrderID = $DB->getOne("video_type", "max(order_id) as maxID");
                     echo $maxOrderID['maxID'] + 10;
                     ?>"/></td>
             </tr>
             <tr>
                 <td class="item_title"></td>
-                <td><input type="button" name="add" id="BtnSave" value="确定" class="button" onclick="insertDate(this);"/><input
+                <td><input type="button" name="add" onclick="doInsert()" id="BtnSave" value="确定" class="button" /><input
                         type="button"
                         id="closebtn"
                         value="关闭" class="button"/></td>
@@ -245,7 +249,25 @@ $result = $DB->get("video_type");
         </td>
     </tr>
 </table>
-
-
 </body>
 </html>
+<script>
+	var doInsert;
+	function doCheck($el){
+		var Regs={
+			title:/^.{1,10}$/,
+			num:/^\d{1,4}$/
+		};
+		$inputs=$(".checkInput",$el);
+		var validator = new JunValidator({
+			"Regs": Regs,
+			"elements": $inputs,
+			"blurAfter": function (element, data) {
+				addJunIcon(element,data,'js/JunValidator/reg_ok.png');
+			}
+		});
+		doInsert=function(){
+			insertDate(validator,$el);
+		}
+	}
+</script>

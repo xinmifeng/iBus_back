@@ -13,7 +13,11 @@ $(document).ready(function () {
 });
 
 var url = "bannerAction.php";
-function insertDate() {
+function insertDate(va) {
+	if(va && !va.check()){
+		$.Show('信息填写错误,请重新填写',2);
+		return;
+	}
     var type = $('#type').val();
     var id = $('#id').val();
     var title = $('#title').val();
