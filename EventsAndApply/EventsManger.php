@@ -1,11 +1,11 @@
-<?php
+Ôªø<?php
 require_once("../MysqliDb.php");
 require_once("../sqlDb.php");
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>ªÓ∂Øπ‹¿Ì</title>
+    <title>Ê¥ªÂä®ÁÆ°ÁêÜ</title>
     <style type="text/css">
         <!--
         body {
@@ -58,7 +58,7 @@ require_once("../sqlDb.php");
                                                 <div align="center"><img src="../images/tb.gif" width="16" height="16"/>
                                                 </div>
                                             </td>
-                                            <td width="95%" class="STYLE1"><span class="STYLE3">ƒ„µ±«∞µƒŒª÷√</span>£∫[ªÓ∂Øº∞”¶”√π‹¿Ì]->[ªÓ∂Øπ‹¿Ì]
+                                            <td width="95%" class="STYLE1"><span class="STYLE3">‰Ω†ÂΩìÂâçÁöÑ‰ΩçÁΩÆ</span>Ôºö[Ê¥ªÂä®ÂèäÂ∫îÁî®ÁÆ°ÁêÜ]->[Ê¥ªÂä®ÁÆ°ÁêÜ]
                                             </td>
                                         </tr>
                                     </table>
@@ -76,7 +76,7 @@ require_once("../sqlDb.php");
                                                             </div>
                                                         </td>
                                                         <td class="STYLE1">
-                                                            <div align="center">»´—°</div>
+                                                            <div align="center">ÂÖ®ÈÄâ</div>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -93,7 +93,7 @@ require_once("../sqlDb.php");
                                                                                      height="14"/></div>
                                                         </td>
                                                         <td class="STYLE1">
-                                                            <div align="center"><a href="#" onclick="AddEvents()">–¬‘ˆ</a>
+                                                            <div align="center"><a href="#" onclick="AddEvents()">Êñ∞Â¢û</a>
                                                             </div>
                                                         </td>
                                                     </tr>
@@ -107,7 +107,7 @@ require_once("../sqlDb.php");
                                                                                      height="14"/></div>
                                                         </td>
                                                         <td class="STYLE1">
-                                                            <div align="center"><a href="#" onclick="Del_HD();">…æ≥˝</a></div>
+                                                            <div align="center"><a href="#" onclick="Del_HD();">Âà†Èô§</a></div>
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -140,26 +140,26 @@ require_once("../sqlDb.php");
                                     </div>
                                 </td>
                                 <td width="3%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                    <div align="center"><span class="STYLE1">–Ú∫≈</span></div>
+                                    <div align="center"><span class="STYLE1">Â∫èÂè∑</span></div>
                                 </td>
                                 <td width="12%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                    <div align="center"><span class="STYLE1">ªÓ∂Ø±ÍÃ‚</span></div>
+                                    <div align="center"><span class="STYLE1">Ê¥ªÂä®Ê†áÈ¢ò</span></div>
                                 </td>
                                 <td width="14%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                    <div align="center"><span class="STYLE1">ªÓ∂Ø¿‡–Õ</span></div>
+                                    <div align="center"><span class="STYLE1">Ê¥ªÂä®Á±ªÂûã</span></div>
                                 </td>
                                 <td width="18%" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                    <div align="center"><span class="STYLE1">Õº∆¨</span></div>
+                                    <div align="center"><span class="STYLE1">ÂõæÁâá</span></div>
                                 </td>
                                 <td width="18%" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                    <div align="center"><span class="STYLE1">œÍœ∏Õº∆¨</span></div>
+                                    <div align="center"><span class="STYLE1">ËØ¶ÁªÜÂõæÁâá</span></div>
                                 </td>
                                 <td width="23%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                    <div align="center"><span class="STYLE1">¥¥Ω® ±º‰</span></div>
+                                    <div align="center"><span class="STYLE1">ÂàõÂª∫Êó∂Èó¥</span></div>
                                 </td>
                                 <td width="15%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF"
                                     class="STYLE1">
-                                    <div align="center">ª˘±æ≤Ÿ◊˜</div>
+                                    <div align="center">Âü∫Êú¨Êìç‰Ωú</div>
                                 </td>
                             </tr>
 
@@ -178,7 +178,7 @@ require_once("../sqlDb.php");
                     <td>
                         <table width="100%" border="0" cellspacing="0" cellpadding="0">
                             <tr>
-                                <td class="STYLE4">&nbsp;&nbsp;π≤”– 120 Ãıº«¬º£¨µ±«∞µ⁄ 1/10 “≥</td>
+                                <td class="STYLE4">&nbsp;&nbsp;ÂÖ±Êúâ 120 Êù°ËÆ∞ÂΩïÔºåÂΩìÂâçÁ¨¨ 1/10 È°µ</td>
                                 <td>
                                     <table border="0" align="right" cellpadding="0" cellspacing="0">
                                         <tr>
@@ -187,10 +187,10 @@ require_once("../sqlDb.php");
                                             <td width="45"><img src="../images/next.gif" width="43" height="15"/></td>
                                             <td width="40"><img src="../images/last.gif" width="37" height="15"/></td>
                                             <td width="100">
-                                                <div align="center"><span class="STYLE1">◊™µΩµ⁄
+                                                <div align="center"><span class="STYLE1">ËΩ¨Âà∞Á¨¨
                     <input name="textfield" type="text" size="4"
                            style="height:12px; width:20px; border:1px solid #999999;"/>
-                    “≥ </span></div>
+                    È°µ </span></div>
                                             </td>
                                             <td width="40"><img src="../images/go.gif" width="37" height="15"/></td>
                                         </tr>

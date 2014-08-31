@@ -1,4 +1,4 @@
-<?php
+ï»¿<?php
 require_once("../MysqliDb.php");
 require_once("../sqlDb.php");
 
@@ -8,7 +8,7 @@ header("content-Type: text/html; charset=gb2312");
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
-    <title>»î¶¯¹ÜÀí</title>
+    <title>æ´»åŠ¨ç®¡ç†</title>
     <script src="../bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="../js/layer/layer/layer.min.js"></script>
     <script type="text/javascript" src="../js/Layerutility.js"></script>
@@ -50,37 +50,37 @@ header("content-Type: text/html; charset=gb2312");
 </head>
 
 <body>
-<DIV class=main_title>ĞÂÔö»î¶¯¼°Ó¦ÓÃ</DIV>
+<DIV class=main_title>æ–°å¢æ´»åŠ¨åŠåº”ç”¨</DIV>
 <table class="form">
     <?php
     if (empty($_GET["id"])) {
         ?>
         <tr>
-            <td class="item_title">»î¶¯±êÌâ£º</td>
+            <td class="item_title">æ´»åŠ¨æ ‡é¢˜ï¼š</td>
             <td><input type="text" id="hd_title"/></td>
         </tr>
         <tr>
-            <td class="item_title">»î¶¯ÀàĞÍ£º</td>
+            <td class="item_title">æ´»åŠ¨ç±»å‹ï¼š</td>
             <td><select id="Sel_type">
-                    <option value="ÏŞÊ±»î¶¯">ÏŞÊ±»î¶¯</option>
-                    <option value="»î¶¯">»î¶¯</option>
-                    <option value="Ó¦ÓÃ£¨ÓÎÏ·£©">Ó¦ÓÃ£¨ÓÎÏ·£©</option>
-                    <option value="Ó¦ÓÃ£¨App£©">Ó¦ÓÃ£¨App£©</option>
+                    <option value="é™æ—¶æ´»åŠ¨">é™æ—¶æ´»åŠ¨</option>
+                    <option value="æ´»åŠ¨">æ´»åŠ¨</option>
+                    <option value="åº”ç”¨ï¼ˆæ¸¸æˆï¼‰">åº”ç”¨ï¼ˆæ¸¸æˆï¼‰</option>
+                    <option value="åº”ç”¨ï¼ˆAppï¼‰">åº”ç”¨ï¼ˆAppï¼‰</option>
                 </select>
         </tr>
         <tr>
-            <td class="item_title">ÍâÁ´µØÖ·£º</td>
-            <td><input type="text" id="hd_src"/>(ÎŞÍâÁ´¿ÉºöÂÔ)</td>
+            <td class="item_title">å¤–é“¾åœ°å€ï¼š</td>
+            <td><input type="text" id="hd_src"/>(æ— å¤–é“¾å¯å¿½ç•¥)</td>
         </tr>
         <tr>
-            <td class="item_title">Í¼Æ¬ÉÏ´«£º</td>
+            <td class="item_title">å›¾ç‰‡ä¸Šä¼ ï¼š</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder"></span>
 
                         <div id="fsUploadProgress"></div>
-                        <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="å–æ¶ˆæ‰€æœ‰ä¸Šä¼ " onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -88,14 +88,14 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageInfo"/></td>
         </tr>
         <tr>
-            <td class="item_title">ÏêÏ¸Í¼Æ¬ÉÏ´«£º</td>
+            <td class="item_title">è¯¦ç»†å›¾ç‰‡ä¸Šä¼ ï¼š</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder1"></span>
 
                         <div id="fsUploadProgress1"></div>
-                        <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="å–æ¶ˆæ‰€æœ‰ä¸Šä¼ " onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -103,7 +103,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageDetails"/></td>
         </tr>
         <tr>
-            <td class="item_title">Ó¦ÓÃÉÏ´«£º</td>
+            <td class="item_title">åº”ç”¨ä¸Šä¼ ï¼š</td>
             <td>
 
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
@@ -111,7 +111,7 @@ header("content-Type: text/html; charset=gb2312");
                         <span id="spanButtonPlaceHolder2"></span>
 
                         <div id="fsUploadProgress2"></div>
-                        <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="å–æ¶ˆæ‰€æœ‰ä¸Šä¼ " onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -122,8 +122,8 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">
             </td>
-            <td><input type="button" value="Ìá½»" class="button SaveChange"
-                       onclick="SubmitToAction();"/><input type="button" class="button" value="·µ»Ø"
+            <td><input type="button" value="æäº¤" class="button SaveChange"
+                       onclick="SubmitToAction();"/><input type="button" class="button" value="è¿”å›"
                                                            onclick="location.href='EventsManger.php'" id="closebtn"/>
             </td>
         </tr>
@@ -138,32 +138,32 @@ header("content-Type: text/html; charset=gb2312");
 
         ?>
         <tr>
-            <td class="item_title">»î¶¯±êÌâ£º</td>
+            <td class="item_title">æ´»åŠ¨æ ‡é¢˜ï¼š</td>
             <td><input type="text" id="hd_title" value="<?php echo iconv('UTF-8', 'GB2312', $title) ?>"/></td>
         </tr>
         <tr>
-            <td class="item_title">»î¶¯ÀàĞÍ£º</td>
+            <td class="item_title">æ´»åŠ¨ç±»å‹ï¼š</td>
             <td><select id="Sel_type">
-                    <option value="ÏŞÊ±»î¶¯">ÏŞÊ±»î¶¯</option>
-                    <option value="»î¶¯">»î¶¯</option>
-                    <option value="Ó¦ÓÃ£¨ÓÎÏ·£©">Ó¦ÓÃ£¨ÓÎÏ·£©</option>
-                    <option value="Ó¦ÓÃ£¨App£©">Ó¦ÓÃ£¨App£©</option>
+                    <option value="é™æ—¶æ´»åŠ¨">é™æ—¶æ´»åŠ¨</option>
+                    <option value="æ´»åŠ¨">æ´»åŠ¨</option>
+                    <option value="åº”ç”¨ï¼ˆæ¸¸æˆï¼‰">åº”ç”¨ï¼ˆæ¸¸æˆï¼‰</option>
+                    <option value="åº”ç”¨ï¼ˆAppï¼‰">åº”ç”¨ï¼ˆAppï¼‰</option>
                 </select>
                 <input type="hidden" id="btnsel" value="<?php echo iconv('UTF-8', 'GB2312', $Type); ?>"/></td>
         </tr>
         <tr>
-            <td class="item_title">ÍâÁ´µØÖ·£º</td>
-            <td><input type="text" id="hd_src" value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(ÎŞÍâÁ´¿ÉºöÂÔ)</td>
+            <td class="item_title">å¤–é“¾åœ°å€ï¼š</td>
+            <td><input type="text" id="hd_src" value="<?php echo iconv('UTF-8', 'GB2312', $web_url) ?>"/>(æ— å¤–é“¾å¯å¿½ç•¥)</td>
         </tr>
         <tr>
-            <td class="item_title">Í¼Æ¬ÉÏ´«£º</td>
+            <td class="item_title">å›¾ç‰‡ä¸Šä¼ ï¼š</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder"></span>
 
                         <div id="fsUploadProgress"></div>
-                        <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="å–æ¶ˆæ‰€æœ‰ä¸Šä¼ " onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -171,14 +171,14 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageInfo"/></td>
         </tr>
         <tr>
-            <td class="item_title">ÏêÏ¸Í¼Æ¬ÉÏ´«£º</td>
+            <td class="item_title">è¯¦ç»†å›¾ç‰‡ä¸Šä¼ ï¼š</td>
             <td>
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder1"></span>
 
                         <div id="fsUploadProgress1"></div>
-                        <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="å–æ¶ˆæ‰€æœ‰ä¸Šä¼ " onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -186,7 +186,7 @@ header("content-Type: text/html; charset=gb2312");
                 <input type="text" style="display: none" id="ImageDetails"/></td>
         </tr>
         <tr>
-            <td class="item_title">Ó¦ÓÃÉÏ´«£º</td>
+            <td class="item_title">åº”ç”¨ä¸Šä¼ ï¼š</td>
             <td>
 
                 <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
@@ -194,7 +194,7 @@ header("content-Type: text/html; charset=gb2312");
                         <span id="spanButtonPlaceHolder2"></span>
 
                         <div id="fsUploadProgress2"></div>
-                        <input id="btnCancel" type="button" value="È¡ÏûËùÓĞÉÏ´«" onclick="swfu.cancelQueue();"
+                        <input id="btnCancel" type="button" value="å–æ¶ˆæ‰€æœ‰ä¸Šä¼ " onclick="swfu.cancelQueue();"
                                style="margin-left: 2px; font-size: 8pt; height: 29px;display:none;"/>
                     </div>
 
@@ -205,8 +205,8 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">
             </td>
-            <td><input type="button" value="Ìá½»" class="button SaveChange"
-                       onclick="ExecuteUpdate(<?php echo $id ?>);"/><input type="button" class="button" value="·µ»Ø"
+            <td><input type="button" value="æäº¤" class="button SaveChange"
+                       onclick="ExecuteUpdate(<?php echo $id ?>);"/><input type="button" class="button" value="è¿”å›"
                                                                            onclick="location.href='EventsManger.php'"
                                                                            id="closebtn"/>
             </td>
