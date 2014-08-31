@@ -66,7 +66,6 @@ function SubmitToAction() {
             alert(XmlHttpRequest.responseText);
         },
         success: function (d) {
-            console.log(d);
             if (d > 0) {
                 GUID = d;
                 fileDialogComplete();
@@ -152,7 +151,6 @@ function Del_HD(id, num) {
         groupTypeId.push(id);
     } else {
         var boxes = document.getElementsByName("checkboxByTag");
-        console.log(boxes);
         var h = 0;
         for (var g = 0; g < boxes.length; g++) {
             if (boxes[g].checked) {
@@ -170,9 +168,9 @@ function Del_HD(id, num) {
 
 ///展示修改的数据
 function UpdateShow_HD(id) {
-    location.href = "/EventsAndApply/add.php?id=" + id;
+    location.href = "Add.php?id=" + id;
 }
-//页面修改入口函数
+//页面修改入口函数啊
 function ExecuteUpdate(id) {
     GUID = id;
     $AppType = 0;
@@ -198,6 +196,8 @@ function update_HD(id, paraJson) {
             alert(XmlHttpRequest.responseText);
         },
         success: function (d) {
+            console.log("测试1111111");
+            console.log(d);
             if (d > 0) {
                 fileDialogComplete();
                 $.Show("保存成功", 1);

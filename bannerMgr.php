@@ -228,7 +228,7 @@ $result = $DB->get("banner");
                                 <div align="center">基本操作</div>
                             </td>
                         </tr>
-                        <?
+                        <?php
                         foreach ($result as $rs) //循环
                         {
                             ?>
@@ -242,15 +242,15 @@ $result = $DB->get("banner");
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><input type="hidden" name="id"/><? echo $i ?></span>
+                                            class='STYLE1'><input type="hidden" name="id"/><?php echo $i ?></span>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['title'] ?></span>
+                                            class='STYLE1'><?php echo $rs['title'] ?></span>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? switch ($rs['type']) {
+                                            class='STYLE1'><?php switch ($rs['type']) {
                                                 case "1":
                                                     echo "首页";
                                                     break;
@@ -275,15 +275,15 @@ $result = $DB->get("banner");
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['picture_url'] ?></span>
+                                            class='STYLE1'><?php echo $rs['picture_url'] ?></span>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['src'] ?></span>
+                                            class='STYLE1'><?php echo $rs['src'] ?></span>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? switch ($rs['details_type']) {
+                                            class='STYLE1'><?php switch ($rs['details_type']) {
                                                 case "1":
                                                     echo "活动及应用";
                                                     break;
@@ -295,7 +295,7 @@ $result = $DB->get("banner");
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? if ($rs['details_type'] == "1") {
+                                            class='STYLE1'><?php if ($rs['details_type'] == "1") {
                                                 $DB->where("id", $rs['details_id']);
                                                 $details_text = $DB->getOne("activity");
                                             } else {
@@ -308,11 +308,11 @@ $result = $DB->get("banner");
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['order_id'] ?></span>
+                                            class='STYLE1'><?php echo $rs['order_id'] ?></span>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['create_date'] ?></span>
+                                            class='STYLE1'><?php echo $rs['create_date'] ?></span>
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
                                     <div align='center'><span class='STYLE4'><img src='./images/edt.gif' width='16'
@@ -324,7 +324,7 @@ $result = $DB->get("banner");
                                     </div>
                                 </td>
                             </tr>
-                            <? $i++;
+                            <?php $i++;
                         } ?>
                     </table>
                 </td>

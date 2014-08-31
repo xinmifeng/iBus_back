@@ -28,7 +28,7 @@ switch ($sign) {
 
         $HistoryData = UpdateHistory($arrayData, "index_id", $index_id, "bee_index");
 
-        if ($count1 > 0) {
+        if ($count1 > 0 && count($arrayData["Update"]) > 0) {
             $DB->insert("history", $HistoryData);
         }
         $Result = $index_id;
@@ -57,9 +57,9 @@ switch ($sign) {
         $DB->update('index', $data);
 
         $HistoryData = UpdateHistory($arrayData, "index_id", $position, "bee_index");
-
-        $DB->insert("history", $HistoryData);
-
+        if (count($arrayData["Update"]) > 0) {
+            $DB->insert("history", $HistoryData);
+        }
         $Result = $position;
         break;
 }

@@ -60,7 +60,7 @@ require_once("../PublicAction.php");
 
                                             &nbsp;&nbsp;&nbsp;
                                             <input type="button" onclick="ExportAllData();" value="导出全部"/>
-                                            <input type="button" value="导出选中值"/>
+                                            <!--                                            <input type="button" value="导出选中值"/>-->
                                         </td>
                                     </tr>
                                 </table>
@@ -128,11 +128,11 @@ require_once("../PublicAction.php");
                            onmouseover="changeto()"
                            onmouseout="changeback()">
                         <tr>
-                            <td width="3%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                <div align="center">
-                                    <input type="checkbox" name="checkbox" value="checkbox"/>
-                                </div>
-                            </td>
+                            <!--                            <td width="3%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">-->
+                            <!--                                <div align="center">-->
+                            <!--                                    <input type="checkbox" name="checkbox" value="checkbox"/>-->
+                            <!--                                </div>-->
+                            <!--                            </td>-->
                             <td width="6%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">序号</span></div>
                             </td>
@@ -143,7 +143,7 @@ require_once("../PublicAction.php");
                                 <div align="center"><span class="STYLE1">操作类型</span></div>
                             </td>
                             <td width="4px" background="../images/bg.gif" bgcolor="#FFFFFF">
-                                <div align="center"><span class="STYLE1">操作内容</span></div>
+                                <div align="center"><span class="STYLE1">操作内容（详细描述待定）</span></div>
                             </td>
                             <td width="18%" height="22" background="../images/bg.gif" bgcolor="#FFFFFF">
                                 <div align="center"><span class="STYLE1">操作时间</span></div>
@@ -158,9 +158,9 @@ require_once("../PublicAction.php");
                             ?>
 
                             <tr>
-                                <td height='20' bgcolor='#FFFFFF'>
-                                    <div align='center'><input type='checkbox'/></div>
-                                </td>
+                                <!--                                <td height='20' bgcolor='#FFFFFF'>-->
+                                <!--                                    <div align='center'><input type='checkbox'/></div>-->
+                                <!--                                </td>-->
                                 <td height='20' bgcolor='#FFFFFF'>
                                     <div align='center' class='STYLE1'>
                                         <div align='center' class='IndexNum'>
@@ -183,17 +183,19 @@ require_once("../PublicAction.php");
                                     </div>
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
-                                    <div align='center'><span
+                                    <div align='left'><span
                                             class='STYLE1'>
                                                  <?php
                                                  if ($DataSource[$index]["action"] != "del") {
                                                      if ($DataSource[$index]["action"] == "add") {
                                                          echo ResultTableDetails($DataSource[$index]["table_name"]) . "表 添加了一条记录。";
                                                      } else {
-                                                         echo $DataSource[$index]["modified"];
+                                                         echo ResultTableDetails($DataSource[$index]["table_name"]) . "表 修改了记录。";
+                                                         //$DataSource[$index]["modified"];
                                                      }
                                                  } else {
-                                                     echo ResultTableDetails($DataSource[$index]["table_name"]) . "表 删除了一条记录。"; // $DataSource[$index]["cost"];
+                                                     echo //$DataSource[$index]["cost"];
+                                                         ResultTableDetails($DataSource[$index]["table_name"]) . "表 删除了一条记录。";
                                                  }
                                                  ?>
                                                 </span>

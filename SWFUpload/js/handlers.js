@@ -215,6 +215,16 @@ function uploadComplete(file) {
                 var jsonData = {"UData": jsStr, "id": GUID, "sign": 'Index', "Utype": "1"};
                 UpData(jsonData);
                 break;
+            case "RegisterInfo":
+                var jsStr = {"pic_url": idValue};
+                var jsonData = {"UData": jsStr, "id": "111", "sign": 'reg', "Utype": idValue};
+                UpUrl(jsonData);
+                break;
+            case "VideoInfo":
+                var jsStr = {"pic_url": idValue};
+                var jsonData = {"UData": jsStr, "id": "222", "sign": 'video', "Utype": idValue};
+                UpUrl(jsonData);
+                break;
             default:
                 break;
 

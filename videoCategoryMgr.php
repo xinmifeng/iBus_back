@@ -168,7 +168,7 @@ $result = $DB->get("video_type");
                                     <div align="center">基本操作</div>
                                 </td>
                             </tr>
-                            <?
+                            <?php
                             foreach ($result as $rs) //循环
                             {
                                 ?>
@@ -181,18 +181,18 @@ $result = $DB->get("video_type");
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
                                         <div align="center"><span class="STYLE1"><input type="hidden"
-                                                                                        id="type_id"/><? echo $i ?></span>
+                                                                                        id="type_id"/><?php echo $i ?></span>
                                         </div>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
-                                        <div align="center"><span class="STYLE1"><? echo $rs['type_name'] ?></span>
+                                        <div align="center"><span class="STYLE1"><?php echo $rs['type_name'] ?></span>
                                         </div>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
-                                        <div align="center"><span class="STYLE1"><? echo $rs['order_id'] ?></span></div>
+                                        <div align="center"><span class="STYLE1"><?php echo $rs['order_id'] ?></span></div>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
-                                        <div align="center"><span class="STYLE1"><? echo $rs['create_date'] ?></span>
+                                        <div align="center"><span class="STYLE1"><?php echo $rs['create_date'] ?></span>
                                         </div>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
@@ -205,7 +205,7 @@ $result = $DB->get("video_type");
                                     </td>
                                 </tr>
 
-                                <? $i++;
+                                <?php $i++;
                             } ?>
                         </table>
                     </td>

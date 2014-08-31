@@ -4,8 +4,8 @@ function ExportAllData() {
         "url": "DataAction.php",
         "data": {"Export": "all"},
         success: function (res) {
-           location.href=res;
-           document.execCommand('SaveAs');
+           location.href="download.php?img="+res;
+            console.log(res);
         }
     });
 }

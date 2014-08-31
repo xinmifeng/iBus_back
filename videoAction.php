@@ -42,7 +42,9 @@ switch ($sign) {
             $DB->where('v_id', $v_id);
             $DB->update('video', $data);
             $HistoryData = UpdateHistory($arrayData, "v_id", $v_id, "bee_video");
-            $DB->insert("history", $HistoryData);
+            if (count($arrayData["Update"]) > 0) {
+                $DB->insert("history", $HistoryData);
+            }
 
             $GUID = $v_id;
         } else {
@@ -76,7 +78,7 @@ switch ($sign) {
         $DB->where('v_id', $id);
         $ECount = $DB->update('video', $UpdateAddress);
         $HistoryData = UpdateHistory($arrayData, "v_id", $id, "bee_video");
-        if ($ECount > 0) {
+        if ($ECount > 0 && count($arrayData["Update"]) > 0) {
             $DB->insert("history", $HistoryData);
         }
         echo $ECount;
@@ -95,11 +97,11 @@ switch ($sign) {
             $url = $bojInstan[$i]["address"];
             $purl = $bojInstan[$i]["pic_url"];
 
-            if (is_file("SWFUpload/file/" . $url)) {
-                unlink("SWFUpload/file/" . $url);
+            if (is_file("swfupload/file/" . $url)) {
+                unlink("swfupload/file/" . $url);
             }
-            if (is_file("SWFUpload/file/" . $purl)) {
-                unlink("SWFUpload/file/" . $purl);
+            if (is_file("swfupload/file/" . $purl)) {
+                unlink("swfupload/file/" . $purl);
             }
         }
         $DeltIDs = $_POST["tids"];

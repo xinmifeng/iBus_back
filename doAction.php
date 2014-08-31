@@ -27,14 +27,14 @@ switch ($title) {
         $Purl = $ActivInstan[0]["picture_url"];
         $Srcurl = $ActivInstan[0]["src"];
         $DownUrl = $ActivInstan[0]["download_url"];
-        if (is_file("SWFUpload/file/" . $Purl)) {
-            unlink("SWFUpload/file/" . $Purl);
+        if (is_file("swfupload/file/" . $Purl)) {
+            unlink("swfupload/file/" . $Purl);
         }
-        if (is_file("SWFUpload/file/" . $Srcurl)) {
-            unlink("SWFUpload/file/" . $Srcurl);
+        if (is_file("swfupload/file/" . $Srcurl)) {
+            unlink("swfupload/file/" . $Srcurl);
         }
-        if (is_file("SWFUpload/file/" . $DownUrl)) {
-            unlink("SWFUpload/file/" . $DownUrl);
+        if (is_file("swfupload/file/" . $DownUrl)) {
+            unlink("swfupload/file/" . $DownUrl);
         }
         $DB->where("id", $Delid, 'IN');
         $delSign = $DB->delete("activity");
@@ -56,14 +56,14 @@ switch ($title) {
 //            $Srcurl = $act[0]["src"];
 //            $DownUrl = $act[0]["download_url"];
 //
-//            if (is_file("SWFUpload/file/" . $Purl)) {
-//                unlink("SWFUpload/file/" . $Purl);
+//            if (is_file("swfupload/file/" . $Purl)) {
+//                unlink("swfupload/file/" . $Purl);
 //            }
-//            if (is_file("SWFUpload/file/" . $Srcurl)) {
-//                unlink("SWFUpload/file/" . $Srcurl);
+//            if (is_file("swfupload/file/" . $Srcurl)) {
+//                unlink("swfupload/file/" . $Srcurl);
 //            }
-//            if (is_file("SWFUpload/file/" . $DownUrl)) {
-//                unlink("SWFUpload/file/" . $DownUrl);
+//            if (is_file("swfupload/file/" . $DownUrl)) {
+//                unlink("swfupload/file/" . $DownUrl);
 //            }
 //        }
         $arr = $_GET["UData"];
@@ -74,7 +74,7 @@ switch ($title) {
         $DB->where("id", $_GET["id"]);
         $Count = $DB->update("activity", $arr);
         $HistoryData = UpdateHistory($arrayData, "id", $_GET["id"], "bee_activity");
-        if ($Count > 0) {
+        if ($Count > 0 && count($arrayData["Update"]) > 0) {
             $DB->insert("history", $HistoryData);
         }
         echo $Count;

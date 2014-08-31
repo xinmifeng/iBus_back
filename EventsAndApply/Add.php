@@ -2,23 +2,23 @@
 require_once("../MysqliDb.php");
 require_once("../sqlDb.php");
 
-header("content-Type: text/html; charset=gb2312");
+header("content-Type: text/html; charset=utf-8");
 
 ?>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>活动管理</title>
     <script src="../bower_components/jquery/jquery.js"></script>
     <script type="text/javascript" src="../js/layer/layer/layer.min.js"></script>
     <script type="text/javascript" src="../js/Layerutility.js"></script>
     <script type="text/javascript" src="../js/EventsManger.js"></script>
 
-    <link href="../SWFUpload/css/default.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../SWFUpload/swfupload/swfupload.js"></script>
-    <script type="text/javascript" src="../SWFUpload/js/swfupload.queue.js"></script>
-    <script type="text/javascript" src="../SWFUpload/js/fileprogress.js"></script>
-    <script type="text/javascript" src="../SWFUpload/js/handlers.js"></script>
+    <link href="../swfupload/css/default.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../swfupload/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="../swfupload/js/swfupload.queue.js"></script>
+    <script type="text/javascript" src="../swfupload/js/fileprogress.js"></script>
+    <script type="text/javascript" src="../swfupload/js/handlers.js"></script>
     <script type="text/javascript" src="../js/Upload.js"></script>
 	<script src="../js/JunValidator/JunValidator.js"></script>
 
@@ -81,7 +81,7 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">图片上传：</td>
             <td>
-                <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder"></span>
 
@@ -96,7 +96,7 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">详细图片上传：</td>
             <td>
-                <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder1"></span>
 
@@ -112,7 +112,7 @@ header("content-Type: text/html; charset=gb2312");
             <td class="item_title">应用上传：</td>
             <td>
 
-                <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder2"></span>
 
@@ -146,7 +146,7 @@ header("content-Type: text/html; charset=gb2312");
             <td class="item_title">活动标题：</td>
             <td><input type="hidden" id="updateId" value="<?php echo $id ?>" ><input class="checkInput" type="text" id="hd_title" 
 				empty="false" emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title" 
-			value="<?php echo iconv('UTF-8', 'GB2312', $title) ?>"/></td>
+			value="<?php echo $title; ?>"/></td>
         </tr>
         <tr>
             <td class="item_title">活动类型：</td>
@@ -167,7 +167,7 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">图片上传：</td>
             <td>
-                <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder"></span>
 
@@ -182,7 +182,7 @@ header("content-Type: text/html; charset=gb2312");
         <tr>
             <td class="item_title">详细图片上传：</td>
             <td>
-                <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder1"></span>
 
@@ -198,7 +198,7 @@ header("content-Type: text/html; charset=gb2312");
             <td class="item_title">应用上传：</td>
             <td>
 
-                <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+                <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                     <div>
                         <span id="spanButtonPlaceHolder2"></span>
 
@@ -225,7 +225,7 @@ header("content-Type: text/html; charset=gb2312");
 </html>
 <script>
 	var Regs={
-		title:/^\w{1,20}$/,
+		title:/^.{1,20}$/,
 		url:/^(http:\/\/|https:\/\/)/
 	};
 	$inputs=$(".checkInput");

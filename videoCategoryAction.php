@@ -20,7 +20,7 @@ switch ($sign) {
             $DB->where('type_id', $typeID);
             $result = $DB->update('video_type', $data);
             $HistoryData = UpdateHistory($arrayData, "type_id", $typeID, "bee_video_type");
-            if ($result > 0) {
+            if ($result > 0 && count($arrayData["Update"]) > 0) {
                 $DB->insert("history", $HistoryData);
             }
             echo $result;

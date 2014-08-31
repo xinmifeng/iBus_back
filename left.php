@@ -171,6 +171,7 @@
                     <ul class="MM">
                         <li><a href="bannerMgr.php" target="main">Banner管理</a></li>
                         <li><a href="IndexManager/indexMgr.php" target="main">首页管理</a></li>
+                        <li><a href="adposition.php" target="main">广告图片</a></li>
                     </ul>
                 </div>
 

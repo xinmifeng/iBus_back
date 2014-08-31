@@ -188,7 +188,7 @@ $result = $DB->get("video");
                                 <div align="center">基本操作</div>
                             </td>
                         </tr>
-                        <?
+                        <?php
                         foreach ($result as $rs) //循环
                         {
                             ?>
@@ -200,17 +200,17 @@ $result = $DB->get("video");
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
                                     <div align='center' class='STYLE1'>
-                                        <div align='center' class='IndexNum'><? echo $i ?></div>
+                                        <div align='center' class='IndexNum'><?php echo $i ?></div>
                                     </div>
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['title'] ?></span>
+                                            class='STYLE1'><?php echo $rs['title'] ?></span>
                                     </div>
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><?
+                                            class='STYLE1'><?php
                                             $DB->where("type_id", $rs['type_id']);
                                             $videoType = $DB->getOne("video_type");
                                             echo $videoType['type_name'];
@@ -219,38 +219,38 @@ $result = $DB->get("video");
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['v_name'] ?></span>
+                                            class='STYLE1'><?php echo $rs['v_name'] ?></span>
                                     </div>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['pic_url'] ?></span>
+                                            class='STYLE1'><?php echo $rs['pic_url'] ?></span>
                                     </div>
                                 </td>
                                 <td height='20' bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['length'] ?></span>
+                                            class='STYLE1'><?php echo $rs['length'] ?></span>
                                     </div>
                                 </td>
 
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['total_like'] ?></span>
+                                            class='STYLE1'><?php echo $rs['total_like'] ?></span>
                                     </div>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['count'] ?></span>
+                                            class='STYLE1'><?php echo $rs['count'] ?></span>
                                     </div>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['order_id'] ?></span>
+                                            class='STYLE1'><?php echo $rs['order_id'] ?></span>
                                     </div>
                                 </td>
                                 <td bgcolor='#FFFFFF'>
                                     <div align='center'><span
-                                            class='STYLE1'><? echo $rs['create_date'] ?></span>
+                                            class='STYLE1'><?php echo $rs['create_date'] ?></span>
                                     </div>
                                 </td>
 
@@ -266,7 +266,7 @@ $result = $DB->get("video");
                                 </td>
                             </tr>
 
-                            <? $i++;
+                            <?php $i++;
                         } ?>
 
                     </table>

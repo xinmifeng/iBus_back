@@ -22,13 +22,13 @@ if (!empty($_GET["v_id"])) {
     <script src="js/Layerutility.js"></script>
     <script src="js/Video.js"></script>
 
-    <link href="SWFUpload/css/default.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="SWFUpload/swfupload/swfupload.js"></script>
-    <script type="text/javascript" src="SWFUpload/js/swfupload.queue.js"></script>
-    <script type="text/javascript" src="SWFUpload/js/fileprogress.js"></script>
-    <script type="text/javascript" src="SWFUpload/js/handlers.js"></script>
+    <link href="swfupload/css/default.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="swfupload/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="swfupload/js/swfupload.queue.js"></script>
+    <script type="text/javascript" src="swfupload/js/fileprogress.js"></script>
+    <script type="text/javascript" src="swfupload/js/handlers.js"></script>
     <script type="text/javascript" src="js/Upload.js"></script>
-	<script src="js/JunValidator/JunValidator.js"></script>
+    <script src="js/JunValidator/JunValidator.js"></script>
 
 
     <link href="CSS/style.css" rel="stylesheet" type="text/css"/>
@@ -47,25 +47,28 @@ if (!empty($_GET["v_id"])) {
     </script>
 </head>
 <body>
-<DIV class=main_title>新增视频</DIV>
+<DIV class=main_title>编辑视频</DIV>
 <table class="form">
     <tr>
         <td class="item_title">标题：</td>
         <td><input type="hidden" id="sign" name="sign"/>
-		<input type="hidden" id="v_id" class="v_id" name="v_id"
-		value="<?php if (!empty($v_id)) { echo $v_id; }?>"/>
-		<input type="text" class="title checkInput" id="title" name="title" 
-		empty="false" emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title"  
-		value="<?php if (!empty($video['title'])) {
-		echo iconv('UTF-8', 'GB2312', $video['title']);} ?>"/>
-		</td>
+            <input type="hidden" id="v_id" class="v_id" name="v_id"
+                   value="<?php if (!empty($v_id)) {
+                       echo $v_id;
+                   } ?>"/>
+            <input type="text" class="title checkInput" id="title" name="title"
+                   empty="false" emptymsg="标题不能为空" illleagle="标题长度为1~20" reg="title"
+                   value="<?php if (!empty($video['title'])) {
+                       echo $video['title'];
+                   } ?>"/>
+        </td>
     </tr>
     <tr>
         <td class="item_title">视频名称：</td>
         <td><input type="select" class="v_name checkInput" id="v_name" name="v_name"
-		empty="false" emptymsg="视频名称不能为空" illleagle="视频名称长度为1~20" reg="title"  
+                   empty="false" emptymsg="视频名称不能为空" illleagle="视频名称长度为1~20" reg="title"
                    value="<?php if (!empty($video['v_name'])) {
-                       echo iconv('UTF-8', 'GB2312', $video['v_name']);
+                       echo $video['v_name'];
                    } ?>"/></td>
     </tr>
     <tr>
@@ -80,7 +83,7 @@ if (!empty($_GET["v_id"])) {
                     <option value="<?php echo $video['type_id'] ?>"><?php
                         $DB->where("type_id", $video['type_id']);
                         $vType = $DB->getOne("video_type");
-                        echo iconv('UTF-8', 'GB2312', $vType["type_name"]);
+                        echo $vType["type_name"];
                         ?></option>
                 <?php
                 }
@@ -88,7 +91,7 @@ if (!empty($_GET["v_id"])) {
                 $result = $DB->get("video_type");
                 foreach ($result as $v) {
                     ?>
-                    <option value="<?= $v['type_id'] ?>"><?= iconv('UTF-8', 'GB2312', $v['type_name']) ?></option>
+                    <option value="<?php echo $v['type_id'] ?>"><?php echo $v['type_name'] ?></option>
                 <?php
                 }
                 ?>
@@ -99,7 +102,7 @@ if (!empty($_GET["v_id"])) {
         <td class="item_title">展示图片地址</td>
         <td>
 
-            <form id="form1" action="SWFUpload/index.php" method="post" enctype="multipart/form-data">
+            <form id="form1" action="swfupload/index.php" method="post" enctype="multipart/form-data">
                 <div>
                     <span id="spanButtonPlaceHolder4"></span>
 
@@ -121,7 +124,7 @@ if (!empty($_GET["v_id"])) {
     <tr>
         <td class="item_title">视频上传：</td>
         <td>
-            <form id="form1" action="SWFUpload/index.php" method="post" enctype="multipart/form-data">
+            <form id="form1" action="swfupload/index.php" method="post" enctype="multipart/form-data">
                 <div>
                     <span id="spanButtonPlaceHolder5"></span>
 
@@ -140,50 +143,52 @@ if (!empty($_GET["v_id"])) {
     </tr>
     <tr>
         <td class="item_title">时长：</td>
-        <td><input type="text" class="length checkInput" id="length" name="length" 
-		empty="false" emptymsg="时长不能为空" illleagle="视频时长格式为:00:20:38 (代表0小时20分38秒)" reg="time"  
-		value="<?php if (!empty($video['length'])) { echo $video['length'];} ?>"/></td>
+        <td><input type="text" class="length checkInput" id="length" name="length"
+                   empty="false" emptymsg="时长不能为空" illleagle="视频时长格式为:00:20:38 (代表0小时20分38秒)" reg="time"
+                   value="<?php if (!empty($video['length'])) {
+                       echo $video['length'];
+                   } ?>"/></td>
     </tr>
     <tr>
         <td class="item_title">排序值</td>
-        <td><input type="text" class="OrderID checkInput" id="order_id" name="order_id" 
-		empty="false" emptymsg="排序值不能为空" illleagle="排序值为数字" reg="num"  
-		value="<?php
-            if (!empty($video['order_id'])) {
-                echo $video['order_id'];
-            } else {
-                $maxOrderID = $DB->getOne("video", "max(order_id) as maxID");
-                echo $maxOrderID['maxID'] + 10;
-            }
-            ?>"/></td>
+        <td><input type="text" class="OrderID checkInput" id="order_id" name="order_id"
+                   empty="false" emptymsg="排序值不能为空" illleagle="排序值为数字" reg="num"
+                   value="<?php
+                   if (!empty($video['order_id'])) {
+                       echo $video['order_id'];
+                   } else {
+                       $maxOrderID = $DB->getOne("video", "max(order_id) as maxID");
+                       echo $maxOrderID['maxID'] + 10;
+                   }
+                   ?>"/></td>
     </tr>
     <tr>
         <td class="item_title"></td>
-        <td><input type="button" name="add" id="btn_add" class="button" value="确定" /><input type="button"
-                                                                                                      name="back"
-                                                                                                      value="返回"
-                                                                                                      class="button"
-                                                                                                      onclick="goback();"/>
+        <td><input type="button" name="add" id="btn_add" class="button" value="确定"/><input type="button"
+                                                                                           name="back"
+                                                                                           value="返回"
+                                                                                           class="button"
+                                                                                           onclick="goback();"/>
         </td>
     </tr>
 </table>
 </body>
 </html>
 <script>
-	var Regs={
-		title:/^\w{1,20}$/,
-		time:/^[0-5][0-9]:[0-5][0-9]:[0-5][0-9]$/,
-		num:/^\d{1,4}$/
-	};
-	$inputs=$(".checkInput");
+    var Regs = {
+        title: /^.{1,20}$/,
+        time: /^[0-5][0-9]:[0-5][0-9]:[0-5][0-9]$/,
+        num: /^\d{1,4}$/
+    };
+    $inputs = $(".checkInput");
     var validator = new JunValidator({
         "Regs": Regs,
         "elements": $inputs,
         "blurAfter": function (element, data) {
-			addJunIcon(element,data);
-		}
-	});
-	$("#btn_add").click(function(){
-		insertDate(validator);
-	});
+            addJunIcon(element, data);
+        }
+    });
+    $("#btn_add").click(function () {
+        insertDate(validator);
+    });
 </script>

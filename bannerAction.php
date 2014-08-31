@@ -76,7 +76,7 @@ switch ($sign) {
             $DB->where('id', $id);
             $UpCount = $DB->update('banner', $data);
             $HistoryData = UpdateHistory($arrayData, "id", $id, "bee_banner");
-            if ($UpCount > 0) {
+            if ($UpCount > 0 && count($arrayData["Update"]) > 0) {
                 $DB->insert("history", $HistoryData);
             }
         } else {
@@ -114,8 +114,8 @@ switch ($sign) {
         $bojInstan = $DB->get("banner");
         for ($i = 0; $i < count($bojInstan); $i++) {
             $purl = $bojInstan[$i]["picture_url"];
-            if (is_file("SWFUpload/file/" . $purl)) {
-                unlink("SWFUpload/file/" . $purl);
+            if (is_file("swfupload/file/" . $purl)) {
+                unlink("swfupload/file/" . $purl);
             }
         }
         $tIDs = $_POST["tids"];
@@ -135,7 +135,7 @@ switch ($sign) {
         $DB->where("id", $Id);
         $count = $DB->update("banner", $UpData);
         $HistoryData = UpdateHistory($arrayData, "id", $Id, "bee_banner");
-        if ($count > 0) {
+        if ($count > 0 && count($arrayData["Update"]) > 0) {
             $DB->insert("history", $HistoryData);
         }
         echo $Id;

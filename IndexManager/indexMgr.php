@@ -198,7 +198,7 @@ $result = $DB->get("index");
                                     <div align="center">基本操作</div>
                                 </td>
                             </tr>
-                            <?
+                            <?php
                             foreach ($result as $rs) //循环
                             {
                                 ?>
@@ -206,24 +206,27 @@ $result = $DB->get("index");
                                     <td height="20" bgcolor="#FFFFFF">
                                         <div align="center"><span class="STYLE1">
                                                 <input type="hidden" id="index_id"
-                                                       name="index_id"/><? echo "位置" . $rs['index_id'] ?></span>
+                                                       name="index_id"/><?php echo "位置" . $rs['index_id'] ?></span>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
-                                        <div align="center"><span class="STYLE1"><? switch ($rs['index_type']) {
+                                        <div align="center"><span class="STYLE1"><?php switch ($rs['index_type']) {
                                                     case "1":
                                                         echo "首页";
                                                         break;
                                                     case "2":
                                                         echo "优惠";
                                                         break;
+                                                    case "3":
+                                                        echo "下载吧";
+                                                        break;
                                                 }
                                                 ?></span>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
-                                        <div align="center"><span class="STYLE1"><? echo $rs['pic_url'] ?></span>
+                                        <div align="center"><span class="STYLE1"><?php echo $rs['pic_url'] ?></span>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
-                                        <div align="center"><span class="STYLE1"><? echo $rs['src'] ?></span>
+                                        <div align="center"><span class="STYLE1"><?php echo $rs['src'] ?></span>
                                     </td>
                                     <td height="20" bgcolor="#FFFFFF">
                                         <div align="center"><span

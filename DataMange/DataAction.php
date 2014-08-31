@@ -6,8 +6,8 @@ $Sign = $_GET["Export"];
 switch ($Sign) {
     case "all":
         $file_Name = WriteFile_Sql($DB);
-        WriteFile_Source($DB);
-        echo $file_Name;
+        $SourceFileName = WriteFile_Source($DB, $file_Name);
+        echo $SourceFileName;
         break;
     default:
         break;
@@ -26,19 +26,21 @@ function WriteFile_Sql($DB)
     return $fileName;
 }
 
-function WriteFile_Source($DB)
+function WriteFile_Source($DB, $SqlSource)
 {
     $Instance = $DB->get("history");
-    $fileName = date("YmdHis") . "AAAAAAAAAAAAA.list";
-    $hostUrl = "http:localhost";
-    $ReturnStr = "";
+    $fileName = date("YmdHis") . "File.list";
+    $hostUrl = "http:183.247.175.250";
+
+    $ReturnStr = "Add " . $hostUrl . "/DataMange/" . $SqlSource . "\r\n";
+    $ReturnStr .= "Add " . $hostUrl . "/swfupload/file/busfree.sqllite" . "\r\n";;
     for ($index = 0; $index < count($Instance); $index++) {
         switch ($Instance[$index]["action"]) {
             case "add":
                 $Add_JsonStr = json_decode(($Instance[$index]["modified"]));
                 foreach ($Add_JsonStr as $key => $val) {
                     if (FiledType($key) && !is_null($val) && $val != "") {
-                        $ReturnStr .= "ADD " . $hostUrl . "/SWFUpload/file/" . $val;
+                        $ReturnStr .= "ADD " . $hostUrl . "/swfupload/file/" . $val . "\r\n";;
                     }
                 }
                 break;
@@ -50,9 +52,9 @@ function WriteFile_Source($DB)
                     foreach ($Cost_JsonStr as $key1 => $val1) {
                         if (FiledType($key) && !is_null($val) && $key == $key1) {
                             if (!is_null($val1) && $val1 != "") {
-                                $ReturnStr .= "DEL " . $hostUrl . "/SWFUpload/file/" . $val1;
+                                $ReturnStr .= "DEL " . $hostUrl . "/swfupload/file/" . $val1 . "\r\n";;
                             }
-                            $ReturnStr .= "ADD " . $hostUrl . "/SWFUpload/file/" . $val;
+                            $ReturnStr .= "ADD " . $hostUrl . "/swfupload/file/" . $val . "\r\n";;
                             break;
                         }
                     }
@@ -63,7 +65,7 @@ function WriteFile_Source($DB)
                 foreach ($Del_CostJsonStr as $key2 => $val2) {
                     foreach ($val2 as $k1 => $v1) {
                         if (FiledType($k1) && !is_null($v1) && $v1 != "") {
-                            $ReturnStr .= "DEL " . $hostUrl . "/SWFUpload/file/" . $v1;
+                            $ReturnStr .= "DEL " . $hostUrl . "/swfupload/file/" . $v1 . "\r\n";;
                         }
                     }
                     break;
@@ -72,7 +74,9 @@ function WriteFile_Source($DB)
         }
     }
     file_put_contents($fileName, $ReturnStr);
+    return $fileName;
 }
+
 ///判断是否为资源字段
 function FiledType($fType)
 {

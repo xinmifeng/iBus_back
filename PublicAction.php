@@ -29,7 +29,7 @@ function JsonUpdateParseSql($tableName, $ArrayInstan, $id, $idVal)
     foreach ($ArrayInstan as $key => $val) {
         $sqlStr .= $key . "='" . $val . "',";
     }
-    $sqlStr = substr($sqlStr, 0, strlen($sqlStr) - 1) . " where " . $id . "='" . $idVal . "'";
+    $sqlStr = substr($sqlStr, 0, strlen($sqlStr) - 1) . " where " . $id . "='" . $idVal . "';";
     return $sqlStr;
 }
 
@@ -81,10 +81,11 @@ function DelHistory($ModefyData, $TableNameStr, $id, $idVal)
 function JsonParseDel($TableName, $id, $idVal)
 {
     $ids = "";
-    for ($index = 0; $index < count($idVal); $index++) {
+    $ArrayLength = (array)$idVal;
+    for ($index = 0; $index < count($ArrayLength); $index++) {
         $ids .= "'" . $idVal[$index] . "'" . ",";
     }
-    $ids .= substr($ids, 0, strlen($ids) - 1);
+    $ids = substr($ids, 0, strlen($ids) - 1);
     $sqlStr = "DELETE FROM " . $TableName . " where " . $id . " in (" . $ids . ");";
     return $sqlStr;
 }

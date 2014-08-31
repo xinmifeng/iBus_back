@@ -23,11 +23,11 @@ if (!empty($_GET["position"])) {
     <script src="../js/Layerutility.js"></script>
     <link href="../CSS/style.css" rel="stylesheet" type="text/css"/>
 
-    <link href="../SWFUpload/css/default.css" rel="stylesheet" type="text/css"/>
-    <script type="text/javascript" src="../SWFUpload/swfupload/swfupload.js"></script>
-    <script type="text/javascript" src="../SWFUpload/js/swfupload.queue.js"></script>
-    <script type="text/javascript" src="../SWFUpload/js/fileprogress.js"></script>
-    <script type="text/javascript" src="../SWFUpload/js/handlers.js"></script>
+    <link href="../swfupload/css/default.css" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../swfupload/swfupload/swfupload.js"></script>
+    <script type="text/javascript" src="../swfupload/js/swfupload.queue.js"></script>
+    <script type="text/javascript" src="../swfupload/js/fileprogress.js"></script>
+    <script type="text/javascript" src="../swfupload/js/handlers.js"></script>
     <script type="text/javascript" src="../js/Upload.js"></script>
     <script type="text/javascript" src="../js/indexManager.js"></script>
 	<script src="../js/JunValidator/JunValidator.js"></script>
@@ -59,13 +59,14 @@ if (!empty($_GET["position"])) {
             <select id="index_type" name="index_type" value="">
                 <option value="1">首页</option>
                 <option value="2">优惠</option>
+                <option value="3">下载吧</option>
             </select></td>
     </tr>
     <tr>
         <td class="item_title">展示图片地址</td>
         <td>
 
-            <form id="form1" action="../SWFUpload/index.php" method="post" enctype="multipart/form-data">
+            <form id="form1" action="../swfupload/index.php" method="post" enctype="multipart/form-data">
                 <div>
                     <span id="spanButtonPlaceHolder7"></span>
 
