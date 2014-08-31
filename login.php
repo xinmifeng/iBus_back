@@ -15,6 +15,7 @@ if (!empty($_POST["flag"])) {
         } else {
             $true_code = $_SESSION['authnum_session'];
             if (strtolower($true_code) === strtolower($verifycode)) {
+
                 $DB->where("name", $username)
                     ->where("password", md5($password));
                 $users = $DB->get("system_user");
