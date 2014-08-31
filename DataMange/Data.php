@@ -187,9 +187,13 @@ require_once("../PublicAction.php");
                                             class='STYLE1'>
                                                  <?php
                                                  if ($DataSource[$index]["action"] != "del") {
-                                                     echo $DataSource[$index]["modified"];
+                                                     if ($DataSource[$index]["action"] == "add") {
+                                                         echo ResultTableDetails($DataSource[$index]["table_name"]) . "表 添加了一条记录。";
+                                                     } else {
+                                                         echo $DataSource[$index]["modified"];
+                                                     }
                                                  } else {
-                                                     echo $DataSource[$index]["cost"];
+                                                     echo ResultTableDetails($DataSource[$index]["table_name"]) . "表 删除了一条记录。"; // $DataSource[$index]["cost"];
                                                  }
                                                  ?>
                                                 </span>
