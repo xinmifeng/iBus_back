@@ -6,7 +6,11 @@ $(document).ready(function () {
     changeValue();
 });
 
-function insertDate() {
+function insertDate(va) {
+	if(va && !va.check()){
+		$.Show('信息填写错误,请重新填写',2);
+		return;
+	}
     var position = $('#position').val();
     var index_type = $('#index_type').val();
     var src = $('#src').val();

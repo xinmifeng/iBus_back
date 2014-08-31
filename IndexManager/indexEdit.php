@@ -30,6 +30,7 @@ if (!empty($_GET["position"])) {
     <script type="text/javascript" src="../SWFUpload/js/handlers.js"></script>
     <script type="text/javascript" src="../js/Upload.js"></script>
     <script type="text/javascript" src="../js/indexManager.js"></script>
+	<script src="../js/JunValidator/JunValidator.js"></script>
 
     <script>
         var swfu;
@@ -82,10 +83,10 @@ if (!empty($_GET["position"])) {
                    } ?>"/></td>
     </tr>
     <tr>
-        <td class="item_title">链接：</td>
-        <td><input type="text" class="src" id="src" name="src" value="<?php if (!empty($index['src'])) {
-                echo $index['src'];
-            } ?>"/></td>
+        <td class="item_title">外部链接：</td>
+        <td><input type="text" class="src checkInput" id="src" name="src" 
+		empty="false" emptymsg="外部链接不能为空" illleagle="请输入有效的http或https链接" reg="url"  
+		value="<?php if (!empty($index['src'])) {echo $index['src'];} ?>"/></td>
     </tr>
     <tr>
         <td class="item_title">绑定标题：</td>
@@ -114,14 +115,26 @@ if (!empty($_GET["position"])) {
     <tr>
         <td class="item_title">
         </td>
-        <td><input type="button" class="button" name="add" value="确定" onclick="insertDate();"/><input class="button"
-                                                                                                      type="button"
-                                                                                                      name="back"
-                                                                                                      value="返回"
-                                                                                                      onclick="goback();"/>
+        <td><input type="button" id="btn_add" class="button" name="add" value="确定" />
+		<input class="button" type="button" name="back" value="返回" onclick="goback();"/>
         </td>
     </tr>
 </table>
-
 </body>
 </html>
+<script>
+	var Regs={
+		url:/^(http:\/\/|https:\/\/)/,
+	};
+	$inputs=$(".checkInput");
+    var validator = new JunValidator({
+        "Regs": Regs,
+        "elements": $inputs,
+        "blurAfter": function (element, data) {
+			addJunIcon(element,data,'../js/JunValidator/reg_ok.png');
+		}
+	});
+	$("#btn_add").click(function(){
+		insertDate(validator);
+	});
+</script>
